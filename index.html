@@ -37,19 +37,35 @@
 
 <div id="app" class="min-h-screen flex flex-col">
     
-    <!-- 頂部導覽列 -->
+    <!-- 頂部導覽列 (RWD 收合版) -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-                <!-- 左側：標題與難度顯示 -->
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center cursor-pointer" @click="currentView = 'dashboard'">
-                        <svg class="w-8 h-8 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        <span class="font-bold text-xl text-gray-800 tracking-wider">AI 題庫</span>
-                    </div>
-                    
-                    <!-- 難度切換器 (核心功能 1) -->
-                    <div class="ml-6 flex space-x-2 bg-gray-100 p-1 rounded-lg">
+                <!-- 左側 Logo (永遠顯示) -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" @click="changeView('dashboard')">
+                    <svg class="w-8 h-8 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span class="font-bold text-xl text-gray-800 tracking-wider">AI 題庫</span>
+                </div>
+
+                <!-- 漢堡按鈕 (僅手機版顯示) -->
+                <div class="flex items-center md:hidden">
+                    <button @click="isMobileMenuOpen = !isMobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg v-if="!isMobileMenuOpen" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg v-else class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 桌面版選單 (僅大螢幕顯示) -->
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <!-- 難度切換 -->
+                    <div class="flex space-x-2 bg-gray-100 p-1 rounded-lg">
                         <button 
                             @click="switchLevel('junior')"
                             :class="[
@@ -69,15 +85,59 @@
                             中級 (Intermediate)
                         </button>
                     </div>
-                </div>
 
-                <!-- 右側：功能選單 -->
-                <div class="flex items-center space-x-4">
-                    <button @click="currentView = 'dashboard'" :class="navBtnClass('dashboard')">儀表板</button>
-                    <button @click="currentView = 'library'" :class="navBtnClass('library')">題庫管理</button>
+                    <!-- 功能按鈕 -->
+                    <div class="flex items-center space-x-4">
+                        <button @click="changeView('dashboard')" :class="navBtnClass('dashboard')">儀表板</button>
+                        <button @click="changeView('library')" :class="navBtnClass('library')">題庫管理</button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- 手機版下拉選單 (展開時顯示) -->
+        <div v-show="isMobileMenuOpen" class="md:hidden border-t border-gray-200 bg-white shadow-lg">
+            <div class="px-4 pt-4 pb-6 space-y-6">
+                <!-- 手機版：難度切換 -->
+                <div class="space-y-2">
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">選擇難度</p>
+                    <div class="flex space-x-2 bg-gray-100 p-1 rounded-lg">
+                        <button 
+                            @click="switchLevel('junior')"
+                            :class="[
+                                'flex-1 px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 text-center',
+                                currentLevel === 'junior' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                            ]"
+                        >
+                            初級
+                        </button>
+                        <button 
+                            @click="switchLevel('intermediate')"
+                            :class="[
+                                'flex-1 px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 text-center',
+                                currentLevel === 'intermediate' ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                            ]"
+                        >
+                            中級
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 手機版：功能導覽 -->
+                <div class="space-y-2">
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">功能選單</p>
+                    <button @click="changeView('dashboard')" 
+                        :class="['w-full text-left px-4 py-3 rounded-md text-base font-medium', currentView === 'dashboard' ? 'bg-gray-100 text-indigo-600' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900']">
+                        儀表板
+                    </button>
+                    <button @click="changeView('library')" 
+                        :class="['w-full text-left px-4 py-3 rounded-md text-base font-medium', currentView === 'library' ? 'bg-gray-100 text-indigo-600' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900']">
+                        題庫管理
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- 難度提示條 -->
         <div :class="['h-1 w-full', currentLevel === 'junior' ? 'bg-blue-500' : 'bg-purple-500']"></div>
     </nav>
@@ -88,7 +148,7 @@
         <!-- 1. 儀表板 (Dashboard) -->
         <transition name="fade" mode="out-in">
             <div v-if="currentView === 'dashboard'" key="dashboard">
-                <header class="mb-8">
+                <header class="mb-8 text-center md:text-left">
                     <h1 class="text-3xl font-bold text-gray-900">
                         {{ currentLevel === 'junior' ? '初級' : '中級' }}學習概況
                     </h1>
@@ -131,7 +191,7 @@
 
                 <!-- 考試入口區 -->
                 <div v-if="currentLevelExams.length > 0">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">選擇測驗科目</h2>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center md:text-left">選擇測驗科目</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div v-for="type in availableTypes" :key="type" 
                              class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden group">
@@ -161,9 +221,9 @@
 
             <!-- 2. 題庫管理 (Library & Settings) -->
             <div v-else-if="currentView === 'library'" key="library">
-                <header class="mb-6 flex justify-between items-center">
+                <header class="mb-6 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <h1 class="text-2xl font-bold text-gray-900">題庫管理中心</h1>
-                    <button @click="currentView = 'dashboard'" class="text-gray-600 hover:text-gray-900">返回</button>
+                    <button @click="changeView('dashboard')" class="text-gray-600 hover:text-gray-900 px-4 py-2 bg-gray-100 rounded-md sm:bg-transparent sm:p-0 w-full sm:w-auto text-center">返回</button>
                 </header>
 
                 <!-- 手動匯入與已安裝列表 -->
@@ -173,15 +233,15 @@
                         <h3 class="text-lg font-medium text-gray-900 mb-4">📥 手動匯入 JSON</h3>
                         <div class="space-y-4">
                             <div class="border-2 border-dashed border-gray-300 rounded-md p-6 flex justify-center">
-                                <div class="text-center">
+                                <div class="text-center w-full">
                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
                                     <div class="flex text-sm text-gray-600 justify-center mt-2">
-                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">
-                                            <span>上傳檔案</span>
+                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none w-full text-center py-2 sm:py-0">
+                                            <span>點擊上傳檔案</span>
                                             <input id="file-upload" name="file-upload" type="file" class="sr-only" accept=".json" @change="handleFileUpload">
                                         </label>
                                     </div>
-                                    <p class="text-xs text-gray-500">支援單一或陣列 JSON 格式</p>
+                                    <p class="text-xs text-gray-500 mt-2">支援單一或陣列 JSON 格式</p>
                                 </div>
                             </div>
                             <div class="text-xs text-gray-500 bg-gray-50 p-2 rounded">
@@ -195,7 +255,7 @@
                     <div class="bg-white shadow rounded-lg p-6">
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="text-lg font-medium text-gray-900">📚 本地題庫列表</h3>
-                            <button @click="clearAllData" class="text-xs text-red-600 hover:text-red-800">清除所有資料</button>
+                            <button @click="clearAllData" class="text-xs text-red-600 hover:text-red-800 px-2 py-1 border border-red-200 rounded">清除所有</button>
                         </div>
                         
                         <div class="space-y-6 max-h-[600px] overflow-y-auto pr-2">
@@ -205,13 +265,15 @@
                                     <span class="mr-2">🔵</span> 初級 (Junior)
                                 </h4>
                                 <ul class="divide-y divide-gray-100">
-                                    <li v-for="exam in allJuniorExams" :key="exam.quiz_id" class="py-3 flex justify-between items-start group hover:bg-gray-50 rounded px-2 transition-colors">
-                                        <div>
-                                            <p class="text-sm font-medium text-gray-900">{{ exam.title }}</p>
-                                            <p class="text-xs text-gray-500">{{ exam.type }} • {{ exam.questions.length }} 題</p>
+                                    <!-- RWD Item -->
+                                    <li v-for="exam in allJuniorExams" :key="exam.quiz_id" class="py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center group hover:bg-gray-50 rounded px-2 transition-colors gap-3">
+                                        <div class="w-full sm:w-auto">
+                                            <p class="text-sm font-medium text-gray-900 break-words">{{ exam.title }}</p>
+                                            <p class="text-xs text-gray-500 mt-1">{{ exam.type }} • {{ exam.questions.length }} 題</p>
                                         </div>
-                                        <button @click="deleteExam(exam.quiz_id)" class="text-gray-300 hover:text-red-500 transition-colors">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                        <button @click="deleteExam(exam.quiz_id)" class="w-full sm:w-auto text-center text-sm sm:text-base text-gray-400 hover:text-red-500 transition-colors py-2 sm:py-0 border sm:border-0 rounded sm:rounded-none">
+                                            <span class="sm:hidden">刪除題庫</span>
+                                            <svg class="w-5 h-5 hidden sm:block mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                         </button>
                                     </li>
                                     <li v-if="allJuniorExams.length === 0" class="text-xs text-gray-400 py-4 text-center bg-gray-50 rounded-lg border border-dashed border-gray-200">
@@ -226,13 +288,15 @@
                                     <span class="mr-2">🟣</span> 中級 (Intermediate)
                                 </h4>
                                 <ul class="divide-y divide-gray-100">
-                                    <li v-for="exam in allIntermediateExams" :key="exam.quiz_id" class="py-3 flex justify-between items-start group hover:bg-gray-50 rounded px-2 transition-colors">
-                                        <div>
-                                            <p class="text-sm font-medium text-gray-900">{{ exam.title }}</p>
-                                            <p class="text-xs text-gray-500">{{ exam.type }} • {{ exam.questions.length }} 題</p>
+                                    <!-- RWD Item -->
+                                    <li v-for="exam in allIntermediateExams" :key="exam.quiz_id" class="py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center group hover:bg-gray-50 rounded px-2 transition-colors gap-3">
+                                        <div class="w-full sm:w-auto">
+                                            <p class="text-sm font-medium text-gray-900 break-words">{{ exam.title }}</p>
+                                            <p class="text-xs text-gray-500 mt-1">{{ exam.type }} • {{ exam.questions.length }} 題</p>
                                         </div>
-                                        <button @click="deleteExam(exam.quiz_id)" class="text-gray-300 hover:text-red-500 transition-colors">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                        <button @click="deleteExam(exam.quiz_id)" class="w-full sm:w-auto text-center text-sm sm:text-base text-gray-400 hover:text-red-500 transition-colors py-2 sm:py-0 border sm:border-0 rounded sm:rounded-none">
+                                            <span class="sm:hidden">刪除題庫</span>
+                                            <svg class="w-5 h-5 hidden sm:block mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                         </button>
                                     </li>
                                     <li v-if="allIntermediateExams.length === 0" class="text-xs text-gray-400 py-4 text-center bg-gray-50 rounded-lg border border-dashed border-gray-200">
@@ -250,7 +314,7 @@
                 <div class="bg-white shadow-lg rounded-xl overflow-hidden">
                     <div :class="`px-6 py-4 ${levelColorClass} text-white`">
                         <h2 class="text-xl font-bold">測驗設定</h2>
-                        <p class="text-sm opacity-90">{{ currentLevel === 'junior' ? '初級' : '中級' }} - {{ selectedType }}</p>
+                        <p class="text-sm opacity-90 break-words">{{ currentLevel === 'junior' ? '初級' : '中級' }} - {{ selectedType }}</p>
                     </div>
                     <div class="p-6 space-y-6">
                         <div>
@@ -274,7 +338,7 @@
                         <!-- 模擬考細項設定 -->
                         <div v-if="setup.mode === 'mock'" class="space-y-4 animate-fade-in-down">
                             <label class="block text-sm font-medium text-gray-700">模擬考範圍</label>
-                            <select v-model="setup.mockSource" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border">
+                            <select v-model="setup.mockSource" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border text-ellipsis overflow-hidden">
                                 <option value="all">綜合測驗 (隨機抽取 50 題)</option>
                                 <option v-for="exam in examsByType" :key="exam.quiz_id" :value="exam.quiz_id">
                                     {{ exam.title }} (全卷 {{ exam.questions.length }} 題)
@@ -282,11 +346,11 @@
                             </select>
                         </div>
 
-                        <div class="flex justify-between pt-4 border-t">
-                            <button @click="currentView = 'dashboard'" class="px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        <div class="flex flex-col-reverse sm:flex-row justify-between pt-4 border-t gap-3 sm:gap-0">
+                            <button @click="changeView('dashboard')" class="w-full sm:w-auto px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 text-center">
                                 取消
                             </button>
-                            <button @click="startQuiz" :class="`px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white ${levelColorClass} hover:opacity-90`">
+                            <button @click="startQuiz" :class="`w-full sm:w-auto px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white ${levelColorClass} hover:opacity-90 text-center`">
                                 開始測驗
                             </button>
                         </div>
@@ -297,22 +361,25 @@
             <!-- 4. 測驗進行中 (Quiz Mode) -->
             <div v-else-if="currentView === 'quiz'" key="quiz" class="max-w-3xl mx-auto">
                 <div class="bg-white shadow-lg rounded-xl overflow-hidden min-h-[500px] flex flex-col">
-                    <!-- 題頭 -->
-                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                        <div>
-                            <span class="text-xs font-semibold tracking-wider uppercase text-gray-500">
-                                題目 {{ quizState.currentIndex + 1 }} / {{ quizState.questions.length }}
-                            </span>
-                            <!-- Updated Source Title -->
-                            <div class="text-xs text-gray-400 mt-0.5">來源: {{ currentQuestion.source_title }}</div>
+                    <!-- 題頭 (RWD) -->
+                    <div class="bg-gray-50 px-4 sm:px-6 py-4 border-b border-gray-200 flex flex-col-reverse sm:flex-row justify-between items-start sm:items-center gap-2">
+                        <div class="w-full">
+                            <div class="flex justify-between items-center sm:block">
+                                <span class="text-xs font-semibold tracking-wider uppercase text-gray-500">
+                                    題目 {{ quizState.currentIndex + 1 }} / {{ quizState.questions.length }}
+                                </span>
+                                <!-- Mobile only Badge position if needed, keeping it consistent though -->
+                            </div>
+                            <!-- Updated Source Title with Truncation -->
+                            <div class="text-xs text-gray-400 mt-0.5 truncate max-w-full" :title="currentQuestion.source_title">來源: {{ currentQuestion.source_title }}</div>
                         </div>
-                        <div :class="`px-2 py-1 text-xs rounded-full border ${levelBorderClass} ${levelTextColorClass}`">
+                        <div :class="`px-2 py-1 text-xs rounded-full border self-start sm:self-auto ${levelBorderClass} ${levelTextColorClass}`">
                             {{ currentLevel === 'junior' ? '初級' : '中級' }}
                         </div>
                     </div>
 
                     <!-- 題目內容 -->
-                    <div class="p-6 flex-grow">
+                    <div class="p-4 sm:p-6 flex-grow">
                         <!-- Fix 1: Display question title if 'question' field is missing -->
                         <div class="text-lg text-gray-900 font-medium mb-6 leading-relaxed">
                              <!-- 新增：題號 + 題目 (支援 questionText, question, title) -->
@@ -327,17 +394,17 @@
                                 @click="selectAnswer(idx)" 
                                 :disabled="quizState.answered"
                                 :class="[
-                                    'w-full text-left px-4 py-3 border rounded-lg transition-all duration-200 flex items-center',
+                                    'w-full text-left px-4 py-3 border rounded-lg transition-all duration-200 flex items-start sm:items-center',
                                     getOptionClass(idx)
                                 ]"
                             >
                                 <!-- Fix 2: Smart Badge (A/B or 1/2 or Key) -->
-                                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center border rounded-full mr-3 text-sm font-bold"
+                                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center border rounded-full mr-3 text-sm font-bold mt-0.5 sm:mt-0"
                                       :class="getOptionBadgeClass(idx)">
                                     {{ getOptionLabel(option, idx) }}
                                 </span>
                                 <!-- Fix 2: Option Content (Handle Object vs String) -->
-                                <span>{{ getOptionContent(option) }}</span>
+                                <span class="leading-snug pt-1 sm:pt-0">{{ getOptionContent(option) }}</span>
                             </button>
                         </div>
                         
@@ -354,11 +421,11 @@
                     </div>
 
                     <!-- 底部控制 -->
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-200 flex justify-end">
-                        <button v-if="!quizState.answered" class="px-4 py-2 bg-gray-300 text-white rounded-md cursor-not-allowed">
+                    <div class="bg-gray-50 px-4 sm:px-6 py-4 border-t border-gray-200 flex justify-end">
+                        <button v-if="!quizState.answered" class="w-full sm:w-auto px-4 py-2 bg-gray-300 text-white rounded-md cursor-not-allowed text-center">
                             請選擇答案
                         </button>
-                        <button v-else @click="nextQuestion" :class="`px-6 py-2 text-white rounded-md shadow ${levelColorClass} hover:opacity-90`">
+                        <button v-else @click="nextQuestion" :class="`w-full sm:w-auto px-6 py-2 text-white rounded-md shadow ${levelColorClass} hover:opacity-90 text-center`">
                             {{ isLastQuestion ? '查看結果' : '下一題' }} →
                         </button>
                     </div>
@@ -366,8 +433,8 @@
             </div>
 
             <!-- 5. 測驗結果 (Result Mode) -->
-            <div v-else-if="currentView === 'result'" key="result" class="max-w-2xl mx-auto text-center">
-                <div class="bg-white shadow-lg rounded-xl p-8">
+            <div v-else-if="currentView === 'result'" key="result" class="max-w-2xl mx-auto text-center px-4">
+                <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8">
                     <div class="mb-6">
                         <div class="w-24 h-24 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-4">
                             <span class="text-3xl font-bold text-indigo-600">{{ Math.round((quizState.score / quizState.questions.length) * 100) }}</span>
@@ -376,11 +443,11 @@
                         <p class="text-gray-600">答對 {{ quizState.score }} 題，共 {{ quizState.questions.length }} 題</p>
                     </div>
 
-                    <div class="flex justify-center space-x-4">
-                        <button @click="currentView = 'dashboard'" class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <button @click="changeView('dashboard')" class="w-full sm:w-auto px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
                             回到儀表板
                         </button>
-                        <button @click="restartQuiz" :class="`px-6 py-2 text-white rounded-md shadow ${levelColorClass} hover:opacity-90`">
+                        <button @click="restartQuiz" :class="`w-full sm:w-auto px-6 py-2 text-white rounded-md shadow ${levelColorClass} hover:opacity-90`">
                             再測一次
                         </button>
                     </div>
@@ -395,10 +462,10 @@
                                     <span class="font-bold mr-1">{{ item.originalIndex }}.</span>
                                     {{ item.question.questionText || item.question.question || item.question.title }}
                                 </p>
-                                <div class="text-sm text-red-600">你的答案: {{ getOptionContent(item.question.options[item.selected]) }}</div>
+                                <div class="text-sm text-red-600 mb-1">你的答案: {{ getOptionContent(item.question.options[item.selected]) }}</div>
                                 <div class="text-sm text-green-600 font-bold">正確答案: {{ getCorrectAnswerContent(item.question) }}</div>
                                 <!-- Updated Source Title -->
-                                <div class="text-xs text-gray-400 mt-2">來源: {{ item.question.source_title }}</div>
+                                <div class="text-xs text-gray-400 mt-2 truncate">來源: {{ item.question.source_title }}</div>
                             </div>
                         </div>
                     </div>
@@ -419,6 +486,7 @@ createApp({
         const exams = ref([]);
         const currentView = ref('dashboard'); 
         const currentLevel = ref('junior'); 
+        const isMobileMenuOpen = ref(false); // 控制手機選單
         
         const selectedType = ref('');
         const setup = reactive({
@@ -563,11 +631,17 @@ createApp({
             }
         };
 
-        // --- Functions: Quiz Logic ---
-
+        // --- Functions: Navigation & UI ---
+        
         const switchLevel = (lvl) => {
             currentLevel.value = lvl;
             currentView.value = 'dashboard';
+            isMobileMenuOpen.value = false; // Close menu after switching
+        };
+
+        const changeView = (view) => {
+            currentView.value = view;
+            isMobileMenuOpen.value = false; // Close menu after navigation
         };
 
         const startQuizConfig = (type) => {
@@ -757,11 +831,11 @@ createApp({
             : 'text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium';
 
         return {
-            exams, currentView, currentLevel, selectedType, setup, quizState,
+            exams, currentView, currentLevel, selectedType, setup, quizState, isMobileMenuOpen,
             currentLevelExams, allJuniorExams, allIntermediateExams, availableTypes, examsByType,
             totalQuestionsInLevel, currentQuestion, isLastQuestion,
             levelColorClass, levelTextColorClass, levelBorderClass,
-            switchLevel, handleFileUpload, deleteExam, clearAllData, startQuizConfig, startQuiz,
+            switchLevel, changeView, handleFileUpload, deleteExam, clearAllData, startQuizConfig, startQuiz,
             selectAnswer, nextQuestion, restartQuiz, navBtnClass, getQuestionCountByType,
             // New Helpers
             getOptionLabel, getOptionContent, getOptionClass, getOptionBadgeClass, getCorrectAnswerLabel, getCorrectAnswerContent
