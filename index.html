@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 證照刷題系統 - 難度分級版</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        junior: '#3b82f6', // 藍色代表初級
+                        intermediate: '#8b5cf6', // 紫色代表中級
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f3f4f6; }
+        .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
+        .fade-enter-from, .fade-leave-to { opacity: 0; }
+        
+        /* 自定義捲軸 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body>
+
+<div id="app" class="min-h-screen flex flex-col">
+    
+    <!-- 頂部導覽列 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- 左側：標題與難度顯示 -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center cursor-pointer" @click="currentView = 'dashboard'">
+                        <svg class="w-8 h-8 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span class="font-bold text-xl text-gray-800 tracking-wider">AI 題庫</span>
+                    </div>
+                    
+                    <!-- 難度切換器 (核心功能 1) -->
+                    <div class="ml-6 flex space-x-2 bg-gray-100 p-1 rounded-lg">
+                        <button 
+                            @click="switchLevel('junior')"
+                            :class="[
+                                'px-3 py-1 text-sm font-medium rounded-md transition-all duration-200',
+                                currentLevel === 'junior' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                            ]"
+                        >
+                            初級 (Junior)
+                        </button>
+                        <button 
+                            @click="switchLevel('intermediate')"
+                            :class="[
+                                'px-3 py-1 text-sm font-medium rounded-md transition-all duration-200',
+                                currentLevel === 'intermediate' ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                            ]"
+                        >
+                            中級 (Intermediate)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 右側：功能選單 -->
+                <div class="flex items-center space-x-4">
+                    <button @click="currentView = 'dashboard'" :class="navBtnClass('dashboard')">儀表板</button>
+                    <button @click="currentView = 'library'" :class="navBtnClass('library')">題庫管理</button>
+                </div>
+            </div>
+        </div>
+        <!-- 難度提示條 -->
+        <div :class="['h-1 w-full', currentLevel === 'junior' ? 'bg-blue-500' : 'bg-purple-500']"></div>
+    </nav>
+
+    <!-- 主內容區 -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- 1. 儀表板 (Dashboard) -->
+        <transition name="fade" mode="out-in">
+            <div v-if="currentView === 'dashboard'" key="dashboard">
+                <header class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">
+                        {{ currentLevel === 'junior' ? '初級' : '中級' }}學習概況
+                    </h1>
+                    <p class="mt-2 text-gray-600">選擇下方科目開始測驗。</p>
+                </header>
+
+                <!-- 統計卡片 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="p-5">
+                            <div class="flex items-center">
+                                <div :class="`flex-shrink-0 p-3 rounded-md ${levelColorClass} bg-opacity-10`">
+                                    <svg :class="`h-6 w-6 ${levelTextColorClass}`" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <dl>
+                                        <dt class="text-sm font-medium text-gray-500 truncate">可用題庫</dt>
+                                        <dd class="text-2xl font-semibold text-gray-900">{{ currentLevelExams.length }} 份</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="p-5">
+                            <div class="flex items-center">
+                                <div :class="`flex-shrink-0 p-3 rounded-md ${levelColorClass} bg-opacity-10`">
+                                    <svg :class="`h-6 w-6 ${levelTextColorClass}`" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <dl>
+                                        <dt class="text-sm font-medium text-gray-500 truncate">總題數</dt>
+                                        <dd class="text-2xl font-semibold text-gray-900">{{ totalQuestionsInLevel }} 題</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 考試入口區 -->
+                <div v-if="currentLevelExams.length > 0">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">選擇測驗科目</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div v-for="type in availableTypes" :key="type" 
+                             class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden group">
+                            <div :class="`h-2 w-full ${levelColorClass}`"></div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">{{ type }}</h3>
+                                <p class="text-sm text-gray-500 mb-4">包含 {{ getQuestionCountByType(type) }} 題</p>
+                                
+                                <div class="space-y-2">
+                                    <button @click="startQuizConfig(type)" 
+                                        :class="`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${levelColorClass} hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`">
+                                        進入測驗
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 空狀態引導 -->
+                <div v-else class="text-center py-12 bg-white rounded-lg shadow-sm">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+                    <h3 class="mt-2 text-sm font-medium text-gray-900">目前沒有 {{ currentLevel === 'junior' ? '初級' : '中級' }} 題庫</h3>
+                    <p class="mt-1 text-sm text-gray-500">系統正在自動載入預設題庫，請稍候...</p>
+                </div>
+            </div>
+
+            <!-- 2. 題庫管理 (Library & Settings) -->
+            <div v-else-if="currentView === 'library'" key="library">
+                <header class="mb-6 flex justify-between items-center">
+                    <h1 class="text-2xl font-bold text-gray-900">題庫管理中心</h1>
+                    <button @click="currentView = 'dashboard'" class="text-gray-600 hover:text-gray-900">返回</button>
+                </header>
+
+                <!-- 手動匯入與已安裝列表 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- 匯入區 -->
+                    <div class="bg-white shadow rounded-lg p-6 h-fit">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">📥 手動匯入 JSON</h3>
+                        <div class="space-y-4">
+                            <div class="border-2 border-dashed border-gray-300 rounded-md p-6 flex justify-center">
+                                <div class="text-center">
+                                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                    <div class="flex text-sm text-gray-600 justify-center mt-2">
+                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">
+                                            <span>上傳檔案</span>
+                                            <input id="file-upload" name="file-upload" type="file" class="sr-only" accept=".json" @change="handleFileUpload">
+                                        </label>
+                                    </div>
+                                    <p class="text-xs text-gray-500">支援單一或陣列 JSON 格式</p>
+                                </div>
+                            </div>
+                            <div class="text-xs text-gray-500 bg-gray-50 p-2 rounded">
+                                <p class="font-bold">提示：</p>
+                                <p>若 JSON 中無 <code>level</code> 欄位，系統將根據標題自動判斷（含"初級"為 Junior，含"中級"為 Intermediate）。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 已安裝列表 (分級顯示) -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-medium text-gray-900">📚 本地題庫列表</h3>
+                            <button @click="clearAllData" class="text-xs text-red-600 hover:text-red-800">清除所有資料</button>
+                        </div>
+                        
+                        <div class="space-y-6 max-h-[600px] overflow-y-auto pr-2">
+                            <!-- 初級題庫區塊 -->
+                            <div>
+                                <h4 class="text-sm font-bold text-blue-600 mb-3 uppercase tracking-wider border-b border-blue-100 pb-1 flex items-center">
+                                    <span class="mr-2">🔵</span> 初級 (Junior)
+                                </h4>
+                                <ul class="divide-y divide-gray-100">
+                                    <li v-for="exam in allJuniorExams" :key="exam.quiz_id" class="py-3 flex justify-between items-start group hover:bg-gray-50 rounded px-2 transition-colors">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">{{ exam.title }}</p>
+                                            <p class="text-xs text-gray-500">{{ exam.type }} • {{ exam.questions.length }} 題</p>
+                                        </div>
+                                        <button @click="deleteExam(exam.quiz_id)" class="text-gray-300 hover:text-red-500 transition-colors">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                        </button>
+                                    </li>
+                                    <li v-if="allJuniorExams.length === 0" class="text-xs text-gray-400 py-4 text-center bg-gray-50 rounded-lg border border-dashed border-gray-200">
+                                        無初級題庫
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- 中級題庫區塊 -->
+                            <div>
+                                <h4 class="text-sm font-bold text-purple-600 mb-3 uppercase tracking-wider border-b border-purple-100 pb-1 flex items-center">
+                                    <span class="mr-2">🟣</span> 中級 (Intermediate)
+                                </h4>
+                                <ul class="divide-y divide-gray-100">
+                                    <li v-for="exam in allIntermediateExams" :key="exam.quiz_id" class="py-3 flex justify-between items-start group hover:bg-gray-50 rounded px-2 transition-colors">
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">{{ exam.title }}</p>
+                                            <p class="text-xs text-gray-500">{{ exam.type }} • {{ exam.questions.length }} 題</p>
+                                        </div>
+                                        <button @click="deleteExam(exam.quiz_id)" class="text-gray-300 hover:text-red-500 transition-colors">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                        </button>
+                                    </li>
+                                    <li v-if="allIntermediateExams.length === 0" class="text-xs text-gray-400 py-4 text-center bg-gray-50 rounded-lg border border-dashed border-gray-200">
+                                        無中級題庫
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 考試設定 (Setup Mode) -->
+            <div v-else-if="currentView === 'setup'" key="setup" class="max-w-2xl mx-auto">
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+                    <div :class="`px-6 py-4 ${levelColorClass} text-white`">
+                        <h2 class="text-xl font-bold">測驗設定</h2>
+                        <p class="text-sm opacity-90">{{ currentLevel === 'junior' ? '初級' : '中級' }} - {{ selectedType }}</p>
+                    </div>
+                    <div class="p-6 space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">選擇模式</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div @click="setup.mode = 'random'" 
+                                    :class="['cursor-pointer border rounded-lg p-4 flex flex-col items-center justify-center transition-all', setup.mode === 'random' ? 'border-indigo-500 ring-2 ring-indigo-200 bg-indigo-50' : 'border-gray-200 hover:border-gray-300']">
+                                    <span class="text-2xl mb-2">🎲</span>
+                                    <span class="font-bold text-gray-900">隨時考</span>
+                                    <span class="text-xs text-gray-500 mt-1">隨機 10 題 • 快速練習</span>
+                                </div>
+                                <div @click="setup.mode = 'mock'" 
+                                    :class="['cursor-pointer border rounded-lg p-4 flex flex-col items-center justify-center transition-all', setup.mode === 'mock' ? 'border-purple-500 ring-2 ring-purple-200 bg-purple-50' : 'border-gray-200 hover:border-gray-300']">
+                                    <span class="text-2xl mb-2">📝</span>
+                                    <span class="font-bold text-gray-900">模擬考</span>
+                                    <span class="text-xs text-gray-500 mt-1">單卷模擬 或 綜合 50 題</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 模擬考細項設定 -->
+                        <div v-if="setup.mode === 'mock'" class="space-y-4 animate-fade-in-down">
+                            <label class="block text-sm font-medium text-gray-700">模擬考範圍</label>
+                            <select v-model="setup.mockSource" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border">
+                                <option value="all">綜合測驗 (隨機抽取 50 題)</option>
+                                <option v-for="exam in examsByType" :key="exam.quiz_id" :value="exam.quiz_id">
+                                    {{ exam.title }} (全卷 {{ exam.questions.length }} 題)
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="flex justify-between pt-4 border-t">
+                            <button @click="currentView = 'dashboard'" class="px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                取消
+                            </button>
+                            <button @click="startQuiz" :class="`px-6 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white ${levelColorClass} hover:opacity-90`">
+                                開始測驗
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 測驗進行中 (Quiz Mode) -->
+            <div v-else-if="currentView === 'quiz'" key="quiz" class="max-w-3xl mx-auto">
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden min-h-[500px] flex flex-col">
+                    <!-- 題頭 -->
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-semibold tracking-wider uppercase text-gray-500">
+                                題目 {{ quizState.currentIndex + 1 }} / {{ quizState.questions.length }}
+                            </span>
+                            <!-- Updated Source Title -->
+                            <div class="text-xs text-gray-400 mt-0.5">來源: {{ currentQuestion.source_title }}</div>
+                        </div>
+                        <div :class="`px-2 py-1 text-xs rounded-full border ${levelBorderClass} ${levelTextColorClass}`">
+                            {{ currentLevel === 'junior' ? '初級' : '中級' }}
+                        </div>
+                    </div>
+
+                    <!-- 題目內容 -->
+                    <div class="p-6 flex-grow">
+                        <!-- Fix 1: Display question title if 'question' field is missing -->
+                        <div class="text-lg text-gray-900 font-medium mb-6 leading-relaxed">
+                             <!-- 新增：題號 + 題目 (支援 questionText, question, title) -->
+                            <span class="font-bold mr-1">{{ quizState.currentIndex + 1 }}.</span>
+                            {{ currentQuestion.questionText || currentQuestion.question || currentQuestion.title }}
+                        </div>
+
+                        <div class="space-y-3">
+                            <button 
+                                v-for="(option, idx) in currentQuestion.options" 
+                                :key="idx"
+                                @click="selectAnswer(idx)" 
+                                :disabled="quizState.answered"
+                                :class="[
+                                    'w-full text-left px-4 py-3 border rounded-lg transition-all duration-200 flex items-center',
+                                    getOptionClass(idx)
+                                ]"
+                            >
+                                <!-- Fix 2: Smart Badge (A/B or 1/2 or Key) -->
+                                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center border rounded-full mr-3 text-sm font-bold"
+                                      :class="getOptionBadgeClass(idx)">
+                                    {{ getOptionLabel(option, idx) }}
+                                </span>
+                                <!-- Fix 2: Option Content (Handle Object vs String) -->
+                                <span>{{ getOptionContent(option) }}</span>
+                            </button>
+                        </div>
+                        
+                        <!-- 解析區域 (答題後顯示) -->
+                        <div v-if="quizState.answered" class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100 animate-pulse-once">
+                            <!-- Fix 3: Show correct answer label properly -->
+                            <p class="text-lg text-blue-800 font-bold mb-2">
+                                💡 正確答案：{{ getCorrectAnswerLabel() }}
+                            </p>
+                            <p class="text-sm text-blue-600 leading-relaxed" v-if="currentQuestion.explanation">
+                                {{ currentQuestion.explanation }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 底部控制 -->
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-200 flex justify-end">
+                        <button v-if="!quizState.answered" class="px-4 py-2 bg-gray-300 text-white rounded-md cursor-not-allowed">
+                            請選擇答案
+                        </button>
+                        <button v-else @click="nextQuestion" :class="`px-6 py-2 text-white rounded-md shadow ${levelColorClass} hover:opacity-90`">
+                            {{ isLastQuestion ? '查看結果' : '下一題' }} →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 測驗結果 (Result Mode) -->
+            <div v-else-if="currentView === 'result'" key="result" class="max-w-2xl mx-auto text-center">
+                <div class="bg-white shadow-lg rounded-xl p-8">
+                    <div class="mb-6">
+                        <div class="w-24 h-24 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-3xl font-bold text-indigo-600">{{ Math.round((quizState.score / quizState.questions.length) * 100) }}</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900">測驗完成！</h2>
+                        <p class="text-gray-600">答對 {{ quizState.score }} 題，共 {{ quizState.questions.length }} 題</p>
+                    </div>
+
+                    <div class="flex justify-center space-x-4">
+                        <button @click="currentView = 'dashboard'" class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                            回到儀表板
+                        </button>
+                        <button @click="restartQuiz" :class="`px-6 py-2 text-white rounded-md shadow ${levelColorClass} hover:opacity-90`">
+                            再測一次
+                        </button>
+                    </div>
+                    
+                    <!-- 錯題列表 (簡單版) -->
+                    <div v-if="quizState.wrongAnswers.length > 0" class="mt-8 text-left">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 border-b pb-2">錯題檢討</h3>
+                        <div class="space-y-6">
+                            <div v-for="(item, idx) in quizState.wrongAnswers" :key="idx" class="bg-red-50 p-4 rounded-lg">
+                                <!-- 新增：原始題號 + 題目 (支援 questionText) -->
+                                <p class="font-medium text-gray-900 mb-2">
+                                    <span class="font-bold mr-1">{{ item.originalIndex }}.</span>
+                                    {{ item.question.questionText || item.question.question || item.question.title }}
+                                </p>
+                                <div class="text-sm text-red-600">你的答案: {{ getOptionContent(item.question.options[item.selected]) }}</div>
+                                <div class="text-sm text-green-600 font-bold">正確答案: {{ getCorrectAnswerContent(item.question) }}</div>
+                                <!-- Updated Source Title -->
+                                <div class="text-xs text-gray-400 mt-2">來源: {{ item.question.source_title }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </transition>
+    </main>
+</div>
+
+<script>
+const { createApp, ref, computed, onMounted, reactive } = Vue;
+
+const PRESET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS7zTXmLo28skYn_TubRuKZZr4209UL9sg5Lp-VZ4kQ-gnuG677fk6yisYWE4iSGpIlUpDqJ4Mi6owh/pub?output=csv";
+
+createApp({
+    setup() {
+        const exams = ref([]);
+        const currentView = ref('dashboard'); 
+        const currentLevel = ref('junior'); 
+        
+        const selectedType = ref('');
+        const setup = reactive({
+            mode: 'random', 
+            mockSource: 'all'
+        });
+        
+        const quizState = reactive({
+            questions: [],
+            currentIndex: 0,
+            score: 0,
+            answered: false,
+            selectedOptionIndex: null, // Stores the array index (0-based)
+            wrongAnswers: [] 
+        });
+
+        // Computed Styles
+        const levelColorClass = computed(() => currentLevel.value === 'junior' ? 'bg-blue-600' : 'bg-purple-600');
+        const levelTextColorClass = computed(() => currentLevel.value === 'junior' ? 'text-blue-600' : 'text-purple-600');
+        const levelBorderClass = computed(() => currentLevel.value === 'junior' ? 'border-blue-200' : 'border-purple-200');
+
+        // Data Logic
+        const currentLevelExams = computed(() => exams.value.filter(e => e.level === currentLevel.value));
+        const allJuniorExams = computed(() => exams.value.filter(e => e.level === 'junior'));
+        const allIntermediateExams = computed(() => exams.value.filter(e => e.level === 'intermediate'));
+        
+        const availableTypes = computed(() => {
+            const types = new Set(currentLevelExams.value.map(e => e.type));
+            return Array.from(types);
+        });
+
+        const examsByType = computed(() => currentLevelExams.value.filter(e => e.type === selectedType.value));
+
+        const totalQuestionsInLevel = computed(() => currentLevelExams.value.reduce((acc, curr) => acc + curr.questions.length, 0));
+
+        const getQuestionCountByType = (type) => {
+             return currentLevelExams.value.filter(e => e.type === type).reduce((acc, curr) => acc + curr.questions.length, 0);
+        };
+
+        // Lifecycle
+        onMounted(() => {
+            loadExamsFromStorage();
+            autoLoadPresets();
+        });
+
+        // --- Functions: Data Loading ---
+        const autoLoadPresets = async () => {
+            try {
+                const response = await fetch(PRESET_CSV_URL);
+                if (!response.ok) throw new Error('Failed to fetch CSV');
+                const text = await response.text();
+                
+                const lines = text.split('\n').map(line => line.trim()).filter(line => line);
+                const presets = lines.slice(1).map(line => {
+                    const parts = line.split(',');
+                    if (parts.length < 4) return null;
+                    return {
+                        name: parts[0].trim(),
+                        level: parts[1].trim(),
+                        type: parts[2].trim(),
+                        url: parts[3].trim()
+                    };
+                }).filter(item => item !== null);
+                
+                let hasUpdates = false;
+                for (const preset of presets) {
+                    if (!isExamImported(preset.name)) {
+                        try {
+                            const res = await fetch(preset.url);
+                            if (res.ok) {
+                                const data = await res.json();
+                                const list = Array.isArray(data) ? data : [data];
+                                list.forEach(exam => {
+                                    if (!exam.level && preset.level) exam.level = preset.level;
+                                    exam.level = detectLevel(exam.title, exam.level);
+                                    
+                                    if (!exams.value.some(e => e.quiz_id === exam.quiz_id)) {
+                                        exams.value.push(exam);
+                                        hasUpdates = true;
+                                    }
+                                });
+                            }
+                        } catch (err) {
+                            console.warn(`Failed to auto-load preset: ${preset.name}`, err);
+                        }
+                    }
+                }
+                
+                if (hasUpdates) saveExamsToStorage();
+
+            } catch (e) {
+                console.error("Error auto-loading presets:", e);
+            }
+        };
+
+        const loadExamsFromStorage = () => {
+            const stored = localStorage.getItem('ai_exams_db');
+            if (stored) {
+                try { exams.value = JSON.parse(stored); } catch (e) { console.error(e); }
+            }
+        };
+
+        const saveExamsToStorage = () => localStorage.setItem('ai_exams_db', JSON.stringify(exams.value));
+        const detectLevel = (title, givenLevel) => givenLevel || (title.includes('中級') ? 'intermediate' : 'junior');
+        const isExamImported = (title) => exams.value.some(e => e.title === title);
+
+        const handleFileUpload = (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const json = JSON.parse(e.target.result);
+                    addExamToDb(json);
+                    alert("匯入成功！");
+                    currentView.value = 'library';
+                } catch (err) { alert("JSON 格式錯誤"); }
+            };
+            reader.readAsText(file);
+        };
+
+        const addExamToDb = (examData) => {
+            const list = Array.isArray(examData) ? examData : [examData];
+            list.forEach(exam => {
+                exam.level = detectLevel(exam.title, exam.level);
+                if (!exams.value.some(e => e.quiz_id === exam.quiz_id)) exams.value.push(exam);
+            });
+            saveExamsToStorage();
+        };
+
+        const deleteExam = (id) => {
+            if(confirm('確定要刪除這份題庫嗎？')) {
+                exams.value = exams.value.filter(e => e.quiz_id !== id);
+                saveExamsToStorage();
+            }
+        };
+
+        const clearAllData = () => {
+            if(confirm('警告：這將清除所有已下載的題庫與紀錄，確定嗎？')) {
+                localStorage.removeItem('ai_exams_db');
+                exams.value = [];
+            }
+        };
+
+        // --- Functions: Quiz Logic ---
+
+        const switchLevel = (lvl) => {
+            currentLevel.value = lvl;
+            currentView.value = 'dashboard';
+        };
+
+        const startQuizConfig = (type) => {
+            selectedType.value = type;
+            setup.mode = 'random';
+            setup.mockSource = 'all';
+            currentView.value = 'setup';
+        };
+
+        const startQuiz = () => {
+            let pool = [];
+            if (setup.mode === 'random') {
+                const targets = examsByType.value;
+                targets.forEach(exam => {
+                    // Injected source_title here
+                    exam.questions.forEach(q => pool.push({ ...q, source_id: exam.quiz_id, source_title: exam.title }));
+                });
+                pool = shuffleArray(pool).slice(0, 10);
+            } else if (setup.mode === 'mock') {
+                if (setup.mockSource === 'all') {
+                    const targets = examsByType.value;
+                    targets.forEach(exam => {
+                        // Injected source_title here
+                        exam.questions.forEach(q => pool.push({ ...q, source_id: exam.quiz_id, source_title: exam.title }));
+                    });
+                    pool = shuffleArray(pool).slice(0, 50);
+                } else {
+                    const targetExam = exams.value.find(e => e.quiz_id === setup.mockSource);
+                    if (targetExam) {
+                        // Injected source_title here
+                        pool = targetExam.questions.map(q => ({ ...q, source_id: targetExam.quiz_id, source_title: targetExam.title }));
+                    }
+                }
+            }
+
+            if (pool.length === 0) {
+                alert("沒有足夠的題目可以產生測驗");
+                return;
+            }
+
+            quizState.questions = pool;
+            quizState.currentIndex = 0;
+            quizState.score = 0;
+            quizState.answered = false;
+            quizState.selectedOptionIndex = null;
+            quizState.wrongAnswers = [];
+            currentView.value = 'quiz';
+        };
+
+        const currentQuestion = computed(() => quizState.questions[quizState.currentIndex]);
+        const isLastQuestion = computed(() => quizState.currentIndex === quizState.questions.length - 1);
+
+        // --- Core Fixes for Options & Answers ---
+
+        // Helper: Extract label (A/B/C/D or 1/2/3/4 or Key from Object)
+        const getOptionLabel = (option, idx) => {
+            if (typeof option === 'object' && option !== null) {
+                return option.v || option.key || option.label || (idx + 1);
+            }
+            // Default to A,B,C,D if plain string
+            return ['A','B','C','D'][idx] || (idx + 1);
+        };
+
+        // Helper: Extract display text
+        const getOptionContent = (option) => {
+            if (typeof option === 'object' && option !== null) {
+                return option.n || option.value || option.text || JSON.stringify(option);
+            }
+            return option;
+        };
+
+        // Check if a specific index is the correct answer
+        const isCorrectOption = (idx) => {
+            const ans = currentQuestion.value.answer;
+            const option = currentQuestion.value.options[idx];
+            
+            // 1. Compare by Index (common in some JSONs, usually 1-based in older systems, 0-based in some)
+            // Note: The previous logic assumed ans is 1-based index (ans - 1). 
+            // We'll stick to loose comparison for flexibility.
+            if (ans == (idx + 1)) return true;
+            
+            // 2. Compare by Value/Key (if option is object)
+            if (typeof option === 'object' && option !== null) {
+                // If answer is "1" and option.v is "1"
+                if (option.v == ans) return true;
+                if (option.key == ans) return true;
+            }
+
+            // 3. Compare by Label (A, B, C, D)
+            const label = ['A','B','C','D'][idx];
+            if (ans === label) return true;
+
+            return false;
+        };
+
+        const selectAnswer = (idx) => {
+            if (quizState.answered) return;
+            
+            quizState.selectedOptionIndex = idx;
+            quizState.answered = true;
+            
+            if (isCorrectOption(idx)) {
+                quizState.score++;
+            } else {
+                quizState.wrongAnswers.push({
+                    question: currentQuestion.value,
+                    selected: idx,
+                    originalIndex: quizState.currentIndex + 1 // Record the question number (1-based)
+                });
+            }
+        };
+
+        const getOptionClass = (idx) => {
+            if (!quizState.answered) {
+                return quizState.selectedOptionIndex === idx ? 'border-indigo-500 bg-indigo-50' : 'border-gray-200 hover:border-indigo-300';
+            }
+            // Answered state
+            if (isCorrectOption(idx)) {
+                return 'border-green-500 bg-green-50 ring-1 ring-green-500'; // Correct always green
+            }
+            if (quizState.selectedOptionIndex === idx) {
+                return 'border-red-500 bg-red-50 ring-1 ring-red-500'; // Selected wrong one red
+            }
+            return 'border-gray-200 opacity-50';
+        };
+
+        const getOptionBadgeClass = (idx) => {
+            if (!quizState.answered) return 'border-gray-300 text-gray-500 bg-white';
+            
+            if (isCorrectOption(idx)) return 'bg-green-500 border-green-500 text-white';
+            if (quizState.selectedOptionIndex === idx) return 'bg-red-500 border-red-500 text-white';
+            
+            return 'border-gray-300 text-gray-500 bg-white';
+        };
+
+        const getCorrectAnswerLabel = () => {
+            const options = currentQuestion.value.options;
+            // Find which index is correct
+            const correctIdx = options.findIndex((_, idx) => isCorrectOption(idx));
+            if (correctIdx !== -1) {
+                const opt = options[correctIdx];
+                return getOptionLabel(opt, correctIdx) + (typeof opt === 'object' ? '' : ''); // Just return label
+            }
+            return currentQuestion.value.answer; // Fallback
+        };
+        
+        const getCorrectAnswerContent = (question) => {
+             // For result view
+             const correctIdx = question.options.findIndex((_, i) => {
+                // Determine correctness contextually
+                const ans = question.answer;
+                const option = question.options[i];
+                if (ans == (i + 1)) return true;
+                if (typeof option === 'object' && (option.v == ans || option.key == ans)) return true;
+                if (ans === ['A','B','C','D'][i]) return true;
+                return false;
+             });
+             
+             if (correctIdx !== -1) {
+                 return getOptionContent(question.options[correctIdx]);
+             }
+             return "無法判定";
+        };
+
+        const nextQuestion = () => {
+            if (isLastQuestion.value) {
+                currentView.value = 'result';
+            } else {
+                quizState.currentIndex++;
+                quizState.answered = false;
+                quizState.selectedOptionIndex = null;
+            }
+        };
+
+        const restartQuiz = () => startQuiz();
+        
+        const shuffleArray = (array) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        };
+
+        const navBtnClass = (viewName) => currentView.value === viewName 
+            ? 'text-gray-900 px-3 py-2 rounded-md text-sm font-medium bg-gray-100' 
+            : 'text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium';
+
+        return {
+            exams, currentView, currentLevel, selectedType, setup, quizState,
+            currentLevelExams, allJuniorExams, allIntermediateExams, availableTypes, examsByType,
+            totalQuestionsInLevel, currentQuestion, isLastQuestion,
+            levelColorClass, levelTextColorClass, levelBorderClass,
+            switchLevel, handleFileUpload, deleteExam, clearAllData, startQuizConfig, startQuiz,
+            selectAnswer, nextQuestion, restartQuiz, navBtnClass, getQuestionCountByType,
+            // New Helpers
+            getOptionLabel, getOptionContent, getOptionClass, getOptionBadgeClass, getCorrectAnswerLabel, getCorrectAnswerContent
+        };
+    }
+}).mount('#app');
+</script>
+</body>
+</html>
