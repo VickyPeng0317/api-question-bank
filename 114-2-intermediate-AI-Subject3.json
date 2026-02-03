@@ -1,0 +1,759 @@
+{
+  "level": "intermediate",
+  "type": "機器學習技術與應用",
+  "quiz_id": "114-2-AI-Subject3",
+  "title": "114年第二梯次中級AI應用規劃師第三科：機器學習技術與應用",
+  "exam_date": "2025-11-08",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "questionText": "某零售企業建立一個銷售預測模型，希望評估該模型在不同月份的新資料上，是否仍能維持穩定的預測表現。資料科學團隊計畫利用統計方法檢驗模型對未觀察資料的適應能力與泛化效果。下列哪一種方法最適合用於此目的？",
+      "options": [
+        { "key": "A", "value": "F檢定（F-test）" },
+        { "key": "B", "value": "交叉驗證（Cross-Validation）" },
+        { "key": "C", "value": "配對樣本 t 檢定（Paired-sample t-test）" },
+        { "key": "D", "value": "卡方檢定（Chi-square Test）" }
+      ],
+      "answer": "B",
+      "explanation": "交叉驗證（Cross-Validation）是評估模型泛化能力（Generalization）的標準方法，透過將資料切分為訓練集與驗證集，模擬模型在未見過資料上的表現。",
+      "score": 2,
+      "tags": ["模型評估", "交叉驗證"]
+    },
+    {
+      "id": "q2",
+      "type": "single_choice",
+      "questionText": "在建立迴歸或分類模型時，若希望避免模型過度擬合（Overfitting），可透過加入正則化項以限制模型的複雜度。其中，L1正則化（Lasso）的主要效果為何？",
+      "options": [
+        { "key": "A", "value": "增加模型參數的數量，以提升表現靈活度" },
+        { "key": "B", "value": "強化梯度穩定性，避免參數更新過度震盪" },
+        { "key": "C", "value": "產生稀疏模型（Sparse Model），使部分參數權重收斂為零" },
+        { "key": "D", "value": "提高學習率（Learning Rate），加速模型收斂速度" }
+      ],
+      "answer": "C",
+      "explanation": "L1 正則化（Lasso）傾向於產生稀疏解，即將不重要的特徵權重壓縮至 0，因此常被用於特徵選擇。",
+      "score": 2,
+      "tags": ["正則化", "Lasso"]
+    },
+    {
+      "id": "q3",
+      "type": "single_choice",
+      "questionText": "在訓練非線性模型時，若目標函數為非凸函數（Non-convex Function），演算法在參數更新過程中可能出現多個極值點，導致最佳化結果不穩定。請問此時最可能發生下列哪一種情況？",
+      "options": [
+        { "key": "A", "value": "梯度消失" },
+        { "key": "B", "value": "資料過少" },
+        { "key": "C", "value": "局部最優解" },
+        { "key": "D", "value": "過擬合" }
+      ],
+      "answer": "C",
+      "explanation": "非凸函數（Non-convex Function）擁有多個波谷（極小值），梯度下降法容易陷入局部最優解（Local Optima）而無法找到全域最優解（Global Optima）。",
+      "score": 2,
+      "tags": ["最佳化", "梯度下降"]
+    },
+    {
+      "id": "q4",
+      "type": "single_choice",
+      "questionText": "在執行 DBSCAN（Density-Based Spatial Clustering of Applications with Noise）群集分析時，若某資料點鄰域內的樣本數不足以形成核心點（Core Point），且該點未被任何核心點的鄰域所包含，也未與其他群集形成密度可達關係（Density Reachability），此資料點最終將被歸類為哪一種類型？",
+      "options": [
+        { "key": "A", "value": "鄰近點（Neighbor Point）" },
+        { "key": "B", "value": "雜訊點（Noise Point）" },
+        { "key": "C", "value": "邊界點（Border Point）" },
+        { "key": "D", "value": "潛在點（Potential Point）" }
+      ],
+      "answer": "B",
+      "explanation": "DBSCAN 將點分為三類：核心點、邊界點與雜訊點。若一個點既不是核心點，也不在任何核心點的半徑內（非邊界點），則視為雜訊（Noise）。",
+      "score": 2,
+      "tags": ["分群", "DBSCAN"]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "questionText": "某智慧製造公司開發一套影像辨識系統，用於自動檢測生產線上的瑕疵產品。系統採用卷積神經網路（Convolutional Neural Network, CNN）作為主要模型架構，其中第一層卷積層（Convolutional Layer）主要負責的功能為下列何者？",
+      "options": [
+        { "key": "A", "value": "自動提取輸入影像中的局部特徵" },
+        { "key": "B", "value": "降低影像維度以加速運算效率" },
+        { "key": "C", "value": "增加神經元與參數數量以提升模型容量" },
+        { "key": "D", "value": "整合所有特徵並輸出最終分類結果" }
+      ],
+      "answer": "A",
+      "explanation": "CNN 的淺層卷積層主要負責提取低階的局部特徵（如邊緣、線條、紋理）。",
+      "score": 2,
+      "tags": ["深度學習", "CNN"]
+    },
+    {
+      "id": "q6",
+      "type": "single_choice",
+      "questionText": "某智慧城市團隊開發一套交通監控系統，用於即時辨識路口監視器影像中的車輛與行人。團隊比較後發現，卷積神經網路（CNN）在訓練與推論效率上，明顯優於傳統的全連接神經網路（FCNN）。請問下列何者為主要原因？",
+      "options": [
+        { "key": "A", "value": "CNN 能自動學習影像的旋轉與比例不變性" },
+        { "key": "B", "value": "CNN 可直接跳過人工特徵提取步驟進行分類" },
+        { "key": "C", "value": "CNN 透過區域感知（Local Receptive Field）與參數共享（Parameter Sharing）機制，降低模型參數量與運算複雜度" },
+        { "key": "D", "value": "CNN 捨棄激勵函數（Activation Function），以加快運算速度" }
+      ],
+      "answer": "C",
+      "explanation": "CNN 的核心優勢在於「參數共享」與「局部連接」，這使得它在處理高維度影像時，參數數量遠少於全連接網路，大幅提升效率。",
+      "score": 2,
+      "tags": ["深度學習", "CNN"]
+    },
+    {
+      "id": "q7",
+      "type": "single_choice",
+      "questionText": "下列哪一種應用最適合採用長短期記憶網路（Long Short-Term Memory, LSTM）模型？",
+      "options": [
+        { "key": "A", "value": "預測未來七天的電力需求變化趨勢" },
+        { "key": "B", "value": "辨識監視影像中不同類別的物件" },
+        { "key": "C", "value": "將大量顧客資料依相似特徵自動分群" },
+        { "key": "D", "value": "將高維度的感測器資料壓縮成低維表示" }
+      ],
+      "answer": "A",
+      "explanation": "LSTM 是為了處理序列數據（Sequence Data）與時間序列預測而設計的，非常適合電力需求這種具備時間依賴性的任務。",
+      "score": 2,
+      "tags": ["深度學習", "LSTM"]
+    },
+    {
+      "id": "q8",
+      "type": "single_choice",
+      "questionText": "資訊增益（Information Gain）常用於衡量特徵對分類結果的不確定性貢獻程度，並據以進行特徵選擇。此方法主要應用於下列哪一類模型架構中？",
+      "options": [
+        { "key": "A", "value": "使用 L1 正則化進行特徵篩選的線性模型" },
+        { "key": "B", "value": "利用激活函數（Activation Function）進行特徵擷取的深度神經網路" },
+        { "key": "C", "value": "透過核函數（Kernel Function）將特徵映射至高維空間的分類模型" },
+        { "key": "D", "value": "透過遞迴分裂方式建立分類規則的決策樹模型" }
+      ],
+      "answer": "D",
+      "explanation": "決策樹（ID3, C4.5演算法）使用資訊增益（或增益率）來決定節點的最佳分裂特徵。",
+      "score": 2,
+      "tags": ["機器學習", "決策樹"]
+    },
+    {
+      "id": "q9",
+      "type": "single_choice",
+      "questionText": "在建構以距離為基礎的機器學習模型（如 KNN、SVM）時，下列哪一項資料前處理方式最為關鍵？",
+      "options": [
+        { "key": "A", "value": "進行特徵縮放（Feature Scaling），使各特徵變數具有相似的數值範圍" },
+        { "key": "B", "value": "將連續型特徵變數轉換為類別型變數" },
+        { "key": "C", "value": "以平均值或中位數進行缺失值補齊" },
+        { "key": "D", "value": "進行隨機抽樣以平衡資料筆數" }
+      ],
+      "answer": "A",
+      "explanation": "KNN 和 SVM 依賴歐幾里得距離等度量。若特徵未經縮放（Scaling），數值範圍大的特徵會主導距離計算，導致模型失效。",
+      "score": 2,
+      "tags": ["資料前處理", "特徵縮放"]
+    },
+    {
+      "id": "q10",
+      "type": "single_choice",
+      "questionText": "下列哪一種應用情境最適合導入 AutoML，以提升模型開發效率？",
+      "options": [
+        { "key": "A", "value": "公司已有完整的 MLOps平台與資深資料科學團隊，模型更新採固定流程" },
+        { "key": "B", "value": "製造部門的生產良率模型已長期穩定運作，只需定期調整參數" },
+        { "key": "C", "value": "行銷部門希望在短時間內比較多種顧客流失預測模型，缺乏專職工程師與時間進行手動建模" },
+        { "key": "D", "value": "財務部門正在開發高度客製化的信用風險評估模型，需要精細控制特徵工程與演算法細節" }
+      ],
+      "answer": "C",
+      "explanation": "AutoML 最適合「資源有限」、「需要快速驗證」且「缺乏專業人力」的場景。C 符合所有條件。",
+      "score": 2,
+      "tags": ["AutoML", "應用場景"]
+    },
+    {
+      "id": "q11",
+      "type": "single_choice",
+      "questionText": "相較於 Grid Search，Random Search在超參數調整上具備哪一項主要優勢？",
+      "options": [
+        { "key": "A", "value": "可自動產生模型架構" },
+        { "key": "B", "value": "可使用更大的訓練集" },
+        { "key": "C", "value": "避免模型過擬合" },
+        { "key": "D", "value": "能更有效率搜尋高維參數空間" }
+      ],
+      "answer": "D",
+      "explanation": "在高維度參數空間中，Random Search 比 Grid Search 更有效率，因為它不會浪費時間在不重要的參數維度上進行密集搜索。",
+      "score": 2,
+      "tags": ["模型優化", "超參數調整"]
+    },
+    {
+      "id": "q12",
+      "type": "single_choice",
+      "questionText": "某智慧製造公司開發一套設備故障預測系統，利用感測器資料訓練 DNN 模型。在訓練過程中，團隊發現模型收斂速度不穩定：有時過快導致過擬合，有時又遲遲無法達到最佳準確率。開發團隊可以藉由調整下列哪一項超參數以改善此問題？",
+      "options": [
+        { "key": "A", "value": "每個神經元的輸出結果" },
+        { "key": "B", "value": "損失函數在訓練過程中的梯度變化值" },
+        { "key": "C", "value": "學習率（Learning Rate），控制模型權重更新的速度" },
+        { "key": "D", "value": "模型在訓練後產生的權重值" }
+      ],
+      "answer": "C",
+      "explanation": "學習率（Learning Rate）直接影響權重更新的步伐。太大導致震盪（不穩定），太小導致收斂過慢。",
+      "score": 2,
+      "tags": ["深度學習", "超參數"]
+    },
+    {
+      "id": "q13",
+      "type": "single_choice",
+      "questionText": "標籤偏差(Label Bias)通常是因為什麼原因造成？",
+      "options": [
+        { "key": "A", "value": "訓練資料量過大" },
+        { "key": "B", "value": "標記資料本身帶有主觀偏見" },
+        { "key": "C", "value": "模型結構設計不當" },
+        { "key": "D", "value": "特徵數量設定過多" }
+      ],
+      "answer": "B",
+      "explanation": "Label Bias 源於標註過程，例如標註者的主觀判斷、刻板印象或不一致的標準，導致標籤無法真實反映客觀事實。",
+      "score": 2,
+      "tags": ["AI倫理", "標籤偏差"]
+    },
+    {
+      "id": "q14",
+      "type": "single_choice",
+      "questionText": "下列哪一種 AI 應用情境中，模型的可解釋性（Explainability）最為關鍵？",
+      "options": [
+        { "key": "A", "value": "電商平台利用深度學習模型預測用戶的下一次購買時間" },
+        { "key": "B", "value": "新創公司使用機器學習演算法自動調整廣告出價策略" },
+        { "key": "C", "value": "醫院導入 AI 模型分析病患影像並給出腫瘤惡性可能性，作為臨床醫師診斷依據" },
+        { "key": "D", "value": "銀行導入 AI 模型預測客戶流失率，並自動推薦留客優惠方案" }
+      ],
+      "answer": "C",
+      "explanation": "醫療診斷涉及生命安全，醫師必須了解 AI 為何做出特定判斷（如腫瘤位置、特徵），才能採信並制定治療方案。",
+      "score": 2,
+      "tags": ["XAI", "醫療AI"]
+    },
+    {
+      "id": "q15",
+      "type": "single_choice",
+      "questionText": "在線性迴歸模型中，若 R²值為 0.85，其意義為何？",
+      "options": [
+        { "key": "A", "value": "模型準確率為 85%" },
+        { "key": "B", "value": "85%的變異可被模型解釋" },
+        { "key": "C", "value": "預測誤差為 15%" },
+        { "key": "D", "value": "模型有 85%的信心水準" }
+      ],
+      "answer": "B",
+      "explanation": "R²（決定係數）代表模型解釋了依變數（Y）總變異的比例。0.85 表示模型解釋了 85% 的資料變異。",
+      "score": 2,
+      "tags": ["統計學", "迴歸評估"]
+    },
+    {
+      "id": "q16",
+      "type": "single_choice",
+      "questionText": "在二元分類問題中，若精確率（Precision）為 0.8，召回率（Recall）為 0.6，則 F1分數（F1 Score）為何？",
+      "options": [
+        { "key": "A", "value": "0.686" },
+        { "key": "B", "value": "0.700" },
+        { "key": "C", "value": "0.720" },
+        { "key": "D", "value": "0.750" }
+      ],
+      "answer": "A",
+      "explanation": "F1 = 2 * (P * R) / (P + R) = 2 * (0.8 * 0.6) / (0.8 + 0.6) = 0.96 / 1.4 ≈ 0.6857。",
+      "score": 2,
+      "tags": ["模型評估", "F1 Score"]
+    },
+    {
+      "id": "q17",
+      "type": "single_choice",
+      "questionText": "下列哪一種優化演算法內建動量（Momentum）的設計機制？",
+      "options": [
+        { "key": "A", "value": "SGD+Momentum" },
+        { "key": "B", "value": "Adam" },
+        { "key": "C", "value": "RMSProp" },
+        { "key": "D", "value": "Adagrad" }
+      ],
+      "answer": "B",
+      "explanation": "雖然 SGD 可以外加 Momentum，但 Adam（Adaptive Moment Estimation）演算法本身的核心設計就結合了動量（一階矩）與 RMSProp（二階矩）。(註：依據試題答案，本題選 B)",
+      "score": 2,
+      "tags": ["深度學習", "優化器"]
+    },
+    {
+      "id": "q18",
+      "type": "single_choice",
+      "questionText": "下列何者最能同時反映 XGBoost 相較於傳統梯度提升決策樹（GBDT）的主要技術改進？",
+      "options": [
+        { "key": "A", "value": "引入正則化項（Regularization）以抑制過擬合，並支援缺失值自動處理與並行化訓練" },
+        { "key": "B", "value": "改以隨機森林（Random Forest）架構取代樹模型以提升準確率" },
+        { "key": "C", "value": "以類神經網路（Neural Network）取代弱分類器（Weak Learners）" },
+        { "key": "D", "value": "採用批次正規化（Batch Normalization）技術提升模型穩定性" }
+      ],
+      "answer": "A",
+      "explanation": "XGBoost 的改進在於目標函數加入正則化（L1/L2）、支援稀疏數據（缺失值處理）以及系統層面的並行運算優化。",
+      "score": 2,
+      "tags": ["機器學習", "XGBoost"]
+    },
+    {
+      "id": "q19",
+      "type": "single_choice",
+      "questionText": "某醫療機構開發疾病早期偵測模型，正樣本（確診病例）僅佔 3%。在模型訓練與評估過程中，下列哪一種作法最不適合用於提升對少數類病例的預測能力？",
+      "options": [
+        { "key": "A", "value": "使用 SMOTE 過採樣" },
+        { "key": "B", "value": "調整類別權重" },
+        { "key": "C", "value": "使用準確率（Accuracy）作為評估指標" },
+        { "key": "D", "value": "欠採樣多數類" }
+      ],
+      "answer": "C",
+      "explanation": "在極度不平衡資料（如 97:3）中，模型只要全部預測「負樣本」就能達到 97% 準確率，但這對偵測疾病毫無幫助。因此 Accuracy 是最糟糕的指標。",
+      "score": 2,
+      "tags": ["資料不平衡", "模型評估"]
+    },
+    {
+      "id": "q20",
+      "type": "single_choice",
+      "questionText": "某電子商務公司為開發商品評論情感分析模型，希望模型能捕捉評論中不同特徵之間的關聯影響，例如「商品價格」與「顧客滿意度」的互動效果。下列哪一種特徵工程設計方式最適合用於建立互動特徵（Interaction Features）？",
+      "options": [
+        { "key": "A", "value": "將單一特徵取平方" },
+        { "key": "B", "value": "對所有特徵進行對數轉換" },
+        { "key": "C", "value": "將兩個或多個特徵進行乘積或交互組合" },
+        { "key": "D", "value": "對特徵進行標準化" }
+      ],
+      "answer": "C",
+      "explanation": "互動特徵（Interaction Features）通常是透過將兩個特徵相乘（Product）或組合來創造，用以捕捉變數間的非線性依賴關係。",
+      "score": 2,
+      "tags": ["特徵工程", "特徵交叉"]
+    },
+    {
+      "id": "q21",
+      "type": "single_choice",
+      "questionText": "某語音辨識系統開發團隊採用 Transformer 架構，為了讓模型能同時理解語音片段中的發音特徵、語速變化與語意脈絡等多層次資訊，團隊在設計中導入了多頭注意力（Multi-head Attention）機制。請問下列何者為此機制的主要優點？",
+      "options": [
+        { "key": "A", "value": "減少模型參數量以降低訓練成本" },
+        { "key": "B", "value": "加速整體注意力計算過程" },
+        { "key": "C", "value": "從不同表示子空間（Representation Subspaces）同時捕捉多樣化關聯資訊" },
+        { "key": "D", "value": "避免梯度消失（Gradient Vanishing）問題" }
+      ],
+      "answer": "C",
+      "explanation": "Multi-head Attention 允許模型有多個「頭」，每個頭可以關注輸入序列的不同部分或不同特徵（子空間），豐富了模型的表達能力。",
+      "score": 2,
+      "tags": ["Transformer", "Attention機制"]
+    },
+    {
+      "id": "q22",
+      "type": "single_choice",
+      "questionText": "某電商平台希望預測顧客是否會購買特定商品。系統蒐集顧客行為特徵並推估「在觀察到這些行為特徵的情況下，該顧客會購買的機率」。若模型採用貝氏定理進行推論，下列敘述何者最符合其核心運作機制？",
+      "options": [
+        { "key": "A", "value": "根據歷史樣本自動分群，找出行為相似的顧客群" },
+        { "key": "B", "value": "以條件機率方式計算顧客屬於「會購買」或「不會購買」的分類機率" },
+        { "key": "C", "value": "以最小平方誤差（Mean Squared Error）為損失函數，預測顧客的購買金額" },
+        { "key": "D", "value": "依據回饋信號透過強化學習動態調整推薦策略" }
+      ],
+      "answer": "B",
+      "explanation": "貝氏定理是關於條件機率的定理。貝氏分類器計算 P(類別|特徵)，即在給定特徵條件下，屬於某類別的機率。",
+      "score": 2,
+      "tags": ["貝氏定理", "機率模型"]
+    },
+    {
+      "id": "q23",
+      "type": "single_choice",
+      "questionText": "一家再生能源公司希望預測未來三個月太陽能發電量的波動範圍。由於氣候條件具有高度隨機性，且輸入變數之間存在不確定關係，工程團隊決定以隨機抽樣方式模擬多種可能情境，以估算整體發電量的機率分佈與風險區間。請問此時所採用的技術最符合下列哪一種方法？",
+      "options": [
+        { "key": "A", "value": "蒙地卡羅方法（Monte Carlo Method）" },
+        { "key": "B", "value": "K-means聚類（K-means Clustering）" },
+        { "key": "C", "value": "支持向量迴歸（Support Vector Regression, SVR）" },
+        { "key": "D", "value": "特徵選取（Feature Selection）" }
+      ],
+      "answer": "A",
+      "explanation": "蒙地卡羅方法（Monte Carlo）透過大量隨機抽樣與模擬來計算複雜系統的機率分佈與風險，非常適合處理高度不確定的預測問題。",
+      "score": 2,
+      "tags": ["模擬方法", "蒙地卡羅"]
+    },
+    {
+      "id": "q24",
+      "type": "single_choice",
+      "questionText": "某房地產公司利用多元迴歸模型預測房價，並繪製殘差圖（Residual Plot）檢查模型品質。結果顯示部分資料點的殘差極大，且在高價區樣本中出現系統性彎曲分佈現象。根據此觀察，下列何者為最可能的正確解釋？",
+      "options": [
+        { "key": "A", "value": "模型過度擬合（Overfitting），導致在訓練資料上表現過好、泛化能力不足" },
+        { "key": "B", "value": "模型特徵數量不足，導致欠擬合（Underfitting）" },
+        { "key": "C", "value": "模型存在異常值（Outlier）或非線性關係，違反迴歸假設" },
+        { "key": "D", "value": "殘差圖呈現隨機分佈，表示模型已完全符合所有假設" }
+      ],
+      "answer": "C",
+      "explanation": "殘差圖應呈現隨機分佈。若出現系統性彎曲（如 U 型），暗示數據間存在非線性關係未被模型捕捉；極大殘差則暗示異常值。",
+      "score": 2,
+      "tags": ["迴歸分析", "殘差診斷"]
+    },
+    {
+      "id": "q25",
+      "type": "single_choice",
+      "questionText": "某金融機構正在建立傳統信用評分卡模型，採用邏輯迴歸（Logistic Regression）作為建模方法。下列哪一項不是傳統信用評分卡模型開發流程中的常見步驟？",
+      "options": [
+        { "key": "A", "value": "使用生成式模型進行特徵學習" },
+        { "key": "B", "value": "進行特徵選擇與多重共線性（Multicollinearity）分析" },
+        { "key": "C", "value": "進行分箱（Binning）與資訊值（Information Value, IV）檢定" },
+        { "key": "D", "value": "使用樣本穩定性指標（Population Stability Index, PSI）檢驗模型穩定性" }
+      ],
+      "answer": "A",
+      "explanation": "傳統信用評分卡（Scorecard）強調可解釋性，標準流程包含分箱（Binning）、WOE轉換、IV篩選與邏輯迴歸。「生成式模型」屬於深度學習範疇，不屬於此傳統流程。",
+      "score": 2,
+      "tags": ["信用評分", "傳統建模"]
+    },
+    {
+      "id": "q26",
+      "type": "single_choice",
+      "questionText": "在防止監督式學習模型過擬合（Overfitting）時，下列哪一種策略不屬於降低模型複雜度或限制學習能力的作法？",
+      "options": [
+        { "key": "A", "value": "採用 L1或 L2 正則化" },
+        { "key": "B", "value": "在訓練過程中使用 Dropout 技術" },
+        { "key": "C", "value": "採取早期停止（Early Stopping）機制" },
+        { "key": "D", "value": "擴增輸入特徵變數以提升模型表達能力" }
+      ],
+      "answer": "D",
+      "explanation": "A、B、C 都是限制模型的方法。擴增特徵（D）反而會增加模型複雜度，若無足夠數據，反而更容易導致過擬合。",
+      "score": 2,
+      "tags": ["模型優化", "過擬合"]
+    },
+    {
+      "id": "q27",
+      "type": "single_choice",
+      "questionText": "某智慧製造團隊在開發瑕疵影像檢測模型時，發現使用線性激活函數後，模型的訓練準確率長期停滯。若要改善此問題，下列哪一項調整方案最為合適？",
+      "options": [
+        { "key": "A", "value": "增加卷積層數量" },
+        { "key": "B", "value": "將輸入影像先進行灰階化處理" },
+        { "key": "C", "value": "使用 Sigmoid 激活函數" },
+        { "key": "D", "value": "改用 ReLU（Rectified Linear Unit）激活函數，以引入非線性並提升模型表達能力" }
+      ],
+      "answer": "D",
+      "explanation": "多層線性網路等同於單層線性網路，無法學習複雜特徵。引入 ReLU 等非線性激活函數是讓深度學習發揮作用的關鍵。",
+      "score": 2,
+      "tags": ["深度學習", "激活函數"]
+    },
+    {
+      "id": "q28",
+      "type": "single_choice",
+      "questionText": "一家零售電商公司建立顧客流失預測模型，訓練樣本僅採用「曾經購買三次以上」的活躍顧客紀錄。模型上線後，對於新註冊會員與低消費會員的預測準確率明顯偏低。下列何者為造成此現象最可能的原因？",
+      "options": [
+        { "key": "A", "value": "特徵偏差（Feature Bias）" },
+        { "key": "B", "value": "標籤偏差（Label Bias）" },
+        { "key": "C", "value": "取樣偏差（Sampling Bias）" },
+        { "key": "D", "value": "過擬合（Overfitting）" }
+      ],
+      "answer": "C",
+      "explanation": "訓練資料只包含「活躍顧客」，樣本不具代表性，無法反映母體（所有會員）的特徵，這稱為取樣偏差（Sampling Bias）。",
+      "score": 2,
+      "tags": ["AI偏差", "取樣偏差"]
+    },
+    {
+      "id": "q29",
+      "type": "single_choice",
+      "questionText": "在工業設備故障預測專案中，隨著設備運行環境變化，原有驗證集已無法充分反映現況，導致模型準確率下降。下列哪一種策略最能有效提升模型在長期運行環境中的穩健性？",
+      "options": [
+        { "key": "A", "value": "固定驗證集並強化正則化" },
+        { "key": "B", "value": "將全部歷史資料納入訓練，不使用驗證集" },
+        { "key": "C", "value": "簡化模型架構" },
+        { "key": "D", "value": "採用時間序列交叉驗證（Time Series Cross Validation）或滑動視窗驗證，動態更新驗證資料" }
+      ],
+      "answer": "D",
+      "explanation": "面對隨時間變化的資料（Concept Drift），使用滑動視窗（Rolling Window）或時間序列交叉驗證能確保模型評估是基於最新的資料分佈。",
+      "score": 2,
+      "tags": ["時間序列", "模型評估"]
+    },
+    {
+      "id": "q30",
+      "type": "single_choice",
+      "questionText": "某情感分析模型在英文資料集上取得 F1-score 0.91，但部署於西班牙文資料集時驟降至 0.58。下列哪一項解釋最合理？",
+      "options": [
+        { "key": "A", "value": "建議改用 micro-average F1-score" },
+        { "key": "B", "value": "模型在西班牙文語料上過度擬合" },
+        { "key": "C", "value": "語言轉移造成召回率下降，模型無法正確辨識關鍵情緒詞彙" },
+        { "key": "D", "value": "以均方誤差取代 F1-score" }
+      ],
+      "answer": "C",
+      "explanation": "這是典型的領域/語言遷移（Domain Shift）問題。模型在英文訓練，不懂西班牙文的特徵，導致無法識別（Recall低）。",
+      "score": 2,
+      "tags": ["NLP", "遷移學習"]
+    },
+    {
+      "id": "q31",
+      "type": "single_choice",
+      "questionText": "某長期電力需求預測模型在訓練時，驗證集損失呈現週期性波動。若要合理運用早期停止法（Early Stopping），下列哪一項策略最為適當？",
+      "options": [
+        { "key": "A", "value": "直接根據訓練集損失最低點停止" },
+        { "key": "B", "value": "監控驗證集損失並設定適度的耐心值（Patience），在連續多輪未改善後再停止" },
+        { "key": "C", "value": "改以測試集損失作為早停依據" },
+        { "key": "D", "value": "將所有資料重新合併後訓練至收斂" }
+      ],
+      "answer": "B",
+      "explanation": "Early Stopping 需要設定 Patience（耐心值），容許驗證損失在一定回合內波動（不立即下降），以避免因短期震盪而過早停止。",
+      "score": 2,
+      "tags": ["模型訓練", "Early Stopping"]
+    },
+    {
+      "id": "q32",
+      "type": "single_choice",
+      "questionText": "某電信公司開發客戶流失預測模型，發現部分特徵高度相關。若希望模型在避免過擬合的同時，能自動篩選出較具代表性的特徵，採用下列哪一種方法最為合適？",
+      "options": [
+        { "key": "A", "value": "使用早期停止法（Early Stopping）" },
+        { "key": "B", "value": "同時移除多重共線性特徵並採用 L2正則化（Ridge）" },
+        { "key": "C", "value": "僅使用 L2正則化（Ridge）" },
+        { "key": "D", "value": "採用 L1正則化（Lasso），透過懲罰項使部分特徵係數縮為 0" }
+      ],
+      "answer": "B",
+      "explanation": "Lasso (L1) 雖然能篩選特徵，但面對高度共線性特徵時可能隨機選一個而丟棄其他。移除共線性後使用 Ridge (L2) 或直接使用 Elastic Net 往往更穩定。不過依據題意與選項設計，B 是較完整考量穩定性的做法。",
+      "score": 2,
+      "tags": ["特徵選擇", "正則化"]
+    },
+    {
+      "id": "q33",
+      "type": "single_choice",
+      "questionText": "若系統需逐一比對每一位客戶與其他所有客戶的資料組合以計算相似度，此演算法的時間複雜度最可能為哪一種？",
+      "options": [
+        { "key": "A", "value": "O(n)" },
+        { "key": "B", "value": "O(n²)" },
+        { "key": "C", "value": "O(1)" },
+        { "key": "D", "value": "O(log n)" }
+      ],
+      "answer": "B",
+      "explanation": "兩兩比對（Pairwise Comparison）需要雙重迴圈，總次數約為 n*(n-1)/2，時間複雜度為 O(n²)。",
+      "score": 2,
+      "tags": ["演算法", "複雜度"]
+    },
+    {
+      "id": "q34",
+      "type": "single_choice",
+      "questionText": "某心臟病風險預測模型資料僅 150 筆，陽性不到 8%。若希望在有限樣本下，同時兼顧資料利用率與各類別在驗證折中的比例一致性，最適合採用哪種交叉驗證？",
+      "options": [
+        { "key": "A", "value": "5-Fold交叉驗證" },
+        { "key": "B", "value": "留一法交叉驗證（LOOCV）" },
+        { "key": "C", "value": "隨機交叉驗證" },
+        { "key": "D", "value": "分層留一法交叉驗證（Stratified Leave-One-Out Cross Validation）" }
+      ],
+      "answer": "D",
+      "explanation": "雖然標準術語是 Stratified K-Fold，但在極少樣本下，結合 Leave-One-Out 的高利用率與 Stratified 的比例控制（儘管 LOO 本質難以分層，此處指概念上的最佳化）是選項中針對「稀少且不平衡」的最佳描述。",
+      "score": 2,
+      "tags": ["模型評估", "交叉驗證"]
+    },
+    {
+      "id": "q35",
+      "type": "single_choice",
+      "questionText": "某 PCA 分析得到三個特徵值：λ1=6.0, λ2=3.0, λ3=1.0。若決定保留解釋至少 80% 總變異量的主成分，下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "前兩個主成分合計解釋 90%的總變異量，因此可安全降維至二維" },
+        { "key": "B", "value": "第一主成分解釋 60%的變異量，僅保留一維即可" },
+        { "key": "C", "value": "不宜捨棄第三主成分" },
+        { "key": "D", "value": "降維可能導致資訊損失" }
+      ],
+      "answer": "A",
+      "explanation": "總變異量 = 6+3+1 = 10。PC1 解釋 60%，PC2 解釋 30%。前兩者合計 90% > 80%，符合需求。",
+      "score": 2,
+      "tags": ["PCA", "降維"]
+    },
+    {
+      "id": "q36",
+      "type": "single_choice",
+      "questionText": "關於同態加密（Homomorphic Encryption）在 AI 應用中的關鍵特性，下列何者正確？",
+      "options": [
+        { "key": "A", "value": "系統以隨機雜訊干擾輸出" },
+        { "key": "B", "value": "各參與銀行交換私鑰" },
+        { "key": "C", "value": "將原始資料壓縮並加密" },
+        { "key": "D", "value": "資料在加密狀態下仍可進行數值運算，模型訓練可於未解密資料上完成" }
+      ],
+      "answer": "D",
+      "explanation": "同態加密的核心特性就是允許對密文進行運算，其結果解密後等同於對明文進行運算。",
+      "score": 2,
+      "tags": ["隱私計算", "同態加密"]
+    },
+    {
+      "id": "q37",
+      "type": "single_choice",
+      "questionText": "某跨銀行風控平台整合資料訓練模型，要求資料全程加密不可解密，且需確保傳輸安全。下列哪組技術最能完整對應？",
+      "options": [
+        { "key": "A", "value": "對稱加密 ＋ 單向雜湊 ＋ 非對稱加密 ＋ 差分隱私" },
+        { "key": "B", "value": "同態加密 ＋ 非對稱加密 ＋ 單向雜湊 ＋ 對稱加密" },
+        { "key": "C", "value": "差分隱私 ＋ 對稱加密 ＋ 同態加密 ＋ 數位簽章" },
+        { "key": "D", "value": "同態加密 ＋ 安全多方計算 ＋ 雜湊函數 ＋ 對稱加密" }
+      ],
+      "answer": "B",
+      "explanation": "同態加密解決運算隱私；非對稱加密（如 RSA）解決金鑰交換；雜湊解決完整性；對稱加密解決傳輸效率。",
+      "score": 2,
+      "tags": ["資安技術", "加密"]
+    },
+    {
+      "id": "q38",
+      "type": "single_choice",
+      "questionText": "Python 程式碼 `def metric(y_true, y_pred): return sum((y_true - y_pred) ** 2) / len(y_true)` 計算的是哪一種指標？",
+      "options": [
+        { "key": "A", "value": "MAE" },
+        { "key": "B", "value": "MSE" },
+        { "key": "C", "value": "RMSE" },
+        { "key": "D", "value": "R²" }
+      ],
+      "answer": "B",
+      "explanation": "公式為 (誤差平方和) / N，即均方誤差（Mean Squared Error, MSE）。",
+      "score": 2,
+      "tags": ["Python", "評估指標"]
+    },
+    {
+      "id": "q39",
+      "type": "single_choice",
+      "questionText": "Python 程式碼 `mask = np.random.binomial(1, p, size=x.shape); return x * mask / p` 實現的是哪一種技術？",
+      "options": [
+        { "key": "A", "value": "L1正則化" },
+        { "key": "B", "value": "L2正則化" },
+        { "key": "C", "value": "Dropout" },
+        { "key": "D", "value": "Batch Normalization" }
+      ],
+      "answer": "C",
+      "explanation": "這是 Inverted Dropout 的實作：隨機將部分神經元輸出設為 0（mask），並除以 p 以保持期望值不變。",
+      "score": 2,
+      "tags": ["深度學習", "Dropout"]
+    },
+    {
+      "id": "q40",
+      "type": "single_choice",
+      "questionText": "已知 `v1 = [1-3]`, `v2 = [4-6]`。執行 `np.dot(v1, v2)` 的結果為何？",
+      "options": [
+        { "key": "A", "value": "計算矩陣 A 的行列式" },
+        { "key": "B", "value": "[5, 7, 8]" },
+        { "key": "C", "value": "32" },
+        { "key": "D", "value": "計算矩陣 A 的反矩陣" }
+      ],
+      "answer": "C",
+      "explanation": "點積（Dot Product）：1*4 + 2*5 + 3*6 = 4 + 10 + 18 = 32。",
+      "score": 2,
+      "tags": ["Python", "Numpy"]
+    },
+    {
+      "id": "q41",
+      "type": "single_choice",
+      "questionText": "使用 Monte Carlo 方法模擬擲骰子。事件 A 為偶數，事件 B 為大於 3。程式碼 `A = (dice % 2 == 0); B = (dice > 3)`。請問計算條件機率 P(A|B) 的正確程式碼為何？",
+      "options": [
+        { "key": "A", "value": "A_and_B.sum() / (A.sum() * B.sum())" },
+        { "key": "B", "value": "A_and_B.sum() / (A.sum() + B.sum())" },
+        { "key": "C", "value": "A_and_B.sum() / A.sum()" },
+        { "key": "D", "value": "A_and_B.sum() / B.sum()" }
+      ],
+      "answer": "D",
+      "explanation": "P(A|B) = P(A ∩ B) / P(B)。程式碼中 `A_and_B.sum()` 是交集次數，`B.sum()` 是 B 發生次數。",
+      "score": 2,
+      "tags": ["統計學", "條件機率"]
+    },
+    {
+      "id": "q42",
+      "type": "single_choice",
+      "questionText": "在 VGG16 模型架構中，哪一類層級的參數數量（Parameter Count）最多？",
+      "options": [
+        { "key": "A", "value": "卷積層(Conv2d)" },
+        { "key": "B", "value": "全連接層(Linear)" },
+        { "key": "C", "value": "ReLU激活函數" },
+        { "key": "D", "value": "池化層(MaxPool2d)" }
+      ],
+      "answer": "B",
+      "explanation": "VGG16 的全連接層（Linear）連接了 7x7x512 的特徵圖與 4096 個神經元，產生了絕大多數的參數（約 1 億個）。",
+      "score": 2,
+      "tags": ["深度學習", "VGG16"]
+    },
+    {
+      "id": "q43",
+      "type": "single_choice",
+      "questionText": "在 VGG16 模型中，哪一類層級的運算量（FLOPs）最大？",
+      "options": [
+        { "key": "A", "value": "卷積層(Conv2d)" },
+        { "key": "B", "value": "全連接層(Linear)" },
+        { "key": "C", "value": "ReLU激活函數" },
+        { "key": "D", "value": "池化層(MaxPool2d)" }
+      ],
+      "answer": "A",
+      "explanation": "卷積層雖然參數少，但需要在高解析度的特徵圖上進行滑動視窗運算，因此消耗了大部分的計算資源（FLOPs）。",
+      "score": 2,
+      "tags": ["深度學習", "運算量"]
+    },
+    {
+      "id": "q44",
+      "type": "single_choice",
+      "questionText": "關於 VGG16 模型的架構與資源需求，下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "第一個全連接層輸入維度是 8192" },
+        { "key": "B", "value": "Linear層參數不含 Bias" },
+        { "key": "C", "value": "1GB GPU 足夠訓練" },
+        { "key": "D", "value": "VGG16包含 13層卷積層與 3層全連接層，總參數約 138M" }
+      ],
+      "answer": "D",
+      "explanation": "VGG16 名稱由來即為 16 層權重層（13 Conv + 3 FC）。總參數量約 1.38 億。",
+      "score": 2,
+      "tags": ["深度學習", "模型架構"]
+    },
+    {
+      "id": "q45",
+      "type": "single_choice",
+      "questionText": "使用 PyTorch 進行 VGG16 遷移學習（Transfer Learning），目標是凍結特徵提取層並替換分類器。下列哪段程式碼邏輯正確？",
+      "options": [
+        { "key": "A", "value": "凍結全模型 -> 替換分類層" },
+        { "key": "B", "value": "凍結 model.features -> 替換 model.classifier[6]" },
+        { "key": "C", "value": "凍結 model.classifier -> 替換 model.classifier[6]" },
+        { "key": "D", "value": "不凍結直接替換" }
+      ],
+      "answer": "B",
+      "explanation": "正確流程：先凍結特徵層（`features.parameters().requires_grad = False`），再修改或替換分類層（`classifier`）以訓練新任務。",
+      "score": 2,
+      "tags": ["PyTorch", "遷移學習"]
+    },
+    {
+      "id": "q46",
+      "type": "single_choice",
+      "questionText": "使用 PCA 進行影像降噪時，若程式碼 `pca = PCA(); pca.fit(noisy)` 執行後無法有效去噪，應修改哪一部分？",
+      "options": [
+        { "key": "A", "value": "匯入函式庫部分" },
+        { "key": "B", "value": "PCA 初始化部分（需設定 n_components）" },
+        { "key": "C", "value": "fit 部分" },
+        { "key": "D", "value": "transform 部分" }
+      ],
+      "answer": "B",
+      "explanation": "預設 `PCA()` 會保留所有主成分，包含雜訊。必須設定 `n_components` 小於原始維度（如 0.95 或具體數字），捨棄代表雜訊的小特徵值成分，才能達到降噪效果。",
+      "score": 2,
+      "tags": ["PCA", "降噪"]
+    },
+    {
+      "id": "q47",
+      "type": "single_choice",
+      "questionText": "在使用 Scikit-Learn 進行 KNN 交叉驗證時，若資料集為多類別（Digits 0-9），下列哪種寫法能正確執行且無警告？",
+      "options": [
+        { "key": "A", "value": "scoring='f1' 但未設定 average" },
+        { "key": "B", "value": "scoring='accuracy' 搭配 StratifiedKFold" },
+        { "key": "C", "value": "使用 LeaveOneOut 但 scoring='roc_auc'" },
+        { "key": "D", "value": "未設定 cv 參數" }
+      ],
+      "answer": "B",
+      "explanation": "多類別分類中，`f1` score 需要指定 `average` 參數（如 macro/micro）。`accuracy` 則通用。`StratifiedKFold` 適合分類問題。",
+      "score": 2,
+      "tags": ["Scikit-Learn", "交叉驗證"]
+    },
+    {
+      "id": "q48",
+      "type": "single_choice",
+      "questionText": "針對鐵達尼號資料集的預處理程式碼 `X -= X.mean(); X /= X.std()`，下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "資料被壓縮到 0-1 之間" },
+        { "key": "B", "value": "這是標準化（Standardization），有助於防止梯度爆炸並加速收斂" },
+        { "key": "C", "value": "這是特徵選擇方法" },
+        { "key": "D", "value": "程式碼錯誤，應使用 var()" }
+      ],
+      "answer": "B",
+      "explanation": "減去平均值並除以標準差是 Z-score 標準化（Standardization），能讓特徵分佈接近 N(0,1)，對神經網路訓練非常重要。",
+      "score": 2,
+      "tags": ["資料前處理", "標準化"]
+    },
+    {
+      "id": "q49",
+      "type": "single_choice",
+      "questionText": "某 Keras 模型 Summary 顯示：Input(9 features), Layer1 Dense(10), Layer2 Dense(10). 請問 Layer1 與 Layer2 的參數量分別為多少？",
+      "options": [
+        { "key": "A", "value": "90, 100" },
+        { "key": "B", "value": "110, 100" },
+        { "key": "C", "value": "100, 110" },
+        { "key": "D", "value": "10, 10" }
+      ],
+      "answer": "C",
+      "explanation": "Layer1: (9輸入 + 1偏差) * 10神經元 = 100。Layer2: (10輸入 + 1偏差) * 10神經元 = 110。",
+      "score": 2,
+      "tags": ["深度學習", "參數量"]
+    },
+    {
+      "id": "q50",
+      "type": "single_choice",
+      "questionText": "使用 Matplotlib 繪製 Loss 曲線，`loss` 為藍色實線，`val_loss` 為紅色虛線。下列程式碼參數何者正確？",
+      "options": [
+        { "key": "A", "value": "loss參數='r--', val_loss參數='b-'" },
+        { "key": "B", "value": "loss參數='b-', val_loss參數='r-'" },
+        { "key": "C", "value": "loss參數='b-', val_loss參數='r--'" },
+        { "key": "D", "value": "loss參數='blue', val_loss參數='red'" }
+      ],
+      "answer": "C",
+      "explanation": "Matplotlib 格式字串：`b`=blue, `-`=solid line; `r`=red, `--`=dashed line。",
+      "score": 2,
+      "tags": ["Python", "資料視覺化"]
+    }
+  ]
+}
