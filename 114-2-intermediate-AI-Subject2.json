@@ -1,0 +1,759 @@
+{
+  "level": "intermediate",
+  "type": "大數據處理分析與應用",
+  "quiz_id": "114-2-AI-Subject2",
+  "title": "114年第二梯次中級AI應用規劃師第二科：大數據處理分析與應用",
+  "exam_date": "2025-11-08",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "questionText": "若某數據點的 Z 分數（Z-Score）= 2，請問代表下列哪一種意涵？",
+      "options": [
+        { "key": "A", "value": "代表該數據點之原始數值為 2" },
+        { "key": "B", "value": "該數據點比平均值低 2個標準差" },
+        { "key": "C", "value": "代表數據為異常值" },
+        { "key": "D", "value": "該數據點比平均值高 2個標準差" }
+      ],
+      "answer": "D",
+      "explanation": "Z-Score（標準分數）公式為 (x - μ) / σ。Z=2 表示該數值比平均值高出 2 個標準差（Standard Deviations）。",
+      "score": 2,
+      "tags": ["統計學", "資料標準化"]
+    },
+    {
+      "id": "q2",
+      "type": "single_choice",
+      "questionText": "使用 Python的 pandas套件處理各商品銷售數據（變數為 df）時，若需計算「總銷售額」欄位的敘述性統計量（如平均值、標準差等），應使用下列哪一種語法？",
+      "options": [
+        { "key": "A", "value": "df['總銷售額'].sum()" },
+        { "key": "B", "value": "df['總銷售額'].describe()" },
+        { "key": "C", "value": "df['總銷售額'].sort_values()" },
+        { "key": "D", "value": "df['總銷售額'].stats()" }
+      ],
+      "answer": "B",
+      "explanation": "Pandas 的 `describe()` 方法會回傳一系列敘述性統計量，包含計數（count）、平均值（mean）、標準差（std）、最小值、四分位數與最大值。",
+      "score": 2,
+      "tags": ["Python", "Pandas"]
+    },
+    {
+      "id": "q3",
+      "type": "single_choice",
+      "questionText": "若某資料之分佈圖顯示高峰偏右，尾部向左延伸（左偏分佈），此圖資料之偏態（Skewness）值較有可能為下列哪個選項？",
+      "options": [
+        { "key": "A", "value": "Skewness < 0" },
+        { "key": "B", "value": "Skewness > 0" },
+        { "key": "C", "value": "Skewness = 0" },
+        { "key": "D", "value": "無法計算 Skewness" }
+      ],
+      "answer": "A",
+      "explanation": "左偏分佈（Left-skewed）的尾部向左延伸，數值集中在右側，其偏態係數（Skewness）通常小於 0。",
+      "score": 2,
+      "tags": ["統計學", "偏態"]
+    },
+    {
+      "id": "q4",
+      "type": "single_choice",
+      "questionText": "累積分佈函數（Cumulative Distribution Function, CDF）可用於描述隨機變數的機率分佈特性，其數學定義為下列何者？",
+      "options": [
+        { "key": "A", "value": "機率密度函數（Probability Density Function, PDF）的平均值" },
+        { "key": "B", "value": "機率密度函數（Probability Density Function, PDF）的積分" },
+        { "key": "C", "value": "機率密度函數（Probability Density Function, PDF）的離散總和" },
+        { "key": "D", "value": "機率密度函數（Probability Density Function, PDF）的標準差" }
+      ],
+      "answer": "B",
+      "explanation": "CDF 描述的是隨機變數 X 小於或等於某數值 x 的機率，對於連續變數而言，CDF 是 PDF（機率密度函數）從負無窮大到 x 的積分。",
+      "score": 2,
+      "tags": ["統計學", "機率分佈"]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "questionText": "在進行資料前處理時，若使用 Label Encoding 將類別變數轉換為數字型態，下列何者為最常見的潛在風險？",
+      "options": [
+        { "key": "A", "value": "無法處理缺值" },
+        { "key": "B", "value": "會引入類別之間的虛假順序關係" },
+        { "key": "C", "value": "無法擴展至新資料" },
+        { "key": "D", "value": "記憶體佔用過高" }
+      ],
+      "answer": "B",
+      "explanation": "Label Encoding 將類別轉為整數（如 A->1, B->2），模型（特別是線性模型）可能會誤以為 2 > 1 代表某種順序或大小關係，這對於無序類別（Nominal）是不正確的。",
+      "score": 2,
+      "tags": ["資料前處理", "編碼"]
+    },
+    {
+      "id": "q6",
+      "type": "single_choice",
+      "questionText": "在進行資料分析時，會遇到類別型（Categorical）與數值型（Numerical） 資料格式。關於這兩種資料格式的處理，下列敘述何者不正確？",
+      "options": [
+        { "key": "A", "value": "One-Hot編碼（One-Hot Encoding）會將類別變數轉換為多維二元向量，適用於無序（Nominal）類別資料，但在高基數（High Cardinality）特徵下可能造成維度爆炸問題" },
+        { "key": "B", "value": "標籤編碼（Label Encoding）會以整數表示不同類別，若應用於無序（Nominal）資料，可能導致模型誤將編碼值解讀為具數值大小關係的特徵" },
+        { "key": "C", "value": "標準化（Standardization）透過將資料平移與縮放，使其平均值為 0、標準差為 1，可在多數距離型演算法中改善收斂速度，並同時將數值範圍壓縮至 0 至 1 之間" },
+        { "key": "D", "value": "對連續變數進行分箱（Binning）可提升模型可解釋性，但若分段方式未依據資料分佈特性設計，可能導致資訊損失或邊界偏誤" }
+      ],
+      "answer": "C",
+      "explanation": "標準化（Standardization / Z-score）是將資料轉換為平均值 0、標準差 1，數值範圍「不會」被限制在 0 至 1 之間（那是 Min-Max Normalization 的特性）。",
+      "score": 2,
+      "tags": ["特徵工程", "資料標準化"]
+    },
+    {
+      "id": "q7",
+      "type": "single_choice",
+      "questionText": "在資料庫的 ACID 特性中，下列何者為「原子性（Atomicity）」的正確定義？",
+      "options": [
+        { "key": "A", "value": "所有資料欄位必須為相同型別" },
+        { "key": "B", "value": "每次交易需以批次方式執行" },
+        { "key": "C", "value": "交易不可分割，需完全成功或完全失敗" },
+        { "key": "D", "value": "系統會自動同步交易資料至所有節點" }
+      ],
+      "answer": "C",
+      "explanation": "原子性（Atomicity）確保交易（Transaction）中的所有操作要麼全部完成，要麼全部不執行（Rollback），不會停留在中間狀態。",
+      "score": 2,
+      "tags": ["資料庫", "ACID"]
+    },
+    {
+      "id": "q8",
+      "type": "single_choice",
+      "questionText": "資料科學家為分析顧客行為，利用現有欄位「銷售金額」與「瀏覽次數」，計算出新變數「銷售金額/瀏覽次數」。此動作屬於下列哪一類特徵工程方法？",
+      "options": [
+        { "key": "A", "value": "特徵選擇（Feature Selection）" },
+        { "key": "B", "value": "特徵衍生（Feature Derivation）" },
+        { "key": "C", "value": "特徵轉換（Feature Transformation）" },
+        { "key": "D", "value": "分箱處理（Binning）" }
+      ],
+      "answer": "B",
+      "explanation": "利用現有特徵透過數學運算（如加減乘除）產生新特徵的過程，稱為特徵衍生（Derivation）或特徵建構（Construction）。",
+      "score": 2,
+      "tags": ["特徵工程", "特徵衍生"]
+    },
+    {
+      "id": "q9",
+      "type": "single_choice",
+      "questionText": "在進行數值特徵的標準化（Normalization）時，若資料中存在極端值（Outliers），下列哪一種方法最適合使用？",
+      "options": [
+        { "key": "A", "value": "Min-Max正規化（Min-Max Scaling）" },
+        { "key": "B", "value": "Z-score標準化（Z-score Normalization）" },
+        { "key": "C", "value": "穩健縮放（Robust Scaling）" },
+        { "key": "D", "value": "標準分箱（Standard Binning）" }
+      ],
+      "answer": "C",
+      "explanation": "Robust Scaling 使用中位數（Median）和四分位距（IQR）進行縮放，這兩個統計量對離群值（Outliers）較不敏感，因此適合含極端值的資料。",
+      "score": 2,
+      "tags": ["特徵工程", "資料標準化"]
+    },
+    {
+      "id": "q10",
+      "type": "single_choice",
+      "questionText": "下列哪一種情境最適合應用異常偵測（Anomaly Detection）技術？",
+      "options": [
+        { "key": "A", "value": "根據歷史銷售資料預測特定商品在旺季期間是否會出現供貨短缺，以提前調整庫存策略" },
+        { "key": "B", "value": "透過信用風險模型預測顧客是否可能發生違約，以輔助核貸決策" },
+        { "key": "C", "value": "即時分析金融交易資料流，偵測與平常交易行為明顯不同的可疑交易紀錄" },
+        { "key": "D", "value": "監控線上服務平台的使用者登入次數，預測次日的登入量變化趨勢" }
+      ],
+      "answer": "C",
+      "explanation": "異常偵測旨在找出偏離正常模式的稀有事件。詐欺偵測（C）是經典應用。A 是預測/分類，B 是風險評估（分類），D 是時間序列預測。",
+      "score": 2,
+      "tags": ["異常偵測", "應用場景"]
+    },
+    {
+      "id": "q11",
+      "type": "single_choice",
+      "questionText": "若一家公司需即時監控大量物聯網裝置的異常行為，下列哪一種組合最適合此應用？",
+      "options": [
+        { "key": "A", "value": "傳統關聯式資料庫+圖形視覺化" },
+        { "key": "B", "value": "批次資料處理+雲端備份" },
+        { "key": "C", "value": "大數據平台+即時資料分析技術" },
+        { "key": "D", "value": "Word文件+手動標註" }
+      ],
+      "answer": "C",
+      "explanation": "IoT 裝置產生大量且快速的串流資料，需要大數據平台處理高吞吐量，並結合即時分析（Real-time Analysis）來達成即時監控。",
+      "score": 2,
+      "tags": ["大數據", "IoT"]
+    },
+    {
+      "id": "q12",
+      "type": "single_choice",
+      "questionText": "在處理分類問題時，若某一類樣本數明顯少於其他類別，研究人員可能採用隨機過採樣（Random Oversampling）以平衡資料比例，此方法最常造成下列哪一種問題？",
+      "options": [
+        { "key": "A", "value": "增加過擬合風險" },
+        { "key": "B", "value": "降低模型的收斂速度" },
+        { "key": "C", "value": "減少資料總筆數數量" },
+        { "key": "D", "value": "導致訓練資料欄位缺失" }
+      ],
+      "answer": "A",
+      "explanation": "隨機過採樣是單純複製少數類別的樣本。如果模型反覆學習完全相同的樣本，容易對這些特定樣本產生過擬合（Overfitting），降低泛化能力。",
+      "score": 2,
+      "tags": ["資料不平衡", "過擬合"]
+    },
+    {
+      "id": "q13",
+      "type": "single_choice",
+      "questionText": "下列何者為同態加密（Homomorphic Encryption）技術的核心特性？",
+      "options": [
+        { "key": "A", "value": "將資料轉換為匿名識別碼以隱藏身分" },
+        { "key": "B", "value": "對資料進行標準化處理以提升模型精度" },
+        { "key": "C", "value": "自動偵測與排除異常值" },
+        { "key": "D", "value": "可直接在加密狀態下進行數據運算" }
+      ],
+      "answer": "D",
+      "explanation": "同態加密允許在密文（Encrypted data）上直接進行運算，解密後的結果與在明文上運算的結果一致，這使得隱私保護下的雲端運算成為可能。",
+      "score": 2,
+      "tags": ["隱私保護", "同態加密"]
+    },
+    {
+      "id": "q14",
+      "type": "single_choice",
+      "questionText": "某組資料共 10項標籤如下：A, A, A, A, A, B, B, B, B, B。若該標籤僅有 A、B兩種，請問這組資料的「正規化吉尼不純度（Normalized Gini impurity）」為何？",
+      "options": [
+        { "key": "A", "value": "0" },
+        { "key": "B", "value": "0.42" },
+        { "key": "C", "value": "0.84" },
+        { "key": "D", "value": "1" }
+      ],
+      "answer": "D",
+      "explanation": "A與B各5個，機率均為0.5。Gini = 1 - (0.5^2 + 0.5^2) = 0.5。二元分類中 Gini 最大值為 0.5。正規化 Gini 通常指除以最大值，0.5 / 0.5 = 1，表示最混亂（最不純）的狀態。",
+      "score": 2,
+      "tags": ["機器學習", "決策樹"]
+    },
+    {
+      "id": "q15",
+      "type": "single_choice",
+      "questionText": "某家客服中心統計資料發現，平均每小時會接到約 20通顧客來電，但每分鐘的來電數量不固定，可能為 0、1、2 通不等。這些來電事件彼此獨立，且在短時間內，發生的機率與時間長短成正比。若要以機率模型描述「每分鐘接到幾通來電」的機率分佈，下列哪一種最適合使用？",
+      "options": [
+        { "key": "A", "value": "均勻分佈（Uniform distribution）" },
+        { "key": "B", "value": "指數分佈（Exponential distribution）" },
+        { "key": "C", "value": "卜瓦松分佈（Poisson distribution）" },
+        { "key": "D", "value": "常態分佈（Normal distribution）" }
+      ],
+      "answer": "C",
+      "explanation": "卜瓦松分佈（Poisson distribution）適用於描述在固定時間間隔或區域內，稀有隨機事件發生的次數（如每分鐘來電數）。",
+      "score": 2,
+      "tags": ["統計學", "機率分佈"]
+    },
+    {
+      "id": "q16",
+      "type": "single_choice",
+      "questionText": "某金融科技公司以 Z分數（Z-Score）監控交易金額異常狀況。若交易金額平均為新台幣 2,000 元，標準差為 400 元，某筆交易金額為 3,200 元，且公司以 |Z| ≥ 3 判定為異常值（Outlier），下列判斷何者最為正確？",
+      "options": [
+        { "key": "A", "value": "該筆交易的 Z分數為 3，應標記為異常值" },
+        { "key": "B", "value": "該筆交易的 Z分數為 2.5，屬於合理變異範圍" },
+        { "key": "C", "value": "該筆交易的 Z分數為 2，顯示模型標準差估計過高" },
+        { "key": "D", "value": "該筆交易的 Z分數為 1.5，無須納入異常檢測" }
+      ],
+      "answer": "A",
+      "explanation": "Z = (3200 - 2000) / 400 = 1200 / 400 = 3。因 Z = 3 符合 |Z| ≥ 3 的條件，故判定為異常值。",
+      "score": 2,
+      "tags": ["統計學", "異常偵測"]
+    },
+    {
+      "id": "q17",
+      "type": "single_choice",
+      "questionText": "某電商公司欲利用顧客行為資料建立消費預測模型，其中「會員等級」欄位包含「一般、白金、黑卡」三種類別。若模型採用梯度提升樹（Gradient Boosting Tree）演算法，資料科學家在進行特徵編碼時應特別注意下列何種情況？",
+      "options": [
+        { "key": "A", "value": "應優先採用獨熱編碼（One-Hot Encoding），以減少類別之間的相依性與記憶體使用量" },
+        { "key": "B", "value": "直接使用標籤編碼（Label Encoding）可能使模型誤判類別間存在順序關係，導致特徵重要性偏誤" },
+        { "key": "C", "value": "使用目標編碼（Target Encoding）會自動消除過擬合（Overfitting）風險" },
+        { "key": "D", "value": "若類別數量較少，建議先使用主成分分析（Principal Component Analysis, PCA）進行降維" }
+      ],
+      "answer": "B",
+      "explanation": "雖然樹模型對 Label Encoding 的容忍度比線性模型高，但若類別本身無序（或順序與目標無關），Label Encoding 仍可能引入錯誤的順序偏差（Ordinal Bias）。（註：One-Hot 通常記憶體使用量更高，Target Encoding 易過擬合）。",
+      "score": 2,
+      "tags": ["特徵工程", "編碼"]
+    },
+    {
+      "id": "q18",
+      "type": "single_choice",
+      "questionText": "某人工智慧團隊使用分散式資料庫（Distributed Database）儲存模型訓練資料，並在更新訓練樣本時啟用多節點交易。若其中一個節點在交易過程中發生錯誤，但系統仍確保整體資料不會出現部分更新、最終狀態維持一致，下列何者最能說明此現象？",
+      "options": [
+        { "key": "A", "value": "系統透過原子性（Atomicity）確保交易必須全部成功或全部回復（Rollback）" },
+        { "key": "B", "value": "系統透過一致性（Consistency）確保交易完成後資料符合完整性規則" },
+        { "key": "C", "value": "系統透過隔離性（Isolation）避免多筆交易同時存取或修改相同資料" },
+        { "key": "D", "value": "系統透過持久性（Durability）確保交易一旦提交，其結果將永久保留於資料庫中" }
+      ],
+      "answer": "A",
+      "explanation": "原子性（Atomicity）保證交易是不可分割的整體，發生錯誤時會全數回滾（Rollback），防止資料處於部分更新的狀態。",
+      "score": 2,
+      "tags": ["資料庫", "分散式系統"]
+    },
+    {
+      "id": "q19",
+      "type": "single_choice",
+      "questionText": "某製造企業導入上萬台物聯網（IoT）感測器以進行設備健康監測。系統需在毫秒級回應異常事件，並同時將完整資料保留於雲端供後續 AI 模型訓練與分析。若企業希望兼顧即時性、資料完整性與可擴展性，下列哪一種資料流程設計最符合此目標？",
+      "options": [
+        { "key": "A", "value": "感測器 → 雲端 API Gateway → 分散式資料庫→ 批次特徵工程 → 模型推論" },
+        { "key": "B", "value": "感測器 → MQTT Broker → 雲端資料倉儲→ 即時儀表板→ 模型再訓練" },
+        { "key": "C", "value": "感測器 → 邊緣運算節點→ 流式資料處理框架（Stream Processing Framework）→ 雲端資料湖→ 模型推論" },
+        { "key": "D", "value": "感測器 → 本地快取層→ RESTful API → 雲端報表系統 → 模型批次更新" }
+      ],
+      "answer": "C",
+      "explanation": "典型的 IoT 大數據架構：感測器數據先經由串流框架（如 Kafka/Flink）處理以達到即時性，同時存入資料湖（Data Lake）以確保完整性供後續分析。",
+      "score": 2,
+      "tags": ["系統架構", "IoT"]
+    },
+    {
+      "id": "q20",
+      "type": "single_choice",
+      "questionText": "某銀行計畫將信用風險評估模型部署至雲端平台，以便即時分析客戶交易行為。由於涉及大量敏感金融資料，銀行要求雲端服務商在不解密原始資料的情況下仍能執行模型運算。為達成此目標，最適合採用下列哪一項技術？",
+      "options": [
+        { "key": "A", "value": "在上傳資料前進行匿名化（Anonymization），僅保留可識別代碼供比對使用" },
+        { "key": "B", "value": "利用雜湊（Hash）函數轉換資料，以確保模型可追蹤但無法還原個資" },
+        { "key": "C", "value": "採用資料本地化（Data Localization）策略，將所有模型訓練限制於內部伺服器中" },
+        { "key": "D", "value": "透過同態加密（Homomorphic Encryption），讓雲端系統能直接在加密資料上執行運算，解密後結果與原始資料一致" }
+      ],
+      "answer": "D",
+      "explanation": "同態加密（Homomorphic Encryption）允許在加密狀態下進行運算，是解決雲端運算隱私問題的關鍵技術。",
+      "score": 2,
+      "tags": ["隱私保護", "同態加密"]
+    },
+    {
+      "id": "q21",
+      "type": "single_choice",
+      "questionText": "某資料分析師設計在業務績效報告時，希望單一頁面中同時呈現多區域、不同產品線的銷售趨勢變化，並確保主管能在短時間內掌握整體資料走向。若依據 Edward Rolf Tufte 的數據密度（Data Density） 原則，下列哪一種設計方式最能符合該概念？",
+      "options": [
+        { "key": "A", "value": "將每個區域的銷售資料分成多張獨立折線圖，以避免資訊重疊" },
+        { "key": "B", "value": "使用顏色區分產品線，於同一圖表中整合多區域趨勢線，保持比例一致且標註清晰" },
+        { "key": "C", "value": "移除所有輔助線與標籤，僅保留主要折線以凸顯趨勢" },
+        { "key": "D", "value": "將資料轉換為表格形式，確保數值精確呈現並取代圖表視覺化" }
+      ],
+      "answer": "B",
+      "explanation": "Tufte 強調高數據密度，即在有限空間內呈現最大量的資訊。將多維度資訊整合在單一圖表中（如 Small Multiples 或整合圖表）比分散的多張圖表更有效率。",
+      "score": 2,
+      "tags": ["資料視覺化", "Tufte原則"]
+    },
+    {
+      "id": "q22",
+      "type": "single_choice",
+      "questionText": "某投資研究員希望分析四檔科技類股（A、B、C、D）每日報酬率的變化趨勢，以判斷這些股票之間是否存在高度相關性與共變動性，並評估投資組合分散風險的程度。若研究員希望以單一圖表快速呈現各股票間的關聯強度與方向，下列哪一種視覺化呈現方式最適合？",
+      "options": [
+        { "key": "A", "value": "為每檔股票各自繪製直方圖（Histogram）以比較報酬率分佈" },
+        { "key": "B", "value": "針對任兩檔股票繪製散佈圖並加上趨勢線（Regression Line）" },
+        { "key": "C", "value": "使用雙軸折線圖（Dual-axis Line Chart）同時顯示四檔股價變化" },
+        { "key": "D", "value": "熱力圖（Heatmap）配合相關係數矩陣（Correlation Matrix）" }
+      ],
+      "answer": "D",
+      "explanation": "熱力圖（Heatmap）是展示相關係數矩陣的標準方式，能透過顏色深淺直觀呈現多變數之間的相關性強度（-1 到 1）。",
+      "score": 2,
+      "tags": ["資料視覺化", "熱力圖"]
+    },
+    {
+      "id": "q23",
+      "type": "single_choice",
+      "questionText": "某研究團隊以單樣本 t檢定（one-sample t-test）檢驗「新行銷策略後的平均月銷售額是否與原本的 100 萬元不同」，顯著水準設定為 α = 0.05。檢定結果顯示：p值=0.08，且 95%信賴區間為 [95 萬元, 108 萬元]。根據上述結果，下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "因 p值< 0.05，可拒絕虛無假設" },
+        { "key": "B", "value": "若顯著水準改為 0.10，仍不顯著" },
+        { "key": "C", "value": "因 100 萬元落在信賴區間內，無法拒絕虛無假設" },
+        { "key": "D", "value": "信賴區間寬度僅與顯著水準有關" }
+      ],
+      "answer": "C",
+      "explanation": "P值 (0.08) > α (0.05)，且虛無假設值 (100萬) 包含在信賴區間  內，因此統計上無法拒絕虛無假設（即無顯著差異）。",
+      "score": 2,
+      "tags": ["統計學", "假設檢定"]
+    },
+    {
+      "id": "q24",
+      "type": "single_choice",
+      "questionText": "某企業建置生成式 AI 系統，利用大量客服紀錄與產品評論資料訓練語言模型，以自動生成客服回覆與知識摘要。由於資料來源多樣，且包含非結構化文字、影像與表格資訊，團隊希望在不降低模型效能的前提下，提升資料處理效率與一致性，下列哪一種資料處理策略最適合？",
+      "options": [
+        { "key": "A", "value": "建立資料湖（Data Lake）結構，並以 Apache Spark或 Ray進行分散式資料預處理與特徵抽取，再串接至模型訓練管線（Pipeline）" },
+        { "key": "B", "value": "採用單節點高效能伺服器搭配批次處理模式，集中執行資料清理與格式轉換" },
+        { "key": "C", "value": "將所有文字資料轉換為向量，並以資料庫索引方式直接餵入語言模型訓練" },
+        { "key": "D", "value": "使用生成式模型先行自動清理資料內容，再將結果輸入至下游訓練流程" }
+      ],
+      "answer": "A",
+      "explanation": "面對多樣化（非結構化）且大量的資料，資料湖搭配分散式運算框架（Spark/Ray）是目前處理 AI 大數據管道（Pipeline）的主流且高效架構。",
+      "score": 2,
+      "tags": ["大數據", "資料架構"]
+    },
+    {
+      "id": "q25",
+      "type": "single_choice",
+      "questionText": "某電商資料團隊繪製顧客單筆消費金額的箱型圖後發現：四分位距（IQR）範圍極小，但上鬚線拉得很長，且在高金額區域有多筆離群值。若希望協助行銷部門依據消費層級設計分群策略，下列哪一種視覺化方式最有助於凸顯不同消費層級間的差異？",
+      "options": [
+        { "key": "A", "value": "以對數刻度繪製箱型圖或長條圖，放大高金額消費族群的變化差異" },
+        { "key": "B", "value": "移除所有離群值，確保資料呈現集中分布" },
+        { "key": "C", "value": "採用等距分箱（Equal-Width Binning）方式分群" },
+        { "key": "D", "value": "改以折線圖（Line Chart）觀察時間變化趨勢" }
+      ],
+      "answer": "A",
+      "explanation": "當資料呈現高度偏態（長尾分佈）時，對數轉換（Log Scale）可以壓縮極端值差距，讓不同數量級的數據分布特徵更清晰地呈現出來。",
+      "score": 2,
+      "tags": ["資料視覺化", "資料分佈"]
+    },
+    {
+      "id": "q26",
+      "type": "single_choice",
+      "questionText": "某串流影音平台運用關聯規則學習（Association Rule Learning）分析用戶的觀影行為，發現若使用者觀看了科幻影集，則有較高機率接著觀看超級英雄電影。分析顯示，同時觀看這兩種類型的使用者約佔全部觀影紀錄的 12%，而觀看科幻影集的使用者中，有 50%也觀看了超級英雄電影，該規則的提升度（Lift）為 1.8。根據上述資訊，下列哪一項推論最為正確？",
+      "options": [
+        { "key": "A", "value": "支持度（Support）過低，代表此規則不具任何商業價值" },
+        { "key": "B", "value": "提升度（Lift）大於 1 表示兩種類型內容無關，僅屬於隨機重疊" },
+        { "key": "C", "value": "信賴度（Confidence）為 50%，代表觀看科幻影集者有明顯傾向觀看超級英雄電影" },
+        { "key": "D", "value": "同時觀看比例僅 12%，代表兩種類型互相排斥" }
+      ],
+      "answer": "C",
+      "explanation": "信賴度（Confidence）定義為 P(B|A)，即在 A 發生的條件下 B 發生的機率。題目指出「觀看科幻影集的使用者中，有 50%也觀看了超級英雄電影」，即 Confidence = 50%。Lift > 1 代表正相關。",
+      "score": 2,
+      "tags": ["關聯規則", "資料分析"]
+    },
+    {
+      "id": "q27",
+      "type": "single_choice",
+      "questionText": "某金融科技公司分析每日上億筆交易資料，以監控客戶轉帳金額分佈與異常波動。由於資料量極大，為兼顧效率與準確度，團隊決定採用「近似分位數（Approximate Quantile）」方法進行資料摘要統計。下列何者最能正確反映該技術的核心目的？",
+      "options": [
+        { "key": "A", "value": "確保每個分位值的結果完全精確，即使計算時間較長" },
+        { "key": "B", "value": "利用機器學習模型預測分位數位置，以減少統計計算量" },
+        { "key": "C", "value": "僅能對結構化資料進行批次處理，無法應用於即時資料流" },
+        { "key": "D", "value": "在可容忍誤差範圍內，快速估算分位值以支援即時分析" }
+      ],
+      "answer": "D",
+      "explanation": "在大數據或串流資料中，精確計算分位數需要全排序，成本極高。近似演算法（如 T-Digest, KLL）旨在以極小的誤差換取極高的計算速度與低記憶體消耗。",
+      "score": 2,
+      "tags": ["大數據", "演算法"]
+    },
+    {
+      "id": "q28",
+      "type": "single_choice",
+      "questionText": "若在高維度（>500 維）的資料上應用 DBSCAN（Density-Based Spatial Clustering of Applications with Noise）演算法，卻發現所有資料點皆被判定為雜訊（Noise），下列何者為最有可能的原因？",
+      "options": [
+        { "key": "A", "value": "高維下距離變化趨同，導致 ε（Epsilon）閾值選擇失效" },
+        { "key": "B", "value": "使用錯誤的距離函數（Distance Function）" },
+        { "key": "C", "value": "MinPts參數設得太小" },
+        { "key": "D", "value": "資料過度標準化導致特徵消失" }
+      ],
+      "answer": "A",
+      "explanation": "這是「維度詛咒（Curse of Dimensionality）」的典型現象。在高維空間中，所有點之間的距離會趨於一致，導致很難區分「稠密」與「稀疏」區域，DBSCAN 依賴的距離密度定義因此失效。",
+      "score": 2,
+      "tags": ["分群", "維度詛咒"]
+    },
+    {
+      "id": "q29",
+      "type": "single_choice",
+      "questionText": "某團隊在開發風險評估模型時，使用主成分分析（Principal Component Analysis, PCA）進行降維。輸入資料包含三個數值欄位：「交易金額（單位：新台幣）」、「交易次數（次／月）」與「年齡（歲）」，其數值量級分別約為 10⁵、10¹與 10²。分析人員直接將原始數據帶入 PCA，結果第一主成分（PC1）幾乎完全由「交易金額」主導。下列哪一項作法或判斷最合理？",
+      "options": [
+        { "key": "A", "value": "這是正常現象，金額本身變異較大，應主導主要成分" },
+        { "key": "B", "value": "若改用特徵選擇法，可自動解決變數量級問題" },
+        { "key": "C", "value": "可刪除「交易金額」欄位以平衡各主成分的影響" },
+        { "key": "D", "value": "在進行 PCA前應先進行標準化（Standardization），以避免因數值尺度差異造成特徵偏誤" }
+      ],
+      "answer": "D",
+      "explanation": "PCA 是基於變異數（Variance）最大化的演算法。若未標準化，數值範圍大（量級高）的特徵會自然擁有超大變異數，從而主導主成分，掩蓋其他特徵的資訊。",
+      "score": 2,
+      "tags": ["PCA", "資料標準化"]
+    },
+    {
+      "id": "q30",
+      "type": "single_choice",
+      "questionText": "某行銷團隊想了解「廣告預算」與「銷售金額」之間的關聯程度。經繪製散佈圖後發現兩者呈現明顯線性趨勢，且資料中無明顯離群值（Outliers）。若希望衡量兩者之間線性關係的強度與方向，下列哪一種方法最適合？",
+      "options": [
+        { "key": "A", "value": "均方根誤差（Root Mean Squared Error, RMSE）" },
+        { "key": "B", "value": "共變異數（Covariance）" },
+        { "key": "C", "value": "皮爾森相關係數（Pearson Correlation Coefficient）" },
+        { "key": "D", "value": "平均絕對誤差（Mean Absolute Error, MAE）" }
+      ],
+      "answer": "C",
+      "explanation": "皮爾森相關係數（Pearson Correlation）專門用於衡量兩個連續變數之間的「線性」相關強度與方向，數值介於 -1 到 1 之間。",
+      "score": 2,
+      "tags": ["統計學", "相關分析"]
+    },
+    {
+      "id": "q31",
+      "type": "single_choice",
+      "questionText": "某電商團隊觀察到，每位顧客對廣告推播的點擊行為可視為一次伯努利試驗（Bernoulli Trial），單次點擊成功機率為 p=0.4。當推播對象擴增至 5,000位顧客時，團隊想快速預估「成功點擊總數」的分佈情形，以進行模型效能模擬與預測。若希望以常態分佈（Normal Distribution）近似原始分佈，下列哪一項判斷最為合理？",
+      "options": [
+        { "key": "A", "value": "因樣本數極大，可直接以常態分佈近似二項分佈（Binomial Distribution）" },
+        { "key": "B", "value": "只有當 np 與 n(1-p) 皆大於 5 時，才能以常態分佈作近似" },
+        { "key": "C", "value": "常態近似只適用於 p=0.5 的情況" },
+        { "key": "D", "value": "無論樣本數多大，二項分佈都不能以常態分佈近似" }
+      ],
+      "answer": "B",
+      "explanation": "根據中央極限定理的應用，二項分佈在 np > 5 且 n(1-p) > 5 時，可以近似為常態分佈。",
+      "score": 2,
+      "tags": ["統計學", "機率分佈"]
+    },
+    {
+      "id": "q32",
+      "type": "single_choice",
+      "questionText": "某電信公司導入生成式 AI客服系統，利用過去對話紀錄與用戶行為資料訓練語言模型，在資料治理與合規審查過程中，團隊發現模型可能會在回答中生成包含真實姓名、電話或交易資訊的內容。為確保系統符合個資法及生成式 AI的安全與隱私要求，下列哪一項作法最符合實務可行及法規原則？",
+      "options": [
+        { "key": "A", "value": "在訓練資料前進行資料匿名化（Anonymization）或偽匿名化（Pseudonymization）處理，並建立輸出內容稽核機制" },
+        { "key": "B", "value": "改以強化學習（Reinforcement Learning）微調模型，使模型學習避免產出真實資訊" },
+        { "key": "C", "value": "採用同態加密（Homomorphic Encryption）以加密所有文字輸入，確保模型無法辨識任何個資" },
+        { "key": "D", "value": "僅設定模型回覆時不顯示用戶姓名，即可視為隱私防護完成" }
+      ],
+      "answer": "A",
+      "explanation": "從源頭去除敏感個資（去識別化）是最根本的解決方案。後處理（D）或依賴模型學習（B）都有洩漏風險，而同態加密（C）在 LLM 訓練中技術尚未成熟且成本極高。",
+      "score": 2,
+      "tags": ["AI隱私", "資料治理"]
+    },
+    {
+      "id": "q33",
+      "type": "single_choice",
+      "questionText": "某金融機構的量化分析師在建立資產風險評估模型時，發現報酬率資料分佈明顯非對稱，且出現多次極端損失事件，使得傳統假設常態分佈的模型無法準確反映真實風險。若希望在不依賴常態分佈假設的前提下，採取更能捕捉資料極端情況的建模策略，下列哪一種方法最為合適？",
+      "options": [
+        { "key": "A", "value": "採用線性迴歸模型（Linear Regression Model），以常態分佈殘差（Residuals）為基礎進行推估" },
+        { "key": "B", "value": "使用平均數（Mean）與標準差（Standard Deviation）估計波動範圍" },
+        { "key": "C", "value": "將資料裁剪至 ±3σ 範圍內以排除異常值影響" },
+        { "key": "D", "value": "採用分位數回歸模型（Quantile Regression Model），聚焦於尾部分位（Tail Quantiles）以評估極端風險" }
+      ],
+      "answer": "D",
+      "explanation": "分位數回歸（Quantile Regression）不假設誤差為常態分佈，且能針對特定分位點（如 99% 風險值 VaR）進行建模，非常適合處理厚尾（Fat-tailed）與極端值風險。",
+      "score": 2,
+      "tags": ["統計學", "風險模型"]
+    },
+    {
+      "id": "q34",
+      "type": "single_choice",
+      "questionText": "在圖形資料庫（Graph Database）中建模社群平台資料時，若每筆「按讚」行為都包含時間戳記（Timestamp）與裝置類型（Device Type）等資訊。若希望同時保留使用者與貼文之間的互動關係，並能有效查詢「按讚」的行為屬性，下列哪一種設計方式最為合適？",
+      "options": [
+        { "key": "A", "value": "將「按讚」視為節點（Node），與使用者建立邊（Edge）" },
+        { "key": "B", "value": "將「按讚」資訊作為邊的屬性（Property）儲存，連結使用者與被按讚的貼文節點" },
+        { "key": "C", "value": "把「按讚」資訊直接寫入使用者節點中作為屬性" },
+        { "key": "D", "value": "建立「按讚紀錄表」並將資料存入關聯式資料庫" }
+      ],
+      "answer": "B",
+      "explanation": "在屬性圖（Property Graph）模型中，邊（Edge）可以擁有屬性。將「按讚」設計為邊，並將時間戳記作為邊的屬性，是表達實體間互動關係最自然且高效的方式。",
+      "score": 2,
+      "tags": ["資料庫", "圖形資料庫"]
+    },
+    {
+      "id": "q35",
+      "type": "single_choice",
+      "questionText": "某企業欲建構知識圖譜（Knowledge Graph），以整合內部的研究報告、專利資料與專家知識，並支援語意查詢與關聯推理。若希望模型能具備良好的語意擴展性與高效推理能力，下列哪一種圖模型設計最為合適？",
+      "options": [
+        { "key": "A", "value": "僅以節點（Node）與邊（Edge）表示，所有資訊存放於節點屬性中" },
+        { "key": "B", "value": "將資料結構建為 RDF（Resource Description Framework）三元組（Subject–Predicate–Object）" },
+        { "key": "C", "value": "使用文件型資料庫儲存內容，並以標籤（Tag）連接節點" },
+        { "key": "D", "value": "採用關聯式資料庫儲存對應關係，並搭配預建索引加速查詢" }
+      ],
+      "answer": "B",
+      "explanation": "RDF 是知識圖譜的標準資料模型，支援語意推理（Reasoning）與本體論（Ontology），適合需要高度互通性與推理能力的知識整合場景。",
+      "score": 2,
+      "tags": ["知識圖譜", "RDF"]
+    },
+    {
+      "id": "q36",
+      "type": "single_choice",
+      "questionText": "某研究人員欲使用線性迴歸模型（Linear Regression Model）分析變數 Y與 X之間的關係，但發現 Y的分佈明顯右偏，且其變異數隨 X 的增大而增加（異質變異數）。為滿足模型假設並提升配適效果，下列哪一種前處理方法最為合適？",
+      "options": [
+        { "key": "A", "value": "對 X進行標準化（Standardization）" },
+        { "key": "B", "value": "對 Y進行 Box–Cox轉換（Box–Cox Transformation）" },
+        { "key": "C", "value": "對資料進行一次差分（First Differencing）" },
+        { "key": "D", "value": "將 Y中變異較大的樣本移除" }
+      ],
+      "answer": "B",
+      "explanation": "Box-Cox 轉換能將非常態分佈的資料轉換為近似常態分佈，同時也有助於穩定變異數（Stabilize Variance），解決異質變異數問題。",
+      "score": 2,
+      "tags": ["統計學", "資料轉換"]
+    },
+    {
+      "id": "q37",
+      "type": "single_choice",
+      "questionText": "若開發一個用於罕見疾病自動診斷的分類模型，目前資料集中確診樣本僅佔不到 1%，且因為標註成本高，短期內無法取得更多資料。在此情況下，若希望提升模型對少數類的偵測能力，同時避免過擬合，下列哪一種策略最為合理？",
+      "options": [
+        { "key": "A", "value": "對少數類進行隨機過採樣（Random Oversampling）" },
+        { "key": "B", "value": "對多數類進行欠採樣（Random Undersampling）" },
+        { "key": "C", "value": "使用 SMOTE（Synthetic Minority Over-sampling Technique）生成合成少數類樣本後再訓練分類模型" },
+        { "key": "D", "value": "僅使用現有資料調整模型決策閾值（Decision Threshold）以提升召回率" }
+      ],
+      "answer": "C",
+      "explanation": "SMOTE 透過插值生成新的少數類樣本，而非單純複製，能有效緩解資料不平衡並減少隨機過採樣帶來的過擬合風險。",
+      "score": 2,
+      "tags": ["資料不平衡", "SMOTE"]
+    },
+    {
+      "id": "q38",
+      "type": "single_choice",
+      "questionText": "一家製造廠評估新生產線推出後，產品良率是否較原生產線提升。工程師分別從兩條生產線各抽樣 100 件產品，原生產線良率為 95%，新生產線為 97%。若欲檢定兩條生產線良率的差異是否具有統計意義，下列哪一種方法最為合適？",
+      "options": [
+        { "key": "A", "value": "雙樣本平均數 t 檢定（Two-sample t-test）" },
+        { "key": "B", "value": "雙比例 Z 檢定（Two-proportion Z-test）" },
+        { "key": "C", "value": "卡方檢定（Chi-square test）" },
+        { "key": "D", "value": "變異數分析（ANOVA）" }
+      ],
+      "answer": "B",
+      "explanation": "良率是「比例（Proportion）」（如 0.95 vs 0.97），檢定兩個獨立樣本的比例差異，應使用雙比例 Z 檢定。",
+      "score": 2,
+      "tags": ["統計學", "假設檢定"]
+    },
+    {
+      "id": "q39",
+      "type": "single_choice",
+      "questionText": "若評估一個新開發的腫瘤分類模型，其資料集中有 80%的樣本來自良性病 例。若直接使用 5-fold交叉驗證（Cross-Validation） 進行模型評估， 可能導致模型效能評估出現偏差，為避免此問題，下列哪一種作法最合適？",
+      "options": [
+        { "key": "A", "value": "降低 K值以減少交叉驗證次數" },
+        { "key": "B", "value": "改為使用拔靴法（Bootstrap）" },
+        { "key": "C", "value": "調整測試集使良性樣本比例更高，以模擬真實分佈" },
+        { "key": "D", "value": "使用分層交叉驗證（Stratified K-Fold Cross-Validation），以確保每折類別比例一致" }
+      ],
+      "answer": "D",
+      "explanation": "在類別不平衡的資料中，普通的 K-Fold 可能導致某個 Fold 完全沒有少數類樣本。分層（Stratified）K-Fold 能確保每個 Fold 的類別比例與原始資料一致。",
+      "score": 2,
+      "tags": ["模型評估", "交叉驗證"]
+    },
+    {
+      "id": "q40",
+      "type": "single_choice",
+      "questionText": "參考以下演算法邏輯：『對 i = 1 到 N: 將第 i 筆資料作為測試集，其餘 N-1 筆作為訓練集；訓練模型並評估；最後計算平均指標。』請問此虛擬程式碼最可能是在描述何種驗證法？",
+      "options": [
+        { "key": "A", "value": "Hold-out 驗證（Hold-out Validation）" },
+        { "key": "B", "value": "留一交叉驗證 LOOCV（ Leave-One-Out Cross Validation）" },
+        { "key": "C", "value": "K-fold 交叉驗證（K-fold Cross Validation）" },
+        { "key": "D", "value": "拔靴法（Bootstrap）驗證" }
+      ],
+      "answer": "B",
+      "explanation": "每次只留一筆資料當測試集，其餘當訓練集，重複 N 次。這正是「留一交叉驗證（LOOCV）」的定義。",
+      "score": 2,
+      "tags": ["模型評估", "交叉驗證"]
+    },
+    {
+      "id": "q41",
+      "type": "single_choice",
+      "questionText": "參考以下演算法邏輯：『隨機選擇 X 個中心；重複步驟：1.將資料點分派給最近的中心 2.更新中心為該群平均值；直到中心不再變動。』請問此虛擬程式碼最可能是在描述何種演算法？",
+      "options": [
+        { "key": "A", "value": "K-means分群（K-means Clustering）" },
+        { "key": "B", "value": "高斯混合模型分群（Gaussian Mixture Model Clustering）" },
+        { "key": "C", "value": "階層式分群（Hierarchical Clustering）" },
+        { "key": "D", "value": "DBSCAN分群" }
+      ],
+      "answer": "A",
+      "explanation": "隨機選中心 -> 指派最近點 -> 更新中心（取平均），這是 K-means 分群演算法的標準迭代步驟。",
+      "score": 2,
+      "tags": ["機器學習", "分群"]
+    },
+    {
+      "id": "q42",
+      "type": "single_choice",
+      "questionText": "考慮某生產線每小時出現瑕疵品的個數符合卜瓦松分佈（Poisson Distribution），已知平均每小時產生 5個瑕疵品 (`lambda_poisson = 5`)，程式碼執行 `poisson.pmf(5, lambda_poisson)`。請問下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "lambda_poisson = 5 表示每小時最多 5個瑕疵品" },
+        { "key": "B", "value": "poisson.pmf(5, lambda_poisson) 表示小於 5個瑕疵品的機率" },
+        { "key": "C", "value": "卜瓦松分佈的適用條件為事件彼此獨立，且平均發生率固定" },
+        { "key": "D", "value": "poisson.cdf(10, 5) 表示大於或等於 10個瑕疵品的機率" }
+      ],
+      "answer": "C",
+      "explanation": "A錯（lambda是平均值非最大值）；B錯（pmf是「等於」5的機率，小於用cdf）；D錯（cdf是「小於等於」，大於等於要用 1-cdf）。C 正確描述了 Poisson 分佈的前提。",
+      "score": 2,
+      "tags": ["統計學", "Python"]
+    },
+    {
+      "id": "q43",
+      "type": "single_choice",
+      "questionText": "基於遊戲銷售資料集(vgsales.csv)。分析師載入資料後，發現 Year 欄位是 float64 而非整數。請問下列哪些原因可能導致這種狀況？\n(原因A) CSV檔中 Year欄位有缺失值(NaN)；(原因B) 年份資料是字串；(原因C) Pandas預設；(原因D) 資料包含小數點。",
+      "options": [
+        { "key": "A", "value": "原因 B、原因 C" },
+        { "key": "B", "value": "原因 A、原因 D" },
+        { "key": "C", "value": "原因 A、原因 B、原因 D" },
+        { "key": "D", "value": "原因 C、原因 D" }
+      ],
+      "answer": "B",
+      "explanation": "在 Pandas 中，整數欄位若包含 NaN（缺失值），會被強制轉換為 float（因為傳統 NumPy int 不支援 NaN）。此外，若 CSV 本身寫成 2006.0 格式也會讀成 float。",
+      "score": 2,
+      "tags": ["Pandas", "資料處理"]
+    },
+    {
+      "id": "q44",
+      "type": "single_choice",
+      "questionText": "基於遊戲銷售資料集(vgsales.csv)。研究團隊想要將 Year 欄位轉換為整數型態，考慮到資料中可能包含缺失值（NaN），請選出最合適的轉換方式。",
+      "options": [
+        { "key": "A", "value": "data['Year'] = data['Year'].astype(int)" },
+        { "key": "B", "value": "data['Year'] = data['Year'].fillna(0).astype(int)" },
+        { "key": "C", "value": "data['Year'] = data['Year'].fillna(1).astype(int)" },
+        { "key": "D", "value": "data['Year'] = data['Year'].astype('Int64')" }
+      ],
+      "answer": "D",
+      "explanation": "Pandas 提供了可空整數型別 `Int64`（注意大寫 I），允許整數欄位中存在 NaN，這是最現代且正確的處理方式。A 會報錯，B/C 會填補錯誤年份。",
+      "score": 2,
+      "tags": ["Pandas", "資料型態"]
+    },
+    {
+      "id": "q45",
+      "type": "single_choice",
+      "questionText": "基於遊戲銷售資料集(vgsales.csv)。分析師想要統計每個平台（Platform）的全球銷售總額（Global_Sales），並以長條圖呈現。請選出最能正確實現此分析的程式碼。",
+      "options": [
+        { "key": "A", "value": "data.groupby(\"Platform\")[\"Global_Sales\"].sum().plot(kind=\"bar\")" },
+        { "key": "B", "value": "data.groupby(\"Platform\")[\"Global_Sales\"].count().plot(kind=\"bar\")" },
+        { "key": "C", "value": "data[\"Platform\"].value_counts().plot(kind=\"bar\")" },
+        { "key": "D", "value": "data.groupby(\"Platform\")[\"Global_Sales\"].mean().plot(kind=\"bar\")" }
+      ],
+      "answer": "A",
+      "explanation": "題目要求「銷售總額」，因此需使用 `sum()` 聚合函數。`count()` 或 `value_counts()` 是計算遊戲數量，`mean()` 是計算平均銷量。",
+      "score": 2,
+      "tags": ["Pandas", "資料視覺化"]
+    },
+    {
+      "id": "q46",
+      "type": "single_choice",
+      "questionText": "基於遊戲銷售資料集(vgsales.csv)。團隊希望比較北美、歐洲、日本及其他地區的整體銷售比例，並使用 seaborn套件以長條圖的形式進行可視化分析。請選出能正確顯示這些地區銷售總額比例的程式碼。",
+      "options": [
+        { "key": "A", "value": "sns.countplot(x=[\"NA_Sales\"...], data=data)" },
+        { "key": "B", "value": "sns.lineplot(x=\"Platform\", y=[\"NA_Sales\"...], data=data)" },
+        { "key": "C", "value": "sns.barplot(x=\"variable\", y=\"value\", data=pd.melt(data, value_vars=[\"NA_Sales\"...]), estimator=sum)" },
+        { "key": "D", "value": "sns.histplot(data[[\"NA_Sales\"...]])" }
+      ],
+      "answer": "C",
+      "explanation": "Seaborn 通常需要長格式（Long-form）資料。`pd.melt` 能將多個銷售欄位（寬格式）轉為長格式（variable 為地區, value 為銷量），再用 `barplot` 搭配 `estimator=sum` 計算總額。",
+      "score": 2,
+      "tags": ["Seaborn", "資料視覺化"]
+    },
+    {
+      "id": "q47",
+      "type": "single_choice",
+      "questionText": "基於遊戲銷售資料集(vgsales.csv)。研究團隊想要知道在北美地區（NA）銷售成績最好的遊戲前五名，並希望以 seaborn的條狀圖呈現結果。請選出能正確完成這項分析的程式碼。",
+      "options": [
+        { "key": "A", "value": "sns.barplot(x=\"NA_Sales\", y=\"Name\", data=data.head(5))" },
+        { "key": "B", "value": "sns.barplot(x=\"Name\", y=\"NA_Sales\", data=data.nlargest(5, \"NA_Sales\"))" },
+        { "key": "C", "value": "sns.lineplot(x=\"Name\", y=\"NA_Sales\", data=data.nlargest(5, \"NA_Sales\"))" },
+        { "key": "D", "value": "sns.countplot(x=\"Name\", y=\"NA_Sales\", data=data)" }
+      ],
+      "answer": "B",
+      "explanation": "要找前五名需使用 `nlargest(5, 'NA_Sales')`。`barplot` 適合繪製類別（遊戲名稱）與數值（銷量）的關係。`head(5)` 只是取前五列，未排序。",
+      "score": 2,
+      "tags": ["Seaborn", "Pandas"]
+    },
+    {
+      "id": "q48",
+      "type": "single_choice",
+      "questionText": "基於行銷資料集(marketing.csv)。根據 `df.describe()` 結果：count=200(sales), mean=16.827(sales), min=1.92, Q1=89.25(youtube), Q3=43.68(facebook)。下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "資料集個數為 199筆" },
+        { "key": "B", "value": "sales變數的中位數是 16.827" },
+        { "key": "C", "value": "facebook變數的第三四分位數(Q3)是 11.94" },
+        { "key": "D", "value": "youtube變數的第一四分位數(Q1)是 89.25" }
+      ],
+      "answer": "D",
+      "explanation": "根據 `describe()` 輸出表格直接對照：A錯（Sales count 200）；B錯（Mean是16.827，Median是50%分位數15.48）；C錯（Facebook Q3是43.68）；D正確（Youtube 25%分位數為89.25）。",
+      "score": 2,
+      "tags": ["Pandas", "敘述性統計"]
+    },
+    {
+      "id": "q49",
+      "type": "single_choice",
+      "questionText": "基於行銷資料集(marketing.csv)。若要計算各變數的遺漏值(NaN)個數，下列哪些語法正確？\n選項 A: df.isnull().sum()\n選項 B: df.isNaN().sum()\n選項 C: df.isna().sum()\n選項 D: df.isnan().sum()",
+      "options": [
+        { "key": "A", "value": "選項 D" },
+        { "key": "B", "value": "選項 B、選項 C、選項 D" },
+        { "key": "C", "value": "選項 A、選項 C" },
+        { "key": "D", "value": "選項 A、選項 B、選項 C" }
+      ],
+      "answer": "C",
+      "explanation": "Pandas 中檢查缺失值的函數是 `isnull()` 和 `isna()`（兩者別名，功能相同）。`isNaN` 是 NumPy 或 JavaScript 的寫法，Pandas DataFrame 沒有 `isnan()` 方法。",
+      "score": 2,
+      "tags": ["Pandas", "缺失值"]
+    },
+    {
+      "id": "q50",
+      "type": "single_choice",
+      "questionText": "基於行銷資料集(marketing.csv)。執行線性迴歸分析 `reg = LinearRegression().fit(X, y)` 後，截距項係數(const)為 3.5561。關於程式碼填空與結果解讀，下列組合何者正確？(B: fit語法正確, F: 截距項正確)",
+      "options": [
+        { "key": "A", "value": "B、C、F" },
+        { "key": "B", "value": "B、F" },
+        { "key": "C", "value": "A、C、D、F" },
+        { "key": "D", "value": "B、E" }
+      ],
+      "answer": "B",
+      "explanation": "B正確：Sklearn 的 `fit` 語法是 `fit(X, y)`。F正確：OLS 表格顯示 const coef 為 3.5561。E錯誤：newspaper 的 P值 0.914 > 0.05，不顯著。C錯誤：`reg.coef_` 通常不含截距（截距在 `reg.intercept_`）。",
+      "score": 2,
+      "tags": ["Python", "迴歸分析"]
+    }
+  ]
+}
