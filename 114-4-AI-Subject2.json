@@ -1,0 +1,759 @@
+{
+  "level": "junior",
+  "type": "生成式 AI 應用與規劃",
+  "quiz_id": "114-4-AI-Subject2",
+  "title": "114年第四梯次初級AI應用規劃師第二科：生成式AI應用與規劃",
+  "exam_date": "2025-11-01",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "questionText": "在 Low Code 平台的開發應用設計中，關於「模型（Model）」，下列敘述何者最符合實際情況？",
+      "options": [
+        { "key": "A", "value": "模型僅扮演設計視覺化的輔助工具，對應用邏輯的影響有限" },
+        { "key": "B", "value": "模型是用來抽象描述資料結構、業務流程與介面邏輯的核心元素，影響應用的設計與維護" },
+        { "key": "C", "value": "模型僅依循 UML（Unified Modeling Language）等傳統建模方式，缺乏針對 Low Code 環境的延展性" },
+        { "key": "D", "value": "模型在 Low Code 平台中已被自動程式碼生成全面取代，實際價值有限" }
+      ],
+      "answer": "B",
+      "explanation": "在 Low Code 平台中，「模型驅動（Model-Driven）」是核心概念。模型不僅是視覺圖表，更是定義資料關聯、流程邏輯與介面行為的抽象層，平台會依據模型自動生成應用程式。",
+      "score": 2,
+      "tags": ["Low Code", "應用開發"]
+    },
+    {
+      "id": "q2",
+      "type": "single_choice",
+      "questionText": "企業在導入生成式 AI平台時，往往需要利用分散於不同部門或機構中的大量敏感文本資料。若希望在確保隱私的前提下，仍能讓模型持續優化並降低資料外洩風險，下列哪一種方法最適合？",
+      "options": [
+        { "key": "A", "value": "同態加密（Homomorphic Encryption）" },
+        { "key": "B", "value": "安全多方計算（Secure Multi-party Computation）" },
+        { "key": "C", "value": "零知識證明（Zero-knowledge Proofs）" },
+        { "key": "D", "value": "聯邦學習（Federated Learning）" }
+      ],
+      "answer": "D",
+      "explanation": "聯邦學習（Federated Learning）允許模型在各個本地端（如不同部門或機構的伺服器）進行訓練，僅將更新的參數回傳至中央伺服器，原始敏感數據不需離開本地。",
+      "score": 2,
+      "tags": ["隱私保護", "聯邦學習"]
+    },
+    {
+      "id": "q3",
+      "type": "single_choice",
+      "questionText": "某企業利用 No Code/Low Code平台開發內部營運系統。為確保系統在跨部門流程與外部服務整合下仍具良好的可測試性（Testability），下列哪一項作法最為合適？",
+      "options": [
+        { "key": "A", "value": "依賴 No Code/Low Code 平台提供的即時預覽與基本單元測試功能，快速驗證常見流程" },
+        { "key": "B", "value": "導入可重複執行的自動化測試流程，並透過 API 或服務虛擬化進行模組化驗證" },
+        { "key": "C", "value": "將測試聚焦於使用者介面互動與操作流程驗證，檢查系統表面功能" },
+        { "key": "D", "value": "依靠使用者回饋與正式上線後的監控資料，作為修正依據" }
+      ],
+      "answer": "B",
+      "explanation": "面對跨部門與外部整合，僅依賴預覽是不夠的。最佳實務是建立自動化測試，並針對外部整合點使用 API 虛擬化（Mocking）來隔離變因，確保系統邏輯正確。",
+      "score": 2,
+      "tags": ["Low Code", "系統測試"]
+    },
+    {
+      "id": "q4",
+      "type": "single_choice",
+      "questionText": "某社交平台嘗試結合自動提示工程（Automatic Prompt Engineer, APE）與圖提示（Graph Prompting），讓 AI協助分析使用者之間的互動關係。在這個過程中，下列何者為最可能遇到的挑戰？",
+      "options": [
+        { "key": "A", "value": "圖結構轉換為文字提示時，可能導致部分關聯資訊遺失" },
+        { "key": "B", "value": "APE在圖資料上無法產生任何提示內容" },
+        { "key": "C", "value": "圖轉文字後能完整保留所有上下文，對推理不造成影響" },
+        { "key": "D", "value": "Graph Prompting 僅能處理線性路徑，限制多分支探索" }
+      ],
+      "answer": "A",
+      "explanation": "LLM 本質上是序列處理模型。將複雜的圖結構（Graph）轉換為序列化的文字提示（Prompt）時，很難完全保留圖中的拓撲結構與節點間的隱含關係。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "Graph Prompting"]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "questionText": "在超長上下文任務中使用自動提示工程（Automatic Prompt Engineer, APE）時，可能面臨的最大限制是什麼？",
+      "options": [
+        { "key": "A", "value": "迭代優化難以因應上下文的不斷變動，導致調整失效" },
+        { "key": "B", "value": "模型的記憶容量有限，無法完整保留所有長篇資訊" },
+        { "key": "C", "value": "提示內容難以有效分解，無法支援複雜任務拆解" },
+        { "key": "D", "value": "回饋機制通常僅針對局部片段，難以全面評估最終輸出品質" }
+      ],
+      "answer": "D",
+      "explanation": "APE 依賴評估回饋來優化提示。在超長文本任務中，評估往往只能針對局部內容進行，難以對整體長篇輸出的連貫性與品質進行全面且即時的自動化評估。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "長文本處理"]
+    },
+    {
+      "id": "q6",
+      "type": "single_choice",
+      "questionText": "某設計團隊計畫在短時間內完成一款行動應用程式，必須同時達到高度個人化體驗、快速生成介面與行銷內容自動產出等需求。若結合 No Code/Low Code 平台與生成式 AI 技術，以下哪一種整合策略最能符合目標？",
+      "options": [
+        { "key": "A", "value": "使用生成式 AI 自動產生 API 呼叫與元件配置，並由開發者手動整合至 No Code 平台流程" },
+        { "key": "B", "value": "透過生成式 AI 在 No Code 平台中自動建立介面模板，並結合使用者數據即時生成個人化功能與行銷推播內容" },
+        { "key": "C", "value": "在 No Code 平台中導入生成式 AI，快速建立跨專案可重用的通用模組，專注於提升開發速度" },
+        { "key": "D", "value": "在 No Code 平台中完全依賴生成式 AI 自動產生所有應用功能與流程，不經人工設計或驗證" }
+      ],
+      "answer": "B",
+      "explanation": "利用 GenAI 加速初始建置（生成模板），並利用其生成能力處理動態內容（個人化/行銷），同時保留 No Code 平台的架構優勢，是最佳的互補策略。",
+      "score": 2,
+      "tags": ["Low Code", "GenAI整合"]
+    },
+    {
+      "id": "q7",
+      "type": "single_choice",
+      "questionText": "某團隊希望讓 AI 自動查詢 GitHub 上的程式碼庫，並生成摘要給使用者參考。開發者決定透過 Model Context Protocol（MCP）來實現，AI 需先發出請求，再經由 MCP 架構逐步完成查詢與回傳。在此情境下，MCP運作流程的正確順序為何？",
+      "options": [
+        { "key": "A", "value": "MCP Server→AI Host→MCP Client→資料查詢→結果回傳 AI Host" },
+        { "key": "B", "value": "MCP Client→AI Host→MCP Server→資料查詢→結果回傳 AI Host" },
+        { "key": "C", "value": "AI Host→MCP Client→ MCP Server→資料查詢→結果回傳 AI Host" },
+        { "key": "D", "value": "AI Host→MCP Server→MCP Client→資料查詢→結果回傳 AI Host" }
+      ],
+      "answer": "C",
+      "explanation": "MCP 的標準運作流程是由主應用程式（AI Host）發起需求，透過客戶端（MCP Client）與提供資源的伺服器（MCP Server）進行通訊與查詢。",
+      "score": 2,
+      "tags": ["MCP", "系統架構"]
+    },
+    {
+      "id": "q8",
+      "type": "single_choice",
+      "questionText": "在 Agent-to-Agent（A2A）架構中，不同代理人之間會分工合作。一般而言，下列敘述何者最符合 Client Agent 與 Remote Agent的互動流程？",
+      "options": [
+        { "key": "A", "value": "Remote Agent 主動分派任務給 Client Agent" },
+        { "key": "B", "value": "由人工事先設定 Client Agent與 Remote Agent處理任務的先後順序" },
+        { "key": "C", "value": "Client Agent 發起任務，Remote Agent執行並回傳結果" },
+        { "key": "D", "value": "Client Agent與 Remote Agent同時處理任務並同步處理結果" }
+      ],
+      "answer": "C",
+      "explanation": "在 A2A 架構中，通常由負責協調或面對用戶的 Client Agent 發起請求，將子任務指派給具備專門能力的 Remote Agent，執行後回報結果。",
+      "score": 2,
+      "tags": ["Agentic AI", "多代理系統"]
+    },
+    {
+      "id": "q9",
+      "type": "single_choice",
+      "questionText": "在導入生成式 AI的應用規劃中，上下文工程（Context Engineering）的核心目的為何？",
+      "options": [
+        { "key": "A", "value": "縮短模型訓練時間" },
+        { "key": "B", "value": "優化提示與上下文" },
+        { "key": "C", "value": "增加模型參數數量" },
+        { "key": "D", "value": "優化 Fine-tuning正確率" }
+      ],
+      "answer": "B",
+      "explanation": "上下文工程專注於設計與優化輸入給模型的 Prompt 與 Context，確保模型能準確理解任務，這與模型訓練或參數調整不同。",
+      "score": 2,
+      "tags": ["Context Engineering", "Prompt Engineering"]
+    },
+    {
+      "id": "q10",
+      "type": "single_choice",
+      "questionText": "某公司在導入生成式 AI協助撰寫內部報告時，測試人員刻意在輸入的上下文中放入互相矛盾的資訊（例如：同一位員工在不同段落被描述為「入職三年」與「入職五年」）。在這種情況下，最常見的模型行為會是什麼？",
+      "options": [
+        { "key": "A", "value": "永遠選擇第一段資訊作為答案依據" },
+        { "key": "B", "value": "可能生成幻覺或隨機採信其中一方的內容" },
+        { "key": "C", "value": "拒絕回答，並要求提供更一致的輸入" },
+        { "key": "D", "value": "自動判斷並只選擇正確的資訊" }
+      ],
+      "answer": "B",
+      "explanation": "當 LLM 接收到矛盾的上下文時，若無明確指令要求指出錯誤，模型往往會為了完成生成任務而出現「幻覺」或隨機選擇一個數據作為事實。",
+      "score": 2,
+      "tags": ["幻覺", "模型行為"]
+    },
+    {
+      "id": "q11",
+      "type": "single_choice",
+      "questionText": "Agentic AI 在解決方案圖譜（Solution Graph）上尋找最佳解決路徑時，通常會使用什麼樣的搜尋策略？",
+      "options": [
+        { "key": "A", "value": "使用廣度優先、深度優先或最佳優先等演算法進行探索" },
+        { "key": "B", "value": "每一步都隨機選擇動作，反覆嘗試直到找到一條可行路徑" },
+        { "key": "C", "value": "只執行事先假定的一條路徑，失敗就停止" },
+        { "key": "D", "value": "完全依靠 LLM一次性推斷最優完整路徑" }
+      ],
+      "answer": "A",
+      "explanation": "Agentic AI 會利用標準的圖搜尋演算法（如 BFS, DFS, Best-First Search）在 Solution Graph 中評估不同決策節點，以找出達成目標的最佳路徑。",
+      "score": 2,
+      "tags": ["Agentic AI", "搜尋演算法"]
+    },
+    {
+      "id": "q12",
+      "type": "single_choice",
+      "questionText": "某企業考慮將開源大型語言模型（GPT-OSS）自行部署在本地伺服器，以取代雲端服務。下列何者最能代表本地部署對企業的實際好處？",
+      "options": [
+        { "key": "A", "value": "可以達到無運算成本，因為本地部署模型不會產生額外的資源消耗" },
+        { "key": "B", "value": "模型的預測能力會比在雲端運行時更精度，因為本地環境更加可靠" },
+        { "key": "C", "value": "可確保輸入模型的敏感資料不會傳輸給第三方，提升資料隱私和自主控制" },
+        { "key": "D", "value": "以上皆是" }
+      ],
+      "answer": "C",
+      "explanation": "本地部署（On-premise）最核心的優勢在於「資料主權」與「隱私」，資料無需傳輸至外部雲端，避免外洩風險。",
+      "score": 2,
+      "tags": ["模型部署", "資安隱私"]
+    },
+    {
+      "id": "q13",
+      "type": "single_choice",
+      "questionText": "關於 GitHub Copilot，下列敘述何者正確？",
+      "options": [
+        { "key": "A", "value": "GitHub Copilot基於程式碼片段查詢工具，透過後端搜尋大型程式碼資料庫提供建議" },
+        { "key": "B", "value": "GitHub Copilot 僅適用於 GitHub上的開源專案，無法在私有程式碼庫或本地環境中提供程式碼補全建議" },
+        { "key": "C", "value": "GitHub Copilot 利用靜態分析技術分析程式碼，根據邏輯流程推導下一步應寫的程式碼" },
+        { "key": "D", "value": "GitHub Copilot 由 OpenAI的 Codex模型提供技術支援，可即時在開發者編輯程式碼時給出整行或整個函式建議" }
+      ],
+      "answer": "D",
+      "explanation": "GitHub Copilot 是基於 OpenAI Codex 模型，透過學習大量程式碼，能理解上下文並即時生成建議，不僅是搜尋或靜態分析。",
+      "score": 2,
+      "tags": ["程式開發", "Copilot"]
+    },
+    {
+      "id": "q14",
+      "type": "single_choice",
+      "questionText": "某電商公司導入 Agentic AI來處理客服工作。測試發現 Agent 在回答產品 FAQ 時經常出錯，且無法幫客戶修改訂單。這種情況最可能是因為缺少下列哪兩項工具或技術？",
+      "options": [
+        { "key": "A", "value": "API調用（API Calling）＋ 任務規劃器（Task Planner）" },
+        { "key": "B", "value": "向量資料庫檢索（Vector Retrieval）＋API調用（API Calling）" },
+        { "key": "C", "value": "向量資料庫檢索（Vector Retrieval）＋任務規劃器（Task Planner）" },
+        { "key": "D", "value": "任務規劃器（Task Planner）＋溫度參數（Temperature）設定" }
+      ],
+      "answer": "B",
+      "explanation": "FAQ 出錯代表缺乏正確知識（需 Vector Retrieval/RAG）；無法修改訂單代表無法執行動作（需 API Calling）。",
+      "score": 2,
+      "tags": ["Agentic AI", "RAG"]
+    },
+    {
+      "id": "q15",
+      "type": "single_choice",
+      "questionText": "某客服自動回應系統希望根據不同客戶群體調整回覆風格。在兼顧即時性與效果的前提下，下列哪一種方案最適合？",
+      "options": [
+        { "key": "A", "value": "直接微調預訓練模型針對每個客戶群體分別訓練不同風格模型" },
+        { "key": "B", "value": "利用控制變量（Control Tokens）或風格標籤在同一模型內動態調整風格" },
+        { "key": "C", "value": "利用生成對抗網路（GAN）生成不同風格文本，並透過人工篩選最終答案" },
+        { "key": "D", "value": "採用規則式替換方法，替換回覆詞彙以符合不同風格要求" }
+      ],
+      "answer": "B",
+      "explanation": "使用 Control Tokens（如在 Prompt 中加入風格標籤）可以在同一個模型內即時調整輸出風格，是最有效率的做法。",
+      "score": 2,
+      "tags": ["風格控制", "模型微調"]
+    },
+    {
+      "id": "q16",
+      "type": "single_choice",
+      "questionText": "在建置多代理大型語言模型（Multi-agent LLMs）系統時，如果沒有清楚定義每個代理的任務啟動條件和角色分工，最可能出現什麼問題？",
+      "options": [
+        { "key": "A", "value": "回覆內容前後不連貫，系統邏輯斷裂" },
+        { "key": "B", "value": "不同代理的答案互相衝突，無法判斷最終決策" },
+        { "key": "C", "value": "系統陷入無限對話循環，導致資源耗盡" },
+        { "key": "D", "value": "多個代理重複做同樣的任務，造成效率低落" }
+      ],
+      "answer": "D",
+      "explanation": "Multi-agent 系統中，若角色定義不清，多個代理容易同時認為某個任務屬於自己而重複執行，導致資源浪費與效率下降。",
+      "score": 2,
+      "tags": ["Multi-agent", "系統設計"]
+    },
+    {
+      "id": "q17",
+      "type": "single_choice",
+      "questionText": "某公司部署結合 Fine-tuning與檢索增強生成（RAG）的語言模型系統作為內部文件助理。系統需同時確保回覆語氣一致、能即時查詢每日新增文件、維持效能穩定，並避免頻繁重新訓練。在長期維護與效能平衡下，下列哪一種策略最合適？",
+      "options": [
+        { "key": "A", "value": "每週重新 Fine-tune模型，將新文件整合進模型知識，逐步取代 RAG模組" },
+        { "key": "B", "value": "完全依靠基礎模型與 RAG，不進行 Fine-tune，僅透過提示設計控制語氣" },
+        { "key": "C", "value": "每日進行增量 Fine-tune，讓模型即時學習新文件內容，避免依賴檢索" },
+        { "key": "D", "value": "保留語氣相關 Fine-tuning，僅透過檢索系統更新文件內容，不頻繁改動模型" }
+      ],
+      "answer": "D",
+      "explanation": "最佳實踐是利用 Fine-tuning 固定模型的語氣與形式（變動少），並利用 RAG 提供即時更新的知識內容（成本低且即時）。",
+      "score": 2,
+      "tags": ["RAG", "Fine-tuning"]
+    },
+    {
+      "id": "q18",
+      "type": "single_choice",
+      "questionText": "某客服系統在回覆「訂單取消政策」時，即使生成溫度固定為 0.6，回覆品質仍常出現差異。調查顯示，檢索到的政策內容有時是最新版本，有時則是過時文件，此外 Prompt約束不足，微調語料也有模糊描述。若要優先改善品質波動，應先解決下列哪一項問題？",
+      "options": [
+        { "key": "A", "value": "調整溫度參數，降低生成隨機性" },
+        { "key": "B", "value": "加強 Prompt 設計，限制模型表達方式" },
+        { "key": "C", "value": "優化微調語料，減少含糊描述" },
+        { "key": "D", "value": "提升檢索系統品質，確保取得的政策內容正確且最新" }
+      ],
+      "answer": "D",
+      "explanation": "RAG 系統遵循「Garbage In, Garbage Out」原則。如果檢索到的背景知識本身就是錯誤或過時的，模型再好也無法生成正確答案。",
+      "score": 2,
+      "tags": ["RAG", "系統優化"]
+    },
+    {
+      "id": "q19",
+      "type": "single_choice",
+      "questionText": "某醫院導入了一套智慧系統，由三個模組構成：語音辨識（ASR） → 語言模型生成（LLM） → 查詢醫療資料庫 API。近期發現部分查詢結果錯誤，例如醫師詢問「術後復健流程」時，系統卻誤判為要查詢「術前注意事項」，因此查詢到錯誤的文件。經檢查已排除語音辨識的錯誤，下列何者最可能是造成查詢錯誤的來源？",
+      "options": [
+        { "key": "A", "value": "醫療資料庫 API對應規則設計不清，造成意圖映射模糊" },
+        { "key": "B", "value": "LLM的 Prompt 缺乏明確指示，導致語意分類判斷錯誤" },
+        { "key": "C", "value": "查詢 API 回傳速度過慢，影響系統處理正確性" },
+        { "key": "D", "value": "LLM 未經醫療領域微調，難以正確理解專業性詞彙" }
+      ],
+      "answer": "B",
+      "explanation": "文字輸入正確但 API 查詢了錯誤主題，表示 LLM 在「意圖識別」階段出錯，通常源於 Prompt 缺乏清晰的分類指引或範例。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "意圖辨識"]
+    },
+    {
+      "id": "q20",
+      "type": "single_choice",
+      "questionText": "某醫院正在規劃一個 AI專案，目的是協助醫師從胸腔 X光影像中判斷是否存在肺炎徵兆，團隊卻誤將生成式 AI模型運用於影像診斷。下列哪一項最可能成為主要風險？",
+      "options": [
+        { "key": "A", "value": "模型在生成報告時語句流暢，但僅在文字表達上有差異，對診斷結果沒有重大影響" },
+        { "key": "B", "value": "模型若資料不足，僅會降低生成報告的完整性，而非影響判斷病灶的正確性" },
+        { "key": "C", "value": "模型偏向生成內容而非分類，但此差異僅影響效率，不會造成誤診風險" },
+        { "key": "D", "value": "模型可能生成與實際影像不符的診斷結論，導致誤判並引發醫療與法律風險" }
+      ],
+      "answer": "D",
+      "explanation": "生成式 AI 有「幻覺」風險，可能會編造出影像中不存在的病徵，在醫療診斷中這直接導致誤診與法律責任。",
+      "score": 2,
+      "tags": ["AI風險", "醫療應用"]
+    },
+    {
+      "id": "q21",
+      "type": "single_choice",
+      "questionText": "某公司開發的智慧車載語音助理，可透過語音辨識（ASR）辨識駕駛語音，再由 LLM 生成回答並查詢車載 API。測試中發現：ASR 對汽車專業術語辨識錯誤率高；LLM的回覆常不精確；系統回覆延遲雖存在但仍可接受。若目標是「優先提升準確性與回答品質」，下列改進步驟的最合理執行順序為何？",
+      "options": [
+        { "key": "A", "value": "1 → 2 → 4 → 3" },
+        { "key": "B", "value": "2 → 1→ 3 → 4" },
+        { "key": "C", "value": "1 → 3 → 2 → 4" },
+        { "key": "D", "value": "3 → 1 → 2 → 4" }
+      ],
+      "answer": "A",
+      "explanation": "優化應從源頭開始：ASR 錯誤會導致後續全錯，故優先修正輸入；接著改善 LLM 邏輯與 RAG 提升準確率；最後才考慮參數與延遲優化。",
+      "score": 2,
+      "tags": ["系統優化", "ASR"]
+    },
+    {
+      "id": "q22",
+      "type": "single_choice",
+      "questionText": "一家顧問公司使用生成式 AI協助撰寫數據分析報告。雖然模型在測試中表現優異，但其生成的報告多半僅遵循固定段落結構，替換數值或關鍵詞即可完成，卻未能展現針對不同專案的多樣化推理與分析。下列何者為造成這種現象的最合理解釋？",
+      "options": [
+        { "key": "A", "value": "模型在生成過程中缺乏對字體與排版的優化能力，因此無法展現分析邏輯" },
+        { "key": "B", "value": "測試資料涵蓋過多統計圖表，導致模型無法專注於文字內容的多樣化表達" },
+        { "key": "C", "value": "模型過度依賴訓練語料中的常見報告範式，導致生成結果以樣板化結構取代真正的推理" },
+        { "key": "D", "value": "模型因無法正確辨識報告中的頁碼與標題層級，才出現樣板化的結果" }
+      ],
+      "answer": "C",
+      "explanation": "LLM 容易收斂到訓練數據中最常見的模式（樣板化）。若訓練語料多為結構相似的報告，模型就會傾向「填空」而非深度推理。",
+      "score": 2,
+      "tags": ["模型偏見", "訓練資料"]
+    },
+    {
+      "id": "q23",
+      "type": "single_choice",
+      "questionText": "在應用零樣本提示（Zero-Shot Prompting）時，下列哪一種情境最可能因缺乏示範而失敗，出現語意錯誤或結構錯誤的輸出？",
+      "options": [
+        { "key": "A", "value": "要求模型判斷一段影評文字的情感傾向" },
+        { "key": "B", "value": "要求模型將一段新聞摘要濃縮為一句話" },
+        { "key": "C", "value": "要求模型將一段繁體中文翻譯成英文" },
+        { "key": "D", "value": "要求模型從表格中擷取所有城市的最高氣溫" }
+      ],
+      "answer": "D",
+      "explanation": "情感分析、摘要、翻譯是常見任務。但從特定格式（如表格）中精確擷取數據涉及複雜結構理解，若無範例（Few-shot）模型極易出錯。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "Zero-Shot"]
+    },
+    {
+      "id": "q24",
+      "type": "single_choice",
+      "questionText": "某保險公司計畫導入生成式 AI的內部合約查詢系統，協助業務員與法務部門快速解讀保單條款與理賠規範。高層特別強調客戶資料隱私與合規風險控管，即使需要投入較多資源，也必須確保資料不會外洩。在此情況下，下列哪一種策略最符合公司的資料安全與合規優先考量？",
+      "options": [
+        { "key": "A", "value": "導入開源模型並由 IT團隊自建，後續再逐步補強隱私與合規控管" },
+        { "key": "B", "value": "在需求確認階段即納入法遵與稽核單位，設定準確率 KPI，並透過 MVP 驗證成效" },
+        { "key": "C", "value": "優先使用雲端大型 API模型快速部署，並根據使用數據持續調整" },
+        { "key": "D", "value": "投入資源自訓並私有化部署 LLM，並同步建立自動化風控機制" }
+      ],
+      "answer": "D",
+      "explanation": "對於極度重視合規與隱私的產業，私有化部署（On-premise）並結合自動風控，雖然成本高，但能提供最高程度的資料掌控與安全性。",
+      "score": 2,
+      "tags": ["資安合規", "私有化部署"]
+    },
+    {
+      "id": "q25",
+      "type": "single_choice",
+      "questionText": "某新創公司開發一套圖像描述生成系統，能根據輸入的照片自動產生說明文字。為了讓產生的描述文字能與圖片資訊精準對應，下列哪一種設計思路最關鍵？",
+      "options": [
+        { "key": "A", "value": "強化語言模型的句法與流暢性，確保生成文字更自然易讀" },
+        { "key": "B", "value": "在生成過程中結合圖片特徵與語言建模，讓模型同時利用影像內容與文字資訊" },
+        { "key": "C", "value": "調整生成策略（如 Beam Search 或溫度參數），以提升輸出文字的合理性" },
+        { "key": "D", "value": "專注於文字序列上下文的建模，只提升文字間的連貫性" }
+      ],
+      "answer": "B",
+      "explanation": "圖像描述的關鍵在於「對齊」，模型必須能將影像特徵映射到文字語意。若忽略影像特徵的融合，描述將與圖片內容脫節。",
+      "score": 2,
+      "tags": ["多模態AI", "圖像描述"]
+    },
+    {
+      "id": "q26",
+      "type": "single_choice",
+      "questionText": "某電商平台希望生成的商品描述在風格與用詞上保持一致性，但不需要新增專業知識。下列哪種方法最適合？",
+      "options": [
+        { "key": "A", "value": "擴充語料庫並微調模型，使風格統一" },
+        { "key": "B", "value": "增加提示詞複雜度，引導模型風格一致" },
+        { "key": "C", "value": "降低生成溫度，以減少隨機性並提升風格一致性" },
+        { "key": "D", "value": "使用全連接神經網路對生成結果後期篩選" }
+      ],
+      "answer": "C",
+      "explanation": "降低「溫度（Temperature）」參數會使模型傾向選擇機率最高的詞彙，減少變異，是提升輸出風格一致性最直接且低成本的方法。",
+      "score": 2,
+      "tags": ["生成參數", "風格一致性"]
+    },
+    {
+      "id": "q27",
+      "type": "single_choice",
+      "questionText": "某企業已建置 AI 語音記錄系統，並希望整合生成式 AI 進行「會議即時摘要」功能，下列哪一種策略最能提升摘要的語意品質與使用價值？",
+      "options": [
+        { "key": "A", "value": "使用語音轉文字模型即時輸出逐字稿並轉入 GPT摘要" },
+        { "key": "B", "value": "將語音逐段切分並建立關鍵字索引，以利摘要模型從中擷取核心內容生成會議重點" },
+        { "key": "C", "value": "將語音轉文字後標註發言角色與主題邊界，結合語意分群進行動態摘要" },
+        { "key": "D", "value": "將所有語音內容儲存為完整紀錄，提供事後人工摘要比對用" }
+      ],
+      "answer": "C",
+      "explanation": "高品質摘要需知道「誰說了什麼」及「話題轉換」。加入角色標註與主題邊界，能讓 AI 理解對話結構，生成的摘要才精準。",
+      "score": 2,
+      "tags": ["語音摘要", "資料前處理"]
+    },
+    {
+      "id": "q28",
+      "type": "single_choice",
+      "questionText": "某公司正在開發一個智慧客服系統，負責回覆顧客關於退換貨、優惠活動與商品建議等問題。研發團隊嘗試使用不同的提示設計方式來提升模型效能。下列哪一個提示最符合「少樣本提示（Few-Shot Prompting）」的設計原則？",
+      "options": [
+        { "key": "A", "value": "「請回答顧客詢問：如何申請退貨？」" },
+        { "key": "B", "value": "「以下是兩組客服對話範例，請依照相同風格回覆新的顧客問題」" },
+        { "key": "C", "value": "「請逐步分析顧客投訴的原因，並依照推理過程生成合適回覆」" },
+        { "key": "D", "value": "「請以正式的語氣回覆顧客的提問」" }
+      ],
+      "answer": "B",
+      "explanation": "Few-Shot Prompting 的定義是在提示中提供「範例」。選項 B 明確提到提供「兩組對話範例」，完全符合定義。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "Few-Shot"]
+    },
+    {
+      "id": "q29",
+      "type": "single_choice",
+      "questionText": "某投資公司導入生成式 AI，用於即時分析股市波動並提供市場背景資訊。若希望 AI能兼顧「即時性」與「可靠性」。下列哪一項設計最能有效提升 AI在即時股市分析上的表現？",
+      "options": [
+        { "key": "A", "value": "將 AI 系統連結至公司內部歷史交易資料庫，以便快速調用既有的案例參考" },
+        { "key": "B", "value": "調整模型的回應邏輯，讓 AI 優先輸出最新市場行情，而不是完整的背景分析" },
+        { "key": "C", "value": "建立與外部即時行情來源同步的查詢模組，確保 AI 能即時擷取最新金融數據" },
+        { "key": "D", "value": "增加訓練資料中模擬的金融危機與市場異常案例，以提升 AI 在特殊情境下的表現能力" }
+      ],
+      "answer": "C",
+      "explanation": "LLM 知識有截止時間，股市分析需要「當下」數據。必須結合外部工具（API/RAG）即時抓取最新行情，才能解決即時性問題。",
+      "score": 2,
+      "tags": ["即時資料", "RAG"]
+    },
+    {
+      "id": "q30",
+      "type": "single_choice",
+      "questionText": "某大型物流公司計畫導入 AI系統，以改善客服與配送作業的效率。專案團隊規劃了以下四個步驟，請問正確的執行順序為何？\n1. 建立符合公司服務流程的 AI 對話邏輯與應答範本，確保顧客體驗一致\n2. 明確定義導入 AI的目標並設定關鍵績效指標（KPI）\n3. 蒐集與清理過往客服紀錄與配送相關資料，作為模型訓練素材\n4. 評估並選擇合適的 AI 技術供應商或開源方案，確立技術方向與架構",
+      "options": [
+        { "key": "A", "value": "2 → 3 → 4 → 1" },
+        { "key": "B", "value": "3 → 2 → 1 → 4" },
+        { "key": "C", "value": "2 → 1 → 3 → 4" },
+        { "key": "D", "value": "1 → 4 → 3 → 2" }
+      ],
+      "answer": "A",
+      "explanation": "標準 AI 導入流程：定義目標(KPI) -> 準備數據 -> 技術選型 -> 開發建置。",
+      "score": 2,
+      "tags": ["AI專案管理", "導入流程"]
+    },
+    {
+      "id": "q31",
+      "type": "single_choice",
+      "questionText": "某跨國電商企業導入生成式 AI，協助處理顧客服務請求，並根據顧客歷史訂單提供個人化建議。資安與法遵部門擔心 AI在回覆時可能洩漏顧客個資，若要在導入初期優先避免觸法風險，下列哪一項措施最符合要求？",
+      "options": [
+        { "key": "A", "value": "在加密環境下導入完整的顧客訂單與行為資料，並透過嚴格存取控管降低洩漏風險" },
+        { "key": "B", "value": "實施資料最小化與去識別化，確保 AI 在訓練與生成過程中不直接處理或暴露敏感個資" },
+        { "key": "C", "value": "強化模型的回覆審查流程，透過自動過濾與人工抽查結合，降低個資外洩的機率" },
+        { "key": "D", "value": "設定 AI 的角色與回覆範圍，讓其專注於客服相關內容，避免回答其他敏感議題" }
+      ],
+      "answer": "B",
+      "explanation": "「資料最小化」與「去識別化」是隱私保護的源頭與核心。確保 AI 接觸不到真實個資，是避免外洩風險最有效的初期措施。",
+      "score": 2,
+      "tags": ["資料隱私", "去識別化"]
+    },
+    {
+      "id": "q32",
+      "type": "single_choice",
+      "questionText": "某國際銀行導入生成式 AI，用於彙整不同國家金融監管機構的合規規範，建立跨國合規知識庫。由於各國條文表述方式不同，且監管要求具有高度專業性與隱含邏輯，若要確保知識庫在後續查詢與生成報告時能維持正確性與一致性，下列哪一項 AI能力最為關鍵？",
+      "options": [
+        { "key": "A", "value": "具備跨語言專業術語對齊與條文語意抽取能力，能正確辨識不同國家規範間的對應與差異" },
+        { "key": "B", "value": "能自動最佳化文件檢索效率，縮短跨國法規查詢的延遲時間，提升合規部門使用體驗" },
+        { "key": "C", "value": "能將合規文件轉換為多種輸出形式（如簡報、摘要或法規清單），以符合不同決策層級需求" },
+        { "key": "D", "value": "具備根據歷史案例生成合規解釋的能力，協助新進員工快速理解法規在實務上的應用" }
+      ],
+      "answer": "A",
+      "explanation": "跨國合規的核心難點在於語言差異與專業邏輯。AI 必須能精確對齊術語並抽取語意，否則報告會因誤解條文而失效。",
+      "score": 2,
+      "tags": ["NLP", "跨語言處理"]
+    },
+    {
+      "id": "q33",
+      "type": "single_choice",
+      "questionText": "在企業導入 MLOps（Machine Learning Operations）的過程中，除了模型部署與維運挑戰外，仍可能面臨其他推動上的困難。下列何者為 No Code平台最能有效解決的挑戰？",
+      "options": [
+        { "key": "A", "value": "自動化大量資料的標註與前處理，以降低數據準備成本" },
+        { "key": "B", "value": "提升運算基礎設施的可擴展性，以因應大規模服務需求" },
+        { "key": "C", "value": "透過可視化建模介面，降低技術門檻並促進跨部門協作" },
+        { "key": "D", "value": "提供進階特徵工程能力，優化高維度數據的處理效率" }
+      ],
+      "answer": "C",
+      "explanation": "MLOps 的障礙之一是技術門檻。No Code 平台提供可視化介面，降低門檻，有效促進非技術人員參與及跨部門協作。",
+      "score": 2,
+      "tags": ["MLOps", "No Code"]
+    },
+    {
+      "id": "q34",
+      "type": "single_choice",
+      "questionText": "某醫療機構計畫導入生成式 AI協助撰寫病歷摘要。在技術測試階段，為確保系統能安全應用於臨床，最應優先關注下列哪一項指標？",
+      "options": [
+        { "key": "A", "value": "資料儲存與存取架構的完整性，確保長期運作過程中的數據可追溯性" },
+        { "key": "B", "value": "生成內容的醫療準確性與臨床一致性，避免出現錯誤或誤導性資訊" },
+        { "key": "C", "value": "模型在不同病例語境下的泛化能力，確保不因個別樣本而偏差" },
+        { "key": "D", "value": "系統回應時間的穩定性，以支援醫療場域中可能的即時需求" }
+      ],
+      "answer": "B",
+      "explanation": "在醫療領域，「正確性」高於一切。病歷摘要若有幻覺或錯誤，將危及病人安全，因此臨床準確性是首要指標。",
+      "score": 2,
+      "tags": ["AI安全性", "醫療準確性"]
+    },
+    {
+      "id": "q35",
+      "type": "single_choice",
+      "questionText": "在即時客服系統的效能測試中，若針對延遲測試（Latency Testing）進行評估，下列哪一項指標最能反映系統是否符合用戶即時互動需求？",
+      "options": [
+        { "key": "A", "value": "AI模型在同一分鐘內可完成的回覆訊息數量" },
+        { "key": "B", "value": "客戶從輸入問題到收到第一個完整回應所需的時間" },
+        { "key": "C", "value": "客服系統能連續提供服務的運行時長" },
+        { "key": "D", "value": "AI產生回答時用詞的多樣性與表達創意程度" }
+      ],
+      "answer": "B",
+      "explanation": "對於即時互動，用戶最在意的是「等待時間」。端對端延遲（收到第一個完整回應的時間）最能反映使用體驗。",
+      "score": 2,
+      "tags": ["效能評估", "延遲測試"]
+    },
+    {
+      "id": "q36",
+      "type": "single_choice",
+      "questionText": "某航空公司導入生成式 AI聲控客服，提供航班與票務查詢。有人員透過惡意提示，試圖讓系統洩漏內部安檢流程。在此情境中，下列何者為降低提示攻擊（Prompt Injection）風險的最佳策略？",
+      "options": [
+        { "key": "A", "value": "導入輸入檢測與回應審核流程，防止敏感指令被執行" },
+        { "key": "B", "value": "限制 AI 可回應的主題範圍，使系統僅回答非敏感的航班與票務查詢，避免處理內部或敏感流程資訊" },
+        { "key": "C", "value": "隨機變化回覆內容，讓攻擊者難以預測回應行為以增加攻擊難度" },
+        { "key": "D", "value": "擴充與更新航班與票務資料來源，以提升模型的知識正確性與覆蓋率" }
+      ],
+      "answer": "A",
+      "explanation": "防禦 Prompt Injection 的最佳策略是設置「護欄（Guardrails）」，在輸入端檢測惡意意圖，並在輸出端審核內容。",
+      "score": 2,
+      "tags": ["AI安全", "Prompt Injection"]
+    },
+    {
+      "id": "q37",
+      "type": "single_choice",
+      "questionText": "在機器學習模型的實務應用中，常會出現數據漂移（Data Drift）的情況。此現象主要是指下列哪一種情況？",
+      "options": [
+        { "key": "A", "value": "訓練時使用的資料分佈，與部署後實際輸入資料的統計特徵隨時間逐漸出現差異，導致模型表現衰退" },
+        { "key": "B", "value": "在資料前處理過程中，因特徵刪減或缺失補值不當，造成樣本資訊量下降" },
+        { "key": "C", "value": "模型對訓練數據擬合過度，在未知數據上泛化能力不足" },
+        { "key": "D", "value": "後端資料庫因欄位定義或結構調整，導致特徵提取流程與原始設計不一致" }
+      ],
+      "answer": "A",
+      "explanation": "Data Drift 定義為「輸入資料的統計特性隨時間改變」，導致舊模型不再適用於新資料，使預測能力下降。",
+      "score": 2,
+      "tags": ["Data Drift", "模型維運"]
+    },
+    {
+      "id": "q38",
+      "type": "single_choice",
+      "questionText": "某銀行導入生成式 AI放貸審核系統，用於分析申貸人條件並生成初步審核意見。測試過程中發現，模型對不同族群的核准率存在顯著差異，可能引發演算法偏見問題。為降低此風險，下列哪一項措施最合適？",
+      "options": [
+        { "key": "A", "value": "提升模型運算速度與效能，以確保在大量申請中快速回應" },
+        { "key": "B", "value": "全面移除與申貸人身份相關的敏感屬性，避免模型因變數影響而產生偏差" },
+        { "key": "C", "value": "導入資料與結果的公平性檢測流程，並依合規規範調整模型或決策邏輯" },
+        { "key": "D", "value": "減少訓練樣本數量，降低偏見被放大的可能性" }
+      ],
+      "answer": "C",
+      "explanation": "單純移除敏感屬性無效（模型會從相關變數學到偏見）。正確做法是建立「公平性檢測」機制，主動修正模型的決策邏輯。",
+      "score": 2,
+      "tags": ["AI倫理", "演算法偏見"]
+    },
+    {
+      "id": "q39",
+      "type": "single_choice",
+      "questionText": "在提示工程（Prompt Engineering）的應用中，Chain-of-Thought（CoT）與 Tree of Thoughts（ToT）各適用於不同的推理情境，請問以下兩個情境，分別最適合採用哪一種方法？\n情境一：電商公司開發客服助理，用來協助客戶查詢退款流程與相關規範\n情境二：活動策劃團隊使用 AI協助規劃多場跨部門行銷活動，需要同時考量預算、場地、時程與人力資源，並比較不同方案的可行性。",
+      "options": [
+        { "key": "A", "value": "情境一採用 CoT，情境二採用 ToT" },
+        { "key": "B", "value": "情境一採用 ToT，情境二採用 CoT" },
+        { "key": "C", "value": "情境一與情境二都適合 CoT" },
+        { "key": "D", "value": "情境一與情境二都適合 ToT" }
+      ],
+      "answer": "A",
+      "explanation": "情境一（退款查詢）是線性邏輯，適合 CoT。情境二（活動規劃）涉及多維度比較與探索，適合 Tree of Thoughts (ToT) 的樹狀搜尋。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "CoT/ToT"]
+    },
+    {
+      "id": "q40",
+      "type": "single_choice",
+      "questionText": "在生成式 AI 的提示工程中，Graph Prompting 在處理複雜關係資料時，為何通常比 Chain-of-Thought（CoT）更有效？",
+      "options": [
+        { "key": "A", "value": "Graph Prompting 幾乎不需要推理，只依靠圖結構即可得出結論" },
+        { "key": "B", "value": "Graph Prompting 僅需單次提示，即可避免多輪推理的誤差累積" },
+        { "key": "C", "value": "Graph Prompting 的生成速度通常更快，因此效率更高" },
+        { "key": "D", "value": "Graph Prompting 能捕捉非線性結構與上下文關聯，適合處理網絡化資訊" }
+      ],
+      "answer": "D",
+      "explanation": "CoT 是線性推理。Graph Prompting 能保留節點間的非線性拓撲關係，因此在處理社交網絡或知識圖譜等複雜關係時效果更佳。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "Graph Prompting"]
+    },
+    {
+      "id": "q41",
+      "type": "single_choice",
+      "questionText": "在少樣本提示（Few-shot Prompting）僅能提供 1–2 個範例的情況下，若遇到領域偏移（Domain Shift），下列何者為模型最可能面臨的核心挑戰？",
+      "options": [
+        { "key": "A", "value": "範例數量過少，無法涵蓋新領域的多樣性，導致模型泛化不足" },
+        { "key": "B", "value": "範例表徵有限，模型容易依賴單一樣本特性而降低適應力" },
+        { "key": "C", "value": "範例覆蓋不足，使模型難以抽取跨領域的穩定模式" },
+        { "key": "D", "value": "範例資訊過於稀缺，模型缺乏應對不同輸入情境的能力" }
+      ],
+      "answer": "A",
+      "explanation": "Few-shot 依賴範例代表性。當新任務與範例差異大（領域偏移）時，極少量的範例不足以讓模型學會新領域特徵，導致泛化能力不足。",
+      "score": 2,
+      "tags": ["Prompt Engineering", "泛化能力"]
+    },
+    {
+      "id": "q42",
+      "type": "single_choice",
+      "questionText": "某金融機構導入檢索增強生成（Retrieval-Augmented Generation, RAG）模型，用於客服文件查詢與自動回覆。由於大型模型運算成本過高，若考慮引入知識蒸餾（Knowledge Distillation, KD）技術，下列何者為帶來的主要效益？",
+      "options": [
+        { "key": "A", "value": "讓小型模型學習大型模型的知識，在降低運算成本的同時維持檢索與生成品質" },
+        { "key": "B", "value": "只能應用於語音或影像辨識，無法提升文字檢索生成效能" },
+        { "key": "C", "value": "因為 RAG 已有檢索機制，因此無需額外蒸餾知識" },
+        { "key": "D", "value": "僅能依賴特定 API 供應商才能使用，無法在自建模型中實現" }
+      ],
+      "answer": "A",
+      "explanation": "知識蒸餾是用龐大昂貴的「教師模型」教導輕量級「學生模型」，能讓小模型具備接近大模型的能力，但大幅降低運算成本。",
+      "score": 2,
+      "tags": ["知識蒸餾", "模型優化"]
+    },
+    {
+      "id": "q43",
+      "type": "single_choice",
+      "questionText": "在評估大型語言模型，例如 7B、13B、175B參數規模時，模型規模對基準測試（Benchmark）結果的影響，下列哪一種說法最為恰當？",
+      "options": [
+        { "key": "A", "value": "小模型在正確調整下能超越大模型，因此模型大小並不重要" },
+        { "key": "B", "value": "大模型在多數情境下表現較好，但在特定任務上略遜於小模型" },
+        { "key": "C", "value": "模型規模與基準測試結果完全無關，影響主要來自測試設計" },
+        { "key": "D", "value": "模型越大，Benchmark 結果可能提升，但幅度取決於訓練數據品質與資源配置" }
+      ],
+      "answer": "D",
+      "explanation": "根據 Scaling Law，模型越大潛力越高。但實際表現高度依賴訓練數據品質。若數據不佳，大模型也可能表現平平。",
+      "score": 2,
+      "tags": ["模型規模", "效能評估"]
+    },
+    {
+      "id": "q44",
+      "type": "single_choice",
+      "questionText": "在 AI應用設計中，Model Context Protocol（MCP）與檢索增強生成（RAG）都能擴展模型的能力，但兩者的核心差異主要為下列何者？",
+      "options": [
+        { "key": "A", "value": "MCP擴展模型工具，但主要用於補足訓練資料不足" },
+        { "key": "B", "value": "MCP能標準化連接資源，但仍需依賴向量資料庫" },
+        { "key": "C", "value": "RAG 常用於擴展知識庫內容，而 MCP 更著重於動態工具與 API 呼叫的整合" },
+        { "key": "D", "value": "RAG透過統一協議，提升回答相關性" }
+      ],
+      "answer": "C",
+      "explanation": "RAG 重點在於「檢索靜態知識」；MCP 重點在於提供「標準化協議」來連接外部工具與 API，讓 AI 具備執行動作的能力。",
+      "score": 2,
+      "tags": ["MCP", "RAG"]
+    },
+    {
+      "id": "q45",
+      "type": "single_choice",
+      "questionText": "下列哪一個資料集專門設計用於測試大型語言模型在多領域、多任務語言理解中，涵蓋人文、科學與社會科學等領域，而非專門用於數學推理或中文專業知識？",
+      "options": [
+        { "key": "A", "value": "MMLU" },
+        { "key": "B", "value": "GSM8K" },
+        { "key": "C", "value": "MATH" },
+        { "key": "D", "value": "C-Eval" }
+      ],
+      "answer": "A",
+      "explanation": "MMLU 是目前評測 LLM 綜合知識能力最權威的資料集。GSM8K/MATH 專注數學，C-Eval 專注中文。",
+      "score": 2,
+      "tags": ["評測資料集", "MMLU"]
+    },
+    {
+      "id": "q46",
+      "type": "single_choice",
+      "questionText": "某智慧工廠導入生成式 AI，協助產線工程師即時產生維修指引與操作建議。下列哪一項並非團隊在系統設計中加入 Guardrails（防護機制）的主要目的？",
+      "options": [
+        { "key": "A", "value": "檢查工程師輸入內容，避免觸發錯誤或危險需求" },
+        { "key": "B", "value": "過濾與驗證 AI輸出的維修指引，確保符合安全標準" },
+        { "key": "C", "value": "確保生成的操作建議符合法規與產業安全規範" },
+        { "key": "D", "value": "完整重建並追蹤 AI 模型的全部推理過程" }
+      ],
+      "answer": "D",
+      "explanation": "Guardrails 旨在「攔截與過濾」不當輸入/輸出以確保安全。追蹤推理過程屬於可解釋性或日誌功能，非護欄主要職責。",
+      "score": 2,
+      "tags": ["Guardrails", "AI安全"]
+    },
+    {
+      "id": "q47",
+      "type": "single_choice",
+      "questionText": "某顧問公司導入生成式 AI，協助團隊快速檢索並摘要長篇的法規文件。為了改善檢索結果常出現不相關或過於分散內容的問題，下列何者為團隊決定對文件進行文本切分（Chunking）的主要目的？",
+      "options": [
+        { "key": "A", "value": "讓模型在回答時能加快推理速度" },
+        { "key": "B", "value": "提高檢索相關性與降低長上下文噪音" },
+        { "key": "C", "value": "降低系統記憶體和硬體資源的負擔" },
+        { "key": "D", "value": "使模型在生成回覆時更具創造性與多樣化" }
+      ],
+      "answer": "B",
+      "explanation": "Chunking 能精確定位含有答案的段落，避免將整份無關的長文件塞給模型（噪音），從而提升 RAG 的相關性與準確度。",
+      "score": 2,
+      "tags": ["RAG", "Chunking"]
+    },
+    {
+      "id": "q48",
+      "type": "single_choice",
+      "questionText": "某開發團隊在建置企業內部知識檢索系統時，選擇採用多向量檢索器（Multi-vector Retriever），下列何者為協助提升系統查詢的完整性與精準度的主要方式？",
+      "options": [
+        { "key": "A", "value": "支援同時處理多種資訊表示，提升跨文本型態的檢索效果" },
+        { "key": "B", "value": "透過多向量壓縮與共享權重方式，降低檢索過程的運算與儲存成本" },
+        { "key": "C", "value": "以切分並過濾文件片段，減少上下文長度帶來的 Token負擔" },
+        { "key": "D", "value": "透過調整生成階段的溫度參數，使模型在回覆時更穩定一致" }
+      ],
+      "answer": "A",
+      "explanation": "Multi-vector Retriever 允許為同一文件儲存多種向量表示（如原始文本+摘要+假設性問題），能從不同角度匹配查詢，提升檢索效果。",
+      "score": 2,
+      "tags": ["RAG", "Retriever"]
+    },
+    {
+      "id": "q49",
+      "type": "single_choice",
+      "questionText": "在 Agentic AI的架構中，解決方案圖譜（Solution Graph）常被用來輔助代理的任務執行，其主要作用為何？",
+      "options": [
+        { "key": "A", "value": "透過圖形結構完全取代大型語言模型的推理，讓代理只依靠圖演算法完成任務" },
+        { "key": "B", "value": "僅用於保存代理的輸出結果，方便後續檢視與審計，而不影響實際推理流程" },
+        { "key": "C", "value": "將代理限制在既定流程內，避免其產生偏離設計腳本的行為" },
+        { "key": "D", "value": "作為代理在執行過程中的參考框架，用於組織決策步驟並支援任務推理" }
+      ],
+      "answer": "D",
+      "explanation": "Solution Graph 提供結構化的決策空間，協助 Agent 理解狀態、步驟與目標，有助於組織複雜的推理過程。",
+      "score": 2,
+      "tags": ["Agentic AI", "Solution Graph"]
+    },
+    {
+      "id": "q50",
+      "type": "single_choice",
+      "questionText": "小明想開發一個部落格寫作工具，讓用戶輸入文章開頭後，系統自動幫忙寫出後續內容，例如輸入「今天去了台北木柵動物園...」，系統就能續寫。若要實現這樣的功能，最適合選擇下列哪一類任務？",
+      "options": [
+        { "key": "A", "value": "序列到序列建模（Sequence-to-Sequence Modeling），透過輸入序列產生新的輸出序列" },
+        { "key": "B", "value": "遮罩語言建模（Masked Language Modeling），補齊文字中缺失的詞語或片段" },
+        { "key": "C", "value": "生成式語言建模（Text Generation），依據上下文持續產生新的內容" },
+        { "key": "D", "value": "文本分類（Text Classification），針對輸入文本判斷情感、主題或標籤" }
+      ],
+      "answer": "C",
+      "explanation": "根據前文續寫後文是標準的「生成式語言建模（Text Generation）」任務，這正是 GPT 類模型的核心功能。",
+      "score": 2,
+      "tags": ["NLP任務", "文字生成"]
+    }
+  ]
+}
