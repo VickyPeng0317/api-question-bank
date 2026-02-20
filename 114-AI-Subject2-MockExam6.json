@@ -1,0 +1,759 @@
+{
+  "level": "junior",
+  "type": "生成式AI應用與規劃",
+  "quiz_id": "114-AI-Subject2-MockExam6",
+  "title": "114年初級AI應用規劃師第二科：生成式AI應用與規劃 (模擬考卷六)",
+  "exam_date": "2025-11-01",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "questionText": "No Code / Low Code 平台賦予非技術背景的人員（如業務或行銷人員）利用視覺化工具自行開發自動化流程與應用的能力。這些非技術背景的開發者在業界常被稱為什麼？",
+      "options": [
+        { "key": "A", "value": "全端工程師 (Full-stack Developer)" },
+        { "key": "B", "value": "市民開發者 (Citizen Developer)" },
+        { "key": "C", "value": "資料科學家 (Data Scientist)" },
+        { "key": "D", "value": "系統架構師 (System Architect)" }
+      ],
+      "answer": "B",
+      "explanation": "No Code / Low Code 平台將技術力量擴展到非技術背景的個人與企業，這些人員被稱為「市民開發者 (Citizen Developer)」，能利用工具自動化日常工作，提高生產力。",
+      "score": 2,
+      "tags": ["No code / Low code", "市民開發者"]
+    },
+    {
+      "id": "q2",
+      "type": "single_choice",
+      "questionText": "「AI 民主化 (AI Democratization)」的核心理念為何？",
+      "options": [
+        { "key": "A", "value": "將 AI 系統完全開源，供任何企業免費進行商業販售" },
+        { "key": "B", "value": "透過降低技術門檻，讓非技術背景人士與中小企業也能參與 AI 開發並受益" },
+        { "key": "C", "value": "利用 AI 取代各國傳統的投票系統" },
+        { "key": "D", "value": "限制大型科技公司研發 AI，將資源強制分配給新創企業" }
+      ],
+      "answer": "B",
+      "explanation": "AI 民主化旨在降低 AI 的技術門檻，將 AI 的使用擴展到更廣泛的社會層面，讓更多非技術背景的人士和中小型企業都能夠參與 AI 開發並受益。",
+      "score": 2,
+      "tags": ["AI民主化", "核心理念"]
+    },
+    {
+      "id": "q3",
+      "type": "single_choice",
+      "questionText": "在評估導入 No Code / Low Code 平台時，企業必須衡量該平台的「總擁有成本 (Total Cost of Ownership, TCO)」。下列何者屬於 TCO 的評估範疇？",
+      "options": [
+        { "key": "A", "value": "僅包含軟體的初始購買授權費用" },
+        { "key": "B", "value": "僅計算硬體設備的採購費用" },
+        { "key": "C", "value": "包含平台的購買、長期維護、員工培訓等直接與隱性相關成本" },
+        { "key": "D", "value": "平台幫助企業提升的總營收" }
+      ],
+      "answer": "C",
+      "explanation": "總擁有成本 (TCO) 考量的不僅是初期的購買費用，還必須包含後續的維護、系統整合、員工培訓等相關成本與隱性費用。",
+      "score": 2,
+      "tags": ["導入評估", "TCO"]
+    },
+    {
+      "id": "q4",
+      "type": "single_choice",
+      "questionText": "在文本數據進入深度學習模型訓練前，必須先將文本拆分為基本單元（例如詞或子詞），以便模型處理。這個關鍵步驟稱為？",
+      "options": [
+        { "key": "A", "value": "向量化表示 (Vectorization)" },
+        { "key": "B", "value": "標記化處理 (Tokenization)" },
+        { "key": "C", "value": "數據清洗 (Data Cleaning)" },
+        { "key": "D", "value": "交叉驗證 (Cross Validation)" }
+      ],
+      "answer": "B",
+      "explanation": "標記化處理 (Tokenization) 是將文本數據拆分為基本單元（如詞或子詞），這是讓語言模型能夠處理與理解文本的重要前置步驟。",
+      "score": 2,
+      "tags": ["技術概念", "Tokenization"]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "questionText": "在使用生成式 AI 進行推理（Inference）時，哪一個參數主要用來控制生成內容的「隨機性」與「創造力」，數值越高生成的內容越具創意？",
+      "options": [
+        { "key": "A", "value": "學習率 (Learning Rate)" },
+        { "key": "B", "value": "溫度參數 (Temperature Parameter)" },
+        { "key": "C", "value": "丟棄率 (Dropout Rate)" },
+        { "key": "D", "value": "批次大小 (Batch Size)" }
+      ],
+      "answer": "B",
+      "explanation": "溫度參數 (Temperature) 用於控制生成內容的隨機性。低溫度值會生成較保守、確定的內容，高溫度值則生成更具創意與多樣性的內容。",
+      "score": 2,
+      "tags": ["推理機制", "溫度參數"]
+    },
+    {
+      "id": "q6",
+      "type": "single_choice",
+      "questionText": "在生成式模型的採樣機制中，「選擇累積機率達到某一閾值（如 0.9）的選項進行採樣」，以更靈活地平衡內容品質與隨機性。此機制稱為？",
+      "options": [
+        { "key": "A", "value": "核採樣 (Nucleus Sampling / Top-p)" },
+        { "key": "B", "value": "頂部採樣 (Top-k Sampling)" },
+        { "key": "C", "value": "貪婪搜索 (Greedy Search)" },
+        { "key": "D", "value": "波束搜索 (Beam Search)" }
+      ],
+      "answer": "A",
+      "explanation": "核採樣 (Nucleus Sampling，又稱 Top-p) 是選擇累積機率達到某一閾值（如 0.9）的選項進行採樣，動態調整候選詞數量，平衡品質與隨機性。",
+      "score": 2,
+      "tags": ["推理機制", "核採樣"]
+    },
+    {
+      "id": "q7",
+      "type": "single_choice",
+      "questionText": "在大型語言模型 (LLM) 的技術架構中，哪一種機制使其能夠有效處理長距離的依賴關係，並學習序列數據的內在結構？",
+      "options": [
+        { "key": "A", "value": "池化層 (Pooling Layer)" },
+        { "key": "B", "value": "自注意力機制 (Self-Attention)" },
+        { "key": "C", "value": "卷積運算 (Convolution)" },
+        { "key": "D", "value": "核函數映射 (Kernel Trick)" }
+      ],
+      "answer": "B",
+      "explanation": "Transformer 架構中的注意力機制，特別是「自注意力 (Self-Attention)」，能有助於處理長距離依賴關係，並有效學習序列數據的內在結構。",
+      "score": 2,
+      "tags": ["技術概念", "注意力機制"]
+    },
+    {
+      "id": "q8",
+      "type": "single_choice",
+      "questionText": "廣泛應用於 Midjourney 等工具，透過「逐步向數據添加高斯雜訊，再透過神經網路反向去除雜訊」來重建高畫質圖像的生成模型為？",
+      "options": [
+        { "key": "A", "value": "擴散模型 (Diffusion Models)" },
+        { "key": "B", "value": "變分自編碼器 (VAE)" },
+        { "key": "C", "value": "生成對抗網路 (GAN)" },
+        { "key": "D", "value": "自迴歸模型 (Autoregressive Models)" }
+      ],
+      "answer": "A",
+      "explanation": "擴散模型 (Diffusion Models) 的技術核心是透過逐步添加雜訊及反向去噪的過程來重建影像，在圖像生成應用中展現極高的準確性與自然感。",
+      "score": 2,
+      "tags": ["生成式AI", "擴散模型"]
+    },
+    {
+      "id": "q9",
+      "type": "single_choice",
+      "questionText": "企業無需建置高階硬體，即可透過雲端平台訂閱或 API 呼叫，存取高效能的生成式 AI 工具。這種商業模式稱為什麼？",
+      "options": [
+        { "key": "A", "value": "IaaS (基礎設施即服務)" },
+        { "key": "B", "value": "在地化部署 (On-premise)" },
+        { "key": "C", "value": "AIaaS (AI 即服務)" },
+        { "key": "D", "value": "邊緣運算 (Edge Computing)" }
+      ],
+      "answer": "C",
+      "explanation": "AI 即服務 (AI as a Service, AIaaS) 透過雲端平台提供 API 服務，讓用戶無需具備高階硬體或專業知識，即可輕鬆存取並整合高效能的 AI 工具。",
+      "score": 2,
+      "tags": ["商業模式", "AIaaS"]
+    },
+    {
+      "id": "q10",
+      "type": "single_choice",
+      "questionText": "在深度學習模型微調（Fine-tuning）的過程中，若模型過度適應新的特定領域資料，導致逐漸遺忘先前預訓練所獲得的廣泛知識，這種現象稱為？",
+      "options": [
+        { "key": "A", "value": "梯度爆炸 (Gradient Explosion)" },
+        { "key": "B", "value": "模式崩潰 (Mode Collapse)" },
+        { "key": "C", "value": "災難性遺忘 (Catastrophic Forgetting)" },
+        { "key": "D", "value": "欠擬合 (Underfitting)" }
+      ],
+      "answer": "C",
+      "explanation": "災難性遺忘是指神經網路在學習新任務（微調）時，覆蓋了舊任務的權重配置，導致原本具備的廣泛知識與通用表現大幅下降。",
+      "score": 2,
+      "tags": ["模型微調", "災難性遺忘"]
+    },
+    {
+      "id": "q11",
+      "type": "single_choice",
+      "questionText": "為了使生成結果更貼近人類偏好與需求，許多大型語言模型在訓練後期會引入哪一種結合人類審查的強化學習技術？",
+      "options": [
+        { "key": "A", "value": "無監督聚類 (Unsupervised Clustering)" },
+        { "key": "B", "value": "人類回饋強化學習 (RLHF)" },
+        { "key": "C", "value": "主成分分析 (PCA)" },
+        { "key": "D", "value": "聯邦學習 (Federated Learning)" }
+      ],
+      "answer": "B",
+      "explanation": "人類回饋強化學習 (Reinforcement Learning from Human Feedback, RLHF) 讓模型能根據人類的評價與偏好進行優化，使生成結果更安全、貼近用戶需求。",
+      "score": 2,
+      "tags": ["技術概念", "RLHF"]
+    },
+    {
+      "id": "q12",
+      "type": "single_choice",
+      "questionText": "企業為了在資源有限的邊緣設備（如手機）上運行生成式 AI，常透過移除神經網路中不重要或冗餘的權重來簡化模型。這項技術稱為？",
+      "options": [
+        { "key": "A", "value": "模型剪枝 (Model Pruning)" },
+        { "key": "B", "value": "數據增強 (Data Augmentation)" },
+        { "key": "C", "value": "提示工程 (Prompt Engineering)" },
+        { "key": "D", "value": "交叉驗證 (Cross Validation)" }
+      ],
+      "answer": "A",
+      "explanation": "模型剪枝 (Pruning) 透過移除神經網路中影響較小的冗餘權重或連接，來簡化模型結構，達到壓縮模型並加速推論速度的目的。",
+      "score": 2,
+      "tags": ["模型優化", "模型剪枝"]
+    },
+    {
+      "id": "q13",
+      "type": "single_choice",
+      "questionText": "生成式 AI 應用於「醫療保健」領域時，下列哪一項是其典型的應用場景？",
+      "options": [
+        { "key": "A", "value": "自動生成高頻交易演算法" },
+        { "key": "B", "value": "預測潛在藥物分子結構以縮短研發週期" },
+        { "key": "C", "value": "優化製造業的供應鏈與庫存成本" },
+        { "key": "D", "value": "生成遊戲中的 3D 動畫場景" }
+      ],
+      "answer": "B",
+      "explanation": "在醫療領域，生成式 AI 可分析大量生物醫學數據，預測分子結構，協助新藥開發與設計，從而縮短研發週期。",
+      "score": 2,
+      "tags": ["產業應用", "醫療保健"]
+    },
+    {
+      "id": "q14",
+      "type": "single_choice",
+      "questionText": "在金融業中，生成式 AI 最具代表性的應用之一為何？",
+      "options": [
+        { "key": "A", "value": "模擬市場情境進行風險評估與投資組合優化" },
+        { "key": "B", "value": "生成產品設計的 3D 原型" },
+        { "key": "C", "value": "撰寫並生成電子病歷" },
+        { "key": "D", "value": "優化工廠的自動化生產線" }
+      ],
+      "answer": "A",
+      "explanation": "金融業中，生成式 AI 可模擬各種市場情境協助風險評估，並結合市場數據提供最佳投資組合建議及自動化合規監管。",
+      "score": 2,
+      "tags": ["產業應用", "金融業"]
+    },
+    {
+      "id": "q15",
+      "type": "single_choice",
+      "questionText": "企業導入生成式 AI 時，若缺乏明確策略，容易造成資源浪費。導入規劃的第一個階段通常是？",
+      "options": [
+        { "key": "A", "value": "購買硬體並立即上線服務" },
+        { "key": "B", "value": "全面裁撤非技術人員" },
+        { "key": "C", "value": "明確經營目標、識別痛點並評估現狀" },
+        { "key": "D", "value": "將所有內部數據上傳至公共雲端" }
+      ],
+      "answer": "C",
+      "explanation": "企業導入 AI 的準備階段應首先明確經營目標與核心價值，深入分析現有營運模式，並識別痛點（如流程瓶頸），以設計具體可行的應用策略。",
+      "score": 2,
+      "tags": ["導入規劃", "需求評估"]
+    },
+    {
+      "id": "q16",
+      "type": "single_choice",
+      "questionText": "企業評估生成式 AI 專案的財務可行性時，為納入現金流時間分佈的考量，常計算下列哪兩項財務指標？",
+      "options": [
+        { "key": "A", "value": "精確率 (Precision) 與 召回率 (Recall)" },
+        { "key": "B", "value": "BLEU 與 ROUGE" },
+        { "key": "C", "value": "淨現值 (NPV) 與 內部報酬率 (IRR)" },
+        { "key": "D", "value": "GPU 使用率 與 延遲 (Latency)" }
+      ],
+      "answer": "C",
+      "explanation": "計算 ROI 時，會使用回本時間預估模型並納入現金流分析，計算淨現值（NPV）與內部報酬率（IRR），以評估方案的財務可行性與長期收益潛力。",
+      "score": 2,
+      "tags": ["導入評估", "ROI計算"]
+    },
+    {
+      "id": "q17",
+      "type": "single_choice",
+      "questionText": "在 AI 導入計畫中，透過「敏感性分析 (Sensitivity Analysis)」可以幫助企業達到什麼目的？",
+      "options": [
+        { "key": "A", "value": "尋找訓練資料中的敏感個資並加密" },
+        { "key": "B", "value": "模擬不同市場條件或成本變動對方案收益的影響，識別風險與機會" },
+        { "key": "C", "value": "分析員工對新 AI 工具的抗拒心理" },
+        { "key": "D", "value": "測試模型對微小雜訊擾動的抗干擾能力" }
+      ],
+      "answer": "B",
+      "explanation": "在財務與效益評估中，敏感性分析能有效模擬市場條件、業務情境或成本變動對方案收益的影響，幫助企業制定靈活的投資策略。",
+      "score": 2,
+      "tags": ["導入評估", "敏感性分析"]
+    },
+    {
+      "id": "q18",
+      "type": "single_choice",
+      "questionText": "在大型語言模型（LLM）的訓練過程中，哪一種損失函數（Loss Function）最常被用於評估生成詞語的預測誤差？",
+      "options": [
+        { "key": "A", "value": "均方誤差 (MSE)" },
+        { "key": "B", "value": "交叉熵損失 (Cross-Entropy Loss)" },
+        { "key": "C", "value": "平滑 L1 損失 (Smooth L1 Loss)" },
+        { "key": "D", "value": "餘弦相似度 (Cosine Similarity)" }
+      ],
+      "answer": "B",
+      "explanation": "在自迴歸模型的訓練中，最常用的損失函數為交叉熵損失（Cross-Entropy Loss），它能有效衡量模型預測下一個詞語的機率分佈與真實標籤之間的差異。",
+      "score": 2,
+      "tags": ["模型訓練", "損失函數"]
+    },
+    {
+      "id": "q19",
+      "type": "single_choice",
+      "questionText": "在生成式 AI 大型模型的訓練中，採用「混合精度訓練 (Mixed Precision Training)」的主要目的為何？",
+      "options": [
+        { "key": "A", "value": "減少計算資源的消耗並加速訓練速度，同時不影響最終精度" },
+        { "key": "B", "value": "強制移除數據集中的所有偏見資訊" },
+        { "key": "C", "value": "提高生成影像的對比度與色彩飽和度" },
+        { "key": "D", "value": "完全解決模型的 AI 幻覺問題" }
+      ],
+      "answer": "A",
+      "explanation": "混合精度訓練有助於在不影響模型最終精度的前提下，大幅減少記憶體與計算資源的消耗，並加速模型的訓練速度。",
+      "score": 2,
+      "tags": ["模型訓練", "混合精度訓練"]
+    },
+    {
+      "id": "q20",
+      "type": "single_choice",
+      "questionText": "在驗證生成式語言模型的效能時，常用來評估模型生成文本品質與語言流暢性的量化標準指標為何？",
+      "options": [
+        { "key": "A", "value": "GDPR、CCPA" },
+        { "key": "B", "value": "NPV、IRR" },
+        { "key": "C", "value": "BLEU、ROUGE、Perplexity" },
+        { "key": "D", "value": "SVM、KNN、K-Means" }
+      ],
+      "answer": "C",
+      "explanation": "評估生成式 AI 語言模型效能時，常採用 BLEU、ROUGE、Perplexity 等量化標準，以客觀衡量生成內容的相似度、品質與流暢性。",
+      "score": 2,
+      "tags": ["模型評估", "量化指標"]
+    },
+    {
+      "id": "q21",
+      "type": "single_choice",
+      "questionText": "在 AI 專案導入初期，企業通常會進行小範圍的「概念驗證 (POC) 試點」。此階段最關鍵的目標為何？",
+      "options": [
+        { "key": "A", "value": "一次性取代現有的所有核心系統" },
+        { "key": "B", "value": "裁減不需要的非技術員工以節省成本" },
+        { "key": "C", "value": "在真實業務場景中驗證技術效果，收集回饋以調整後續全面推廣計畫" },
+        { "key": "D", "value": "公開發布測試版本讓全球用戶公測" }
+      ],
+      "answer": "C",
+      "explanation": "試點（POC）階段的核心目標在於透過低成本且風險可控的方式，驗證 AI 技術在真實業務場景中的可行性與效果，並累積經驗作為擴大推廣的基礎。",
+      "score": 2,
+      "tags": ["導入規劃", "POC"]
+    },
+    {
+      "id": "q22",
+      "type": "single_choice",
+      "questionText": "模型上線後，若因為業務場景或用戶行為隨時間改變，導致「輸入數據的分佈特徵」發生改變，使模型預測準確性下降。這種現象稱為？",
+      "options": [
+        { "key": "A", "value": "數據漂移 (Data Drift)" },
+        { "key": "B", "value": "災難性遺忘 (Catastrophic Forgetting)" },
+        { "key": "C", "value": "梯度消失 (Vanishing Gradient)" },
+        { "key": "D", "value": "模式崩潰 (Mode Collapse)" }
+      ],
+      "answer": "A",
+      "explanation": "數據漂移（Data Drift）是指隨著時間推移，輸入數據的分佈發生變化，導致模型效能下降。企業需定期檢查並執行自動化重新訓練來應對。",
+      "score": 2,
+      "tags": ["營運管理", "數據漂移"]
+    },
+    {
+      "id": "q23",
+      "type": "single_choice",
+      "questionText": "生成式 AI 可能「一本正經地胡說八道」，生成虛構或不存在的資訊。此種挑戰被廣泛稱為什麼？",
+      "options": [
+        { "key": "A", "value": "數據漂移 (Data Drift)" },
+        { "key": "B", "value": "AI 幻覺 (AI Hallucinations)" },
+        { "key": "C", "value": "對抗性攻擊 (Adversarial Attack)" },
+        { "key": "D", "value": "反向工程 (Reverse Engineering)" }
+      ],
+      "answer": "B",
+      "explanation": "AI 幻覺 (AI Hallucinations) 是指模型生成看似合理但實際上不準確、虛構或毫無根據的內容，嚴重影響內容的真實性與可靠性。",
+      "score": 2,
+      "tags": ["風險管理", "AI幻覺"]
+    },
+    {
+      "id": "q24",
+      "type": "single_choice",
+      "questionText": "在 AI 的風險評估中，實務上常使用「風險矩陣 (Risk Matrix)」。此工具主要是將哪兩個維度進行交叉對比，以判定風險優先級別？",
+      "options": [
+        { "key": "A", "value": "開發成本 與 預期收益" },
+        { "key": "B", "value": "發生概率 與 影響程度" },
+        { "key": "C", "value": "模型參數大小 與 訓練時間" },
+        { "key": "D", "value": "硬體算力 與 儲存空間" }
+      ],
+      "answer": "B",
+      "explanation": "風險矩陣將風險的「發生概率」與其「影響程度」進行交叉對比，幫助決策者直觀了解各類風險的權重，優先處理高風險問題。",
+      "score": 2,
+      "tags": ["風險評估", "風險矩陣"]
+    },
+    {
+      "id": "q25",
+      "type": "single_choice",
+      "questionText": "為了降低模型訓練資料中的敏感個資外洩風險，企業可採用哪一種技術，為數據添加雜訊，在保證整體數據分析有效性的同時保護個人隱私？",
+      "options": [
+        { "key": "A", "value": "聯邦學習 (Federated Learning)" },
+        { "key": "B", "value": "差分隱私技術 (Differential Privacy)" },
+        { "key": "C", "value": "A/B 測試 (A/B Testing)" },
+        { "key": "D", "value": "模型量化 (Model Quantization)" }
+      ],
+      "answer": "B",
+      "explanation": "差分隱私（Differential Privacy）技術透過在數據中加入適度雜訊，能防止攻擊者推斷出特定個人的敏感資訊，是資料隱私保護的關鍵技術。",
+      "score": 2,
+      "tags": ["風險管理", "差分隱私"]
+    },
+    {
+      "id": "q26",
+      "type": "single_choice",
+      "questionText": "若企業評估某一 AI 應用的技術尚未成熟或可能導致重大損害，決定暫緩開發該專案。這屬於哪一種風險應對策略？",
+      "options": [
+        { "key": "A", "value": "風險轉移 (Risk Transfer)" },
+        { "key": "B", "value": "風險緩解 (Risk Mitigation)" },
+        { "key": "C", "value": "風險迴避 (Risk Avoidance)" },
+        { "key": "D", "value": "風險接受 (Risk Acceptance)" }
+      ],
+      "answer": "C",
+      "explanation": "風險迴避適用於技術不成熟或可能導致重大損害的場景。企業透過暫緩開發或停止高風險應用，完全避免該風險的發生。",
+      "score": 2,
+      "tags": ["風險管理", "風險迴避"]
+    },
+    {
+      "id": "q27",
+      "type": "single_choice",
+      "questionText": "企業透過購買保險或與外部雲端服務商簽署合約，將 AI 系統運營的潛在資安責任交由第三方承擔。這屬於哪一種風險應對策略？",
+      "options": [
+        { "key": "A", "value": "風險迴避" },
+        { "key": "B", "value": "風險緩解" },
+        { "key": "C", "value": "風險接受" },
+        { "key": "D", "value": "風險轉移" }
+      ],
+      "answer": "D",
+      "explanation": "風險轉移是透過購買保險或與外部合作夥伴簽署協議（外包），將部分或全部的風險責任轉移給第三方。",
+      "score": 2,
+      "tags": ["風險管理", "風險轉移"]
+    },
+    {
+      "id": "q28",
+      "type": "single_choice",
+      "questionText": "在 AI 風險管理中，「風險接受 (Risk Acceptance)」策略通常適用於何種情況？",
+      "options": [
+        { "key": "A", "value": "風險的影響極大且發生機率極高" },
+        { "key": "B", "value": "風險的影響有限或無法完全避免，企業評估在其容忍度內並準備了應急計畫" },
+        { "key": "C", "value": "企業完全沒有預算進行任何防護" },
+        { "key": "D", "value": "法規嚴格禁止的違規操作" }
+      ],
+      "answer": "B",
+      "explanation": "風險接受適用於風險影響有限或無法完全避免的情況。企業基於現實條件與容忍度，選擇接受風險並制定詳細的應急準備方案以平衡效益。",
+      "score": 2,
+      "tags": ["風險管理", "風險接受"]
+    },
+    {
+      "id": "q29",
+      "type": "single_choice",
+      "questionText": "為了解決生成式 AI 決策過程如同「黑箱 (Black Box)」的問題，企業在進行風險溯源時，應引入哪一項技術以確保生成內容和過程具備可追溯性？",
+      "options": [
+        { "key": "A", "value": "可解釋性 AI 技術 (Explainable AI, XAI)" },
+        { "key": "B", "value": "卷積神經網路 (CNN)" },
+        { "key": "C", "value": "批次正規化 (Batch Normalization)" },
+        { "key": "D", "value": "自動編碼器 (Autoencoder)" }
+      ],
+      "answer": "A",
+      "explanation": "可解釋性 AI (XAI) 技術能確保模型生成過程的透明化，讓數據輸入、處理邏輯與模型參數的運行情況具備可追溯性，增強結果的可信度。",
+      "score": 2,
+      "tags": ["風險管理", "風險溯源"]
+    },
+    {
+      "id": "q30",
+      "type": "single_choice",
+      "questionText": "惡意使用者可能透過精心設計的輸入指令（如越獄提示詞 Prompt Injection），試圖操控模型輸出或誘導模型洩露隱私訊息。此種安全風險被稱為？",
+      "options": [
+        { "key": "A", "value": "數據漂移 (Data Drift)" },
+        { "key": "B", "value": "災難性遺忘 (Catastrophic Forgetting)" },
+        { "key": "C", "value": "對抗性攻擊 (Adversarial Attack)" },
+        { "key": "D", "value": "模式崩潰 (Mode Collapse)" }
+      ],
+      "answer": "C",
+      "explanation": "對抗性攻擊包含透過精心設計的輸入（如提示詞攻擊）來操控模型的行為，誘導其生成不當內容或洩露訓練數據中的機密資訊。",
+      "score": 2,
+      "tags": ["風險管理", "對抗性攻擊"]
+    },
+    {
+      "id": "q31",
+      "type": "single_choice",
+      "questionText": "為了降低模型在特定族群（如性別、種族）上產生不公平預測或生成內容偏見，在準備訓練資料時，最重要的應對措施為何？",
+      "options": [
+        { "key": "A", "value": "確保訓練數據具備多樣性與代表性，並使用去偏見技術" },
+        { "key": "B", "value": "盡可能增加模型的神經網路層數" },
+        { "key": "C", "value": "僅使用單一國家的資料進行訓練以保證一致性" },
+        { "key": "D", "value": "將所有與人類屬性相關的特徵刪除" }
+      ],
+      "answer": "A",
+      "explanation": "模型偏見多源自訓練資料的不平衡。確保訓練數據的多樣性，並在過程中採用去偏見技術與公平性測試，是降低倫理偏見最直接有效的方法。",
+      "score": 2,
+      "tags": ["AI倫理", "偏見防範"]
+    },
+    {
+      "id": "q32",
+      "type": "single_choice",
+      "questionText": "將文字、圖像、音訊等多種資料格式結合，例如給定一段文字即可生成對應的圖片或影片，這類生成式 AI 技術稱為什麼？",
+      "options": [
+        { "key": "A", "value": "單模態生成 (Uni-modal Generation)" },
+        { "key": "B", "value": "多模態生成 (Multi-modal Generation)" },
+        { "key": "C", "value": "強化學習生成 (RL-based Generation)" },
+        { "key": "D", "value": "聯邦式生成 (Federated Generation)" }
+      ],
+      "answer": "B",
+      "explanation": "多模態生成 (Multi-modal) 是指將文本、圖像、音訊等多種模態結合的技術，例如 DALL-E 將文本描述轉化為圖像，開創了更豐富的應用場景。",
+      "score": 2,
+      "tags": ["生成式AI", "多模態"]
+    },
+    {
+      "id": "q33",
+      "type": "single_choice",
+      "questionText": "下列何者為企業在「內部人才培養與 AI 價值擴散」階段，常採用的有效推廣策略？",
+      "options": [
+        { "key": "A", "value": "禁止員工在工作時使用 AI 工具以免出錯" },
+        { "key": "B", "value": "設立創新獎勵機制並舉辦內部展示會分享成功案例" },
+        { "key": "C", "value": "裁撤無法獨立開發 AI 模型的所有非技術員工" },
+        { "key": "D", "value": "將 AI 開發完全外包，內部不留任何技術知識" }
+      ],
+      "answer": "B",
+      "explanation": "透過分享成功案例（如內部展示會）及設立創新獎勵機制，能鼓勵員工主動參與 AI 應用，形成技術創新與應用的良性循環，實現 AI 價值擴散。",
+      "score": 2,
+      "tags": ["導入規劃", "價值擴散"]
+    },
+    {
+      "id": "q34",
+      "type": "single_choice",
+      "questionText": "在評估生成式 AI 的應用風險時，下列哪兩項隱私保護法規是企業在全球營運時最常需要遵循的標準？",
+      "options": [
+        { "key": "A", "value": "GDPR 與 CCPA" },
+        { "key": "B", "value": "IFRS 與 GAAP" },
+        { "key": "C", "value": "ISO 9001 與 ISO 14001" },
+        { "key": "D", "value": "Basel III 與 SOX" }
+      ],
+      "answer": "A",
+      "explanation": "生成式 AI 在處理個人資料時，必須符合現行的資料隱私保護規範，其中最具代表性的即為歐盟的《一般資料保護規則》(GDPR) 與美國加州的 CCPA。",
+      "score": 2,
+      "tags": ["法規遵循", "隱私保護"]
+    },
+    {
+      "id": "q35",
+      "type": "single_choice",
+      "questionText": "某企業欲利用現有開源的大型語言模型，針對其專屬的客服對話紀錄進行訓練，使模型更符合其特定業務的語氣與專業知識。此優化過程稱為？",
+      "options": [
+        { "key": "A", "value": "預訓練 (Pre-training)" },
+        { "key": "B", "value": "模型微調 (Fine-tuning)" },
+        { "key": "C", "value": "模型量化 (Quantization)" },
+        { "key": "D", "value": "資料清洗 (Data Cleaning)" }
+      ],
+      "answer": "B",
+      "explanation": "利用預訓練模型，針對特定領域或任務的資料（如企業專屬客服對話）進行進一步的訓練調整，以提升專門任務效能，這稱為模型微調 (Fine-tuning)。",
+      "score": 2,
+      "tags": ["技術概念", "微調"]
+    },
+    {
+      "id": "q36",
+      "type": "single_choice",
+      "questionText": "「變分自編碼器 (VAE)」在生成式 AI 中被廣泛應用。它的基本架構主要包含哪兩個核心部分來完成從壓縮到重建的過程？",
+      "options": [
+        { "key": "A", "value": "生成器 (Generator) 與 鑑別器 (Discriminator)" },
+        { "key": "B", "value": "演員 (Actor) 與 評論家 (Critic)" },
+        { "key": "C", "value": "編碼器 (Encoder) 與 解碼器 (Decoder)" },
+        { "key": "D", "value": "卷積層 (Conv Layer) 與 池化層 (Pooling Layer)" }
+      ],
+      "answer": "C",
+      "explanation": "VAE 的架構包含編碼器與解碼器。編碼器負責將輸入資料壓縮並映射到潛在空間的分佈，解碼器則從該空間採樣並重建出原始資料。",
+      "score": 2,
+      "tags": ["生成式AI", "VAE"]
+    },
+    {
+      "id": "q37",
+      "type": "single_choice",
+      "questionText": "「生成對抗網路 (GAN)」是高品質圖像生成的代表技術。其透過哪兩個網路的相互博弈來提升生成內容的真實感？",
+      "options": [
+        { "key": "A", "value": "編碼器與解碼器" },
+        { "key": "B", "value": "生成器與鑑別器" },
+        { "key": "C", "value": "輸入層與輸出層" },
+        { "key": "D", "value": "自注意力與交叉注意力" }
+      ],
+      "answer": "B",
+      "explanation": "GAN 包含生成器（負責製造假資料）與鑑別器（負責分辨真假資料），兩者在訓練過程中互相對抗，最終使生成器產出極具真實感的數據。",
+      "score": 2,
+      "tags": ["生成式AI", "GAN"]
+    },
+    {
+      "id": "q38",
+      "type": "single_choice",
+      "questionText": "在 AI 導入的「實施/營運階段」，若發現模型上線後的表現不如預期或出現效能衰退，最合適的應對方式為何？",
+      "options": [
+        { "key": "A", "value": "直接放棄專案並更換供應商" },
+        { "key": "B", "value": "不作任何更動，等待模型自行適應" },
+        { "key": "C", "value": "啟動自動化重新訓練流程，並結合最新數據進行微調" },
+        { "key": "D", "value": "立即提高所有系統的硬體算力" }
+      ],
+      "answer": "C",
+      "explanation": "在營運階段，企業應持續監控模型效能，當數據漂移或效能下降時，應觸發自動化重新訓練管道，結合最新數據微調模型以維持準確性。",
+      "score": 2,
+      "tags": ["營運管理", "重新訓練"]
+    },
+    {
+      "id": "q39",
+      "type": "single_choice",
+      "questionText": "當企業準備導入生成式 AI，在檢視內部「數據品質與基礎」時，應特別關注數據的哪些特性？",
+      "options": [
+        { "key": "A", "value": "數據的完整性、多樣性與格式一致性" },
+        { "key": "B", "value": "數據是否全部為非結構化影像" },
+        { "key": "C", "value": "數據是否完全來自外部開源資料庫" },
+        { "key": "D", "value": "數據檔案的副檔名長度" }
+      ],
+      "answer": "A",
+      "explanation": "生成式 AI 高度依賴優質數據，企業需檢視數據的完整性、準確性、多樣性與格式一致性，並進行清洗與整合，以避免模型訓練產生偏差。",
+      "score": 2,
+      "tags": ["導入評估", "數據品質"]
+    },
+    {
+      "id": "q40",
+      "type": "single_choice",
+      "questionText": "在生成式 AI 模型部署前的「邊界檢查 (Boundary Testing)」階段，其主要測試目標為何？",
+      "options": [
+        { "key": "A", "value": "檢查模型介面的按鈕位置是否美觀" },
+        { "key": "B", "value": "檢測模型在處理稀有、極端或異常數據時的穩定性與應對能力" },
+        { "key": "C", "value": "計算模型的總耗電量" },
+        { "key": "D", "value": "測試網路連線的速度" }
+      ],
+      "answer": "B",
+      "explanation": "邊界檢查 (Boundary Testing) 的目的是測試模型運行極限，特別是針對稀有、異常或高負載數據情境，確保模型具備足夠的穩定性與魯棒性。",
+      "score": 2,
+      "tags": ["效能驗證", "邊界檢查"]
+    },
+    {
+      "id": "q41",
+      "type": "single_choice",
+      "questionText": "若企業開發一款自動生成行銷文案的工具，為了讓用戶可以依據需求獲得不同風格的文案，開發者可能會優化下列哪一項技術以引導模型產生特定輸出？",
+      "options": [
+        { "key": "A", "value": "聯邦學習機制" },
+        { "key": "B", "value": "提示工程 (Prompt Engineering)" },
+        { "key": "C", "value": "影像擴散原理" },
+        { "key": "D", "value": "Z-score 正規化" }
+      ],
+      "answer": "B",
+      "explanation": "提示工程 (Prompt Engineering) 是透過精心設計和優化輸入給模型的提示詞，來引導生成式 AI 產出更精準、符合特定風格或任務需求的內容。",
+      "score": 2,
+      "tags": ["技術應用", "提示工程"]
+    },
+    {
+      "id": "q42",
+      "type": "single_choice",
+      "questionText": "生成式 AI 在教育領域的應用可以顯著減輕教師負擔並提升學習體驗。下列何者為典型的教育應用？",
+      "options": [
+        { "key": "A", "value": "自動預測股市漲跌" },
+        { "key": "B", "value": "自動化教材生成與提供即時互動的智慧教學助理" },
+        { "key": "C", "value": "執行外科手術模擬的實際操作" },
+        { "key": "D", "value": "撰寫並發布政府公文" }
+      ],
+      "answer": "B",
+      "explanation": "在教育領域，生成式 AI 可自動創建教學材料、設計個人化學習路徑，並作為智慧教學助理即時回應學生問題，顯著優化教育體驗。",
+      "score": 2,
+      "tags": ["產業應用", "教育"]
+    },
+    {
+      "id": "q43",
+      "type": "single_choice",
+      "questionText": "神經網路在訓練過程中，為提升模型收斂速度並根據不同的參數規模自動調整學習步長，實務上最常選用的優化器 (Optimizer) 是？",
+      "options": [
+        { "key": "A", "value": "AdamW 或 LAMB" },
+        { "key": "B", "value": "SVM" },
+        { "key": "C", "value": "K-Means" },
+        { "key": "D", "value": "決策樹" }
+      ],
+      "answer": "A",
+      "explanation": "AdamW 和 LAMB 是深度學習（特別是大型語言模型）中常用的優化器，它們能針對不同模型大小自適應調整學習率，控制收斂的穩定性與效率。",
+      "score": 2,
+      "tags": ["模型訓練", "優化器"]
+    },
+    {
+      "id": "q44",
+      "type": "single_choice",
+      "questionText": "在 AI 的運營與監控中，為了在模型效能達到警戒值時自動觸發更新過程，並將新模型部署至生產環境，企業應建構什麼系統？",
+      "options": [
+        { "key": "A", "value": "自動化重新訓練管道 (Retraining Pipeline)" },
+        { "key": "B", "value": "分散式拒絕服務攻擊防禦 (DDoS Protection)" },
+        { "key": "C", "value": "虛擬實境 (VR) 介面" },
+        { "key": "D", "value": "硬體散熱系統" }
+      ],
+      "answer": "A",
+      "explanation": "自動化的重新訓練管道 (Retraining Pipeline) 可以在監控到效能下降時，自動觸發訓練並部署更新後的模型，減少人工干預與時間成本。",
+      "score": 2,
+      "tags": ["營運管理", "自動化管道"]
+    },
+    {
+      "id": "q45",
+      "type": "single_choice",
+      "questionText": "在企業內部建立「風險文化」的過程中，下列哪一項做法能有效強化基層員工對 AI 風險的參與與警覺性？",
+      "options": [
+        { "key": "A", "value": "禁止基層員工討論 AI 相關話題" },
+        { "key": "B", "value": "將所有風險管理責任完全推給外部供應商" },
+        { "key": "C", "value": "建立風險報告機制與獎勵政策，鼓勵主動報告風險並提出改進建議" },
+        { "key": "D", "value": "僅由高階主管負責所有風險稽核" }
+      ],
+      "answer": "C",
+      "explanation": "風險文化強調全體參與。透過培訓、案例分析以及建立風險報告與獎勵機制，可以鼓勵員工主動識別與報告潛在的 AI 風險。",
+      "score": 2,
+      "tags": ["風險管理", "風險文化"]
+    },
+    {
+      "id": "q46",
+      "type": "single_choice",
+      "questionText": "為了防止大型神經網路在訓練過程中發生「過擬合 (Overfitting)」，實務上經常採用的正則化技術包括 L2 正則化以及哪一項機制？",
+      "options": [
+        { "key": "A", "value": "核採樣 (Nucleus Sampling)" },
+        { "key": "B", "value": "Dropout (隨機丟棄神經元)" },
+        { "key": "C", "value": "網格搜索 (Grid Search)" },
+        { "key": "D", "value": "自注意力機制 (Self-Attention)" }
+      ],
+      "answer": "B",
+      "explanation": "Dropout 是一種強大的正則化技術，透過在訓練時隨機關閉部分神經元，強迫模型學習更穩健的特徵，有效防止過擬合。",
+      "score": 2,
+      "tags": ["模型訓練", "正則化"]
+    },
+    {
+      "id": "q47",
+      "type": "single_choice",
+      "questionText": "在生成式 AI 的「人機協作機制 (Human-in-the-loop)」中，人類專家的主要職責通常包含下列何者？",
+      "options": [
+        { "key": "A", "value": "手動輸入百億個訓練數據參數" },
+        { "key": "B", "value": "強化內容生成的審核與優化，並在關鍵場景設置人工干預以降低風險" },
+        { "key": "C", "value": "負責硬體伺服器的實體組裝" },
+        { "key": "D", "value": "直接撰寫機器學習的底層 C++ 演算法" }
+      ],
+      "answer": "B",
+      "explanation": "人機協作機制的目的是結合人類的專業知識與 AI 效率，透過人類審核與人工干預，確保生成內容的準確性、合規性與安全性。",
+      "score": 2,
+      "tags": ["風險管理", "人機協作"]
+    },
+    {
+      "id": "q48",
+      "type": "single_choice",
+      "questionText": "「提供直觀的圖形化界面和拖放工具，使用者無需編寫程式碼即可開發應用程式」這段描述最符合下列哪一種平台的特性？",
+      "options": [
+        { "key": "A", "value": "High Code 平台" },
+        { "key": "B", "value": "Low Code 平台" },
+        { "key": "C", "value": "No Code 平台" },
+        { "key": "D", "value": "Linux 終端機" }
+      ],
+      "answer": "C",
+      "explanation": "No Code 平台的設計初衷即是讓完全沒有程式設計背景的「市民開發者」也能透過純圖形化、拖放式介面快速建立應用程式。",
+      "score": 2,
+      "tags": ["No code / Low code", "特性"]
+    },
+    {
+      "id": "q49",
+      "type": "single_choice",
+      "questionText": "在生成式 AI 的模型訓練中，「將文本或其他數據轉換為模型可處理的數值或多維空間座標形式」的過程稱為？",
+      "options": [
+        { "key": "A", "value": "向量化表示 (Vectorization / Embedding)" },
+        { "key": "B", "value": "對抗性攻擊 (Adversarial Attack)" },
+        { "key": "C", "value": "模型壓縮 (Model Compression)" },
+        { "key": "D", "value": "資料清洗 (Data Cleaning)" }
+      ],
+      "answer": "A",
+      "explanation": "向量化表示 (Vectorization/Embedding) 是將 Token 轉換為機器可理解的數值矩陣，捕捉詞語間的語義關係，是神經網路處理語言的基礎。",
+      "score": 2,
+      "tags": ["技術概念", "向量化"]
+    },
+    {
+      "id": "q50",
+      "type": "single_choice",
+      "questionText": "在推動企業內部 AI 落地的過程中，哪一種做法對於促進「技術與業務團隊深度融合」，發揮跨部門協作效益最為有效？",
+      "options": [
+        { "key": "A", "value": "嚴格隔離 IT 部門與業務部門的工作區域" },
+        { "key": "B", "value": "將技術由單一場景推廣到多個業務環節，並明確團隊內的責任分工" },
+        { "key": "C", "value": "將決策權完全集中於單一高階主管" },
+        { "key": "D", "value": "減少業務人員接觸 AI 工具的機會" }
+      ],
+      "answer": "B",
+      "explanation": "在成長階段，將 AI 技術推廣到跨部門的業務環節，並建立明確的責任分工與支持體系，能有效促進技術團隊與業務團隊的深度融合與協作。",
+      "score": 2,
+      "tags": ["導入規劃", "跨部門協作"]
+    }
+  ]
+}
