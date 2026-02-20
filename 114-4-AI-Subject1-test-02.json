@@ -1,0 +1,758 @@
+{
+  "level": "junior",
+  "type": "人工智慧基礎概論",
+  "quiz_id": "114-AI-Subject1-MockExam2",
+  "title": "114年初級AI應用規劃師第一科：人工智慧基礎概論 (模擬考)",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "questionText": "在人工智慧的分類中，根據使用者輸入的提示詞（prompt）來產生文字、語音、圖像或影片等各類素材的 AI，屬於下列哪一類？",
+      "options": [
+        { "key": "A", "value": "分析型 AI" },
+        { "key": "B", "value": "預測型 AI" },
+        { "key": "C", "value": "決策型 AI" },
+        { "key": "D", "value": "生成型 AI" }
+      ],
+      "answer": "D",
+      "explanation": "生成型 AI 是近年快速發展的 AI 類型，可根據使用者輸入的提示詞（prompt），生成各類素材，包括文字、語音、圖像和影片[1]。",
+      "score": 2,
+      "tags": ["AI分類", "生成型AI"]
+    },
+    {
+      "id": "q2",
+      "type": "single_choice",
+      "questionText": "在製造業中，運用影像辨識技術來檢測產品缺陷，以確保高品質出貨的應用屬於下列何者？",
+      "options": [
+        { "key": "A", "value": "自動化生產" },
+        { "key": "B", "value": "品質控制" },
+        { "key": "C", "value": "預測性維護" },
+        { "key": "D", "value": "供應鏈優化" }
+      ],
+      "answer": "B",
+      "explanation": "製造業中的「品質控制」應用，是指運用影像辨識技術檢測產品缺陷，提升檢測精準度，確保高品質出貨[2]。",
+      "score": 2,
+      "tags": ["AI應用", "製造業"]
+    },
+    {
+      "id": "q3",
+      "type": "single_choice",
+      "questionText": "在人工智慧的底層架構中，哪一項技術提供了解決問題及決策支援的「邏輯基石」？",
+      "options": [
+        { "key": "A", "value": "雲端儲存" },
+        { "key": "B", "value": "資料處理與分析" },
+        { "key": "C", "value": "演算法（Algorithm）" },
+        { "key": "D", "value": "專家系統" }
+      ],
+      "answer": "C",
+      "explanation": "演算法（Algorithm）為 AI 的邏輯基石，用於解決問題及提供決策支援[3]。",
+      "score": 2,
+      "tags": ["AI架構", "演算法"]
+    },
+    {
+      "id": "q4",
+      "type": "single_choice",
+      "questionText": "下列哪一種數據類型具有清晰且固定的結構，通常以行列形式儲存，便於直接進行查詢與分析（如 MySQL、PostgreSQL）？",
+      "options": [
+        { "key": "A", "value": "結構化數據" },
+        { "key": "B", "value": "半結構化數據" },
+        { "key": "C", "value": "非結構化數據" },
+        { "key": "D", "value": "圖形數據" }
+      ],
+      "answer": "A",
+      "explanation": "結構化數據（Structured Data）具有清晰且固定結構，通常以行列形式儲存，便於直接進行查詢與分析，常見於關聯式資料庫[4]。",
+      "score": 2,
+      "tags": ["資料處理", "結構化數據"]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "questionText": "透過線上或線下方式，直接從目標受眾中蒐集第一手數據，常用於市場研究或用戶回饋的數據蒐集方法是？",
+      "options": [
+        { "key": "A", "value": "網路爬蟲" },
+        { "key": "B", "value": "外部付費數據購買" },
+        { "key": "C", "value": "API 調用" },
+        { "key": "D", "value": "問卷與調查" }
+      ],
+      "answer": "D",
+      "explanation": "問卷與調查透過線上或線下方式，直接從目標受眾中蒐集第一手數據，常用於市場研究、用戶回饋蒐集或行為洞察[4]。",
+      "score": 2,
+      "tags": ["資料蒐集", "問卷與調查"]
+    },
+    {
+      "id": "q6",
+      "type": "single_choice",
+      "questionText": "在數據處理的轉換階段，將連續型數據（如年齡數值）轉換為離散的區間或類別（如「青年」、「中年」、「老年」），此技術稱為？",
+      "options": [
+        { "key": "A", "value": "數據標準化" },
+        { "key": "B", "value": "數據離散化" },
+        { "key": "C", "value": "數據縮減" },
+        { "key": "D", "value": "數據格式轉換" }
+      ],
+      "answer": "B",
+      "explanation": "數據離散化（Data Discretization）是將連續型數據轉換為離散的區間或類別（如將年齡分為「青年」、「中年」、「老年」）[5]。",
+      "score": 2,
+      "tags": ["資料轉換", "數據離散化"]
+    },
+    {
+      "id": "q7",
+      "type": "single_choice",
+      "questionText": "在數據轉換中，主成分分析（PCA）主要用於哪一種處理目的，以提高分析效率並節省儲存空間？",
+      "options": [
+        { "key": "A", "value": "數據類型轉換" },
+        { "key": "B", "value": "數據標準化" },
+        { "key": "C", "value": "數據縮減（降維）" },
+        { "key": "D", "value": "數據離散化" }
+      ],
+      "answer": "C",
+      "explanation": "數據縮減（Data Reduction）透過特徵選擇、特徵提取或降維技術，如主成分分析（PCA）減少數據的維度或體積，從而提高分析效率並節省儲存空間[5]。",
+      "score": 2,
+      "tags": ["資料轉換", "數據縮減"]
+    },
+    {
+      "id": "q8",
+      "type": "single_choice",
+      "questionText": "在探索性資料分析中，若想展示數據的分佈情況，並特別突出「離群值」與「中位數」等特徵，最適合使用下列哪種圖表？",
+      "options": [
+        { "key": "A", "value": "折線圖（Line Chart）" },
+        { "key": "B", "value": "散佈圖矩陣（Scatter Plot Matrix）" },
+        { "key": "C", "value": "熱圖（Heatmap）" },
+        { "key": "D", "value": "箱型圖/盒鬚圖（Box Plot）" }
+      ],
+      "answer": "D",
+      "explanation": "箱型圖/盒鬚圖（Box Plot）的特點與用途為展示數據分佈情況，突出離群值與中位數等特徵[6]。",
+      "score": 2,
+      "tags": ["探索性分析", "箱型圖"]
+    },
+    {
+      "id": "q9",
+      "type": "single_choice",
+      "questionText": "在診斷性分析中，透過統計與實驗方法（如 A/B 測試）來檢驗變量之間的關係，避免混淆相關性與因果性的分析方法稱為？",
+      "options": [
+        { "key": "A", "value": "因果分析（Causal Analysis）" },
+        { "key": "B", "value": "關聯分析（Association Analysis）" },
+        { "key": "C", "value": "鑽取分析（Drill-down Analysis）" },
+        { "key": "D", "value": "聚類分析（Clustering Analysis）" }
+      ],
+      "answer": "A",
+      "explanation": "因果分析（Causal Analysis）透過統計與實驗方法分析變量之間的因果關係，避免混淆相關性與因果性。方法如因果圖、隨機試驗（A/B測試）[7]。",
+      "score": 2,
+      "tags": ["診斷性分析", "因果分析"]
+    },
+    {
+      "id": "q10",
+      "type": "single_choice",
+      "questionText": "下列哪一種預測性分析模型最適合用於「分析時間相關數據，捕捉趨勢、季節性與周期性模式」（例如預測股票價格）？",
+      "options": [
+        { "key": "A", "value": "分類模型（Classification Models）" },
+        { "key": "B", "value": "時間序列模型（Time Series Models）" },
+        { "key": "C", "value": "關聯分析模型（Association Models）" },
+        { "key": "D", "value": "降維模型（Dimensionality Reduction Models）" }
+      ],
+      "answer": "B",
+      "explanation": "時間序列模型（Time Series Models）特點與用途：用於分析時間相關數據，捕捉趨勢、季節性與周期性模式。方法如 ARIMA、SARIMA、LSTM等[8]。",
+      "score": 2,
+      "tags": ["預測性分析", "時間序列模型"]
+    },
+    {
+      "id": "q11",
+      "type": "single_choice",
+      "questionText": "在圖形或樹狀結構中，從起始節點開始，首先訪問其所有「相鄰」的節點，然後再訪問這些相鄰節點的相鄰節點，一層一層擴散的搜尋演算法是？",
+      "options": [
+        { "key": "A", "value": "線性搜尋（Linear Search）" },
+        { "key": "B", "value": "二分搜尋（Binary Search）" },
+        { "key": "C", "value": "深度優先搜尋（DFS）" },
+        { "key": "D", "value": "廣度優先搜尋（BFS）" }
+      ],
+      "answer": "D",
+      "explanation": "廣度優先搜尋（BFS）：在圖形或樹狀結構。從起始節點開始，首先訪問其所有相鄰的節點，然後再訪問這些相鄰節點的相鄰節點，依此類推，一層一層地擴散搜尋[9]。",
+      "score": 2,
+      "tags": ["演算法", "BFS"]
+    },
+    {
+      "id": "q12",
+      "type": "single_choice",
+      "questionText": "在圖形或樹狀結構中，沿著一條路徑儘可能深地搜尋，直到到達葉節點或遇到已訪問過的節點才回溯的演算法是？",
+      "options": [
+        { "key": "A", "value": "廣度優先搜尋（BFS）" },
+        { "key": "B", "value": "深度優先搜尋（DFS）" },
+        { "key": "C", "value": "二分搜尋（Binary Search）" },
+        { "key": "D", "value": "線性搜尋（Linear Search）" }
+      ],
+      "answer": "B",
+      "explanation": "深度優先搜尋（DFS）：在圖形或樹狀結構。從起始節點開始，沿著一條路徑儘可能深地搜尋，直到到達葉節點或遇到已訪問過的節點，然後回溯到上一個節點[10]。",
+      "score": 2,
+      "tags": ["演算法", "DFS"]
+    },
+    {
+      "id": "q13",
+      "type": "single_choice",
+      "questionText": "試圖找到一條最佳的直線（或超平面），盡可能地擬合資料點，主要用於預測連續數值型輸出（如房價預測）的機器學習演算法是？",
+      "options": [
+        { "key": "A", "value": "邏輯迴歸（Logistic Regression）" },
+        { "key": "B", "value": "線性迴歸（Linear Regression）" },
+        { "key": "C", "value": "K-最近鄰演算法（KNN）" },
+        { "key": "D", "value": "支援向量機（SVM）" }
+      ],
+      "answer": "B",
+      "explanation": "線性迴歸（Linear Regression）：預測連續數值型的輸出變數，例如房價預測。原理為假設輸入變數和輸出變數之間存在線性關係，試圖找到一條最佳的直線盡可能擬合資料點[9]。",
+      "score": 2,
+      "tags": ["機器學習", "線性迴歸"]
+    },
+    {
+      "id": "q14",
+      "type": "single_choice",
+      "questionText": "下列哪一種機器學習演算法屬於「基於實例的學習」，透過找出訓練集中最接近的 K 個樣本，並以多數決進行分類？",
+      "options": [
+        { "key": "A", "value": "K-最近鄰演算法（KNN）" },
+        { "key": "B", "value": "邏輯迴歸（Logistic Regression）" },
+        { "key": "C", "value": "隨機森林（Random Forest）" },
+        { "key": "D", "value": "K-均值聚類（K-Means）" }
+      ],
+      "answer": "A",
+      "explanation": "K-最近鄰演算法（KNN）屬於一種基於實例的學習演算法，會找出訓練集中與其最接近的 K 個樣本，將新樣本分類為 K 個最近鄰中出現次數最多的類別[9]。",
+      "score": 2,
+      "tags": ["機器學習", "KNN"]
+    },
+    {
+      "id": "q15",
+      "type": "single_choice",
+      "questionText": "在強化學習的流程中，負責進行決策和行動的學習系統稱為什麼？",
+      "options": [
+        { "key": "A", "value": "環境（Environment）" },
+        { "key": "B", "value": "代理（Agent）" },
+        { "key": "C", "value": "獎勵（Reward）" },
+        { "key": "D", "value": "狀態（State）" }
+      ],
+      "answer": "B",
+      "explanation": "強化學習三個核心要素之一：代理（Agent）負責進行決策和行動的學習系統[11]。",
+      "score": 2,
+      "tags": ["強化學習", "核心要素"]
+    },
+    {
+      "id": "q16",
+      "type": "single_choice",
+      "questionText": "在著名的人工智慧突破中，AlphaGo 結合了深度學習與下列哪一種學習技術，透過自我對弈不斷優化策略，最終擊敗世界頂尖棋手？",
+      "options": [
+        { "key": "A", "value": "非監督式學習" },
+        { "key": "B", "value": "關聯規則學習" },
+        { "key": "C", "value": "強化學習" },
+        { "key": "D", "value": "降維技術" }
+      ],
+      "answer": "C",
+      "explanation": "AlphaGo 結合深度學習與強化學習技術，透過自我對弈不斷優化策略，最終擊敗多位世界頂尖棋手，展現了強大的策略推理能力[12]。",
+      "score": 2,
+      "tags": ["強化學習", "AlphaGo"]
+    },
+    {
+      "id": "q17",
+      "type": "single_choice",
+      "questionText": "卷積神經網路（CNN）中，負責透過降維操作（如最大池化、平均池化）來減少數據維度，以防止過擬合的結構層為？",
+      "options": [
+        { "key": "A", "value": "卷積層（Convolutional Layer）" },
+        { "key": "B", "value": "隱藏層（Hidden Layer）" },
+        { "key": "C", "value": "全連接層（Fully Connected Layer）" },
+        { "key": "D", "value": "池化層（Pooling Layer）" }
+      ],
+      "answer": "D",
+      "explanation": "CNN的結構組成中，池化層（Pooling Layer）透過降維操作（如最大池化、平均池化），減少數據維度，防止過擬合[13]。",
+      "score": 2,
+      "tags": ["深度學習", "CNN"]
+    },
+    {
+      "id": "q18",
+      "type": "single_choice",
+      "questionText": "哪一種深度學習模型專為處理序列數據設計，其網路中存在循環連接，使其可以記憶序列中之前的資訊？",
+      "options": [
+        { "key": "A", "value": "卷積神經網路（CNN）" },
+        { "key": "B", "value": "生成對抗網路（GAN）" },
+        { "key": "C", "value": "循環神經網路（RNN）" },
+        { "key": "D", "value": "變分自編碼器（VAE）" }
+      ],
+      "answer": "C",
+      "explanation": "RNN是專為處理序列數據而設計的深度學習模型，其關鍵特性是網路中存在循環連接，使得模型可以記憶序列中之前的資訊[13]。",
+      "score": 2,
+      "tags": ["深度學習", "RNN"]
+    },
+    {
+      "id": "q19",
+      "type": "single_choice",
+      "questionText": "為了有效解決循環神經網路（RNN）在訓練過程中容易出現的「梯度消失」問題，引入了遺忘門、輸入門和輸出門的改進模型是？",
+      "options": [
+        { "key": "A", "value": "長短期記憶網路（LSTM）" },
+        { "key": "B", "value": "門控循環單元（GRU）" },
+        { "key": "C", "value": "深度信念網路（DBN）" },
+        { "key": "D", "value": "卷積神經網路（CNN）" }
+      ],
+      "answer": "A",
+      "explanation": "長短期記憶網路（LSTM）透過引入遺忘門（forget gate）、輸入門（input gate）和輸出門（output gate），有效解決了梯度消失問題[14]。",
+      "score": 2,
+      "tags": ["深度學習", "LSTM"]
+    },
+    {
+      "id": "q20",
+      "type": "single_choice",
+      "questionText": "生成對抗網路（GAN）由兩個網路組成，其中負責接收隨機雜訊作為輸入，並生成模擬數據樣本的網路稱為？",
+      "options": [
+        { "key": "A", "value": "判別器（Discriminator）" },
+        { "key": "B", "value": "編碼器（Encoder）" },
+        { "key": "C", "value": "生成器（Generator）" },
+        { "key": "D", "value": "解碼器（Decoder）" }
+      ],
+      "answer": "C",
+      "explanation": "GAN 的工作原理中，生成器（Generator）接收隨機雜訊作為輸入，生成模擬的數據樣本[15]。",
+      "score": 2,
+      "tags": ["深度學習", "GAN"]
+    },
+    {
+      "id": "q21",
+      "type": "single_choice",
+      "questionText": "生成式 AI 在訓練與微調階段中，若希望提高模型的泛化能力，透過對圖像進行旋轉、翻轉等變換來增加數據多樣性的技術稱為？",
+      "options": [
+        { "key": "A", "value": "數據增強（Data Augmentation）" },
+        { "key": "B", "value": "數據標準化（Standardization）" },
+        { "key": "C", "value": "特徵選擇（Feature Selection）" },
+        { "key": "D", "value": "數據離散化（Discretization）" }
+      ],
+      "answer": "A",
+      "explanation": "微調階段中的「數據增強」是透過對數據進行一些變換，如旋轉、翻轉等，來增加數據的多樣性，提高模型的泛化能力[16]。",
+      "score": 2,
+      "tags": ["生成式AI", "數據增強"]
+    },
+    {
+      "id": "q22",
+      "type": "single_choice",
+      "questionText": "在數據處理的缺失值填補中，若該特徵為數值型特徵且分布相對均勻，最常使用的填補方法為？",
+      "options": [
+        { "key": "A", "value": "眾數填補" },
+        { "key": "B", "value": "均值填補" },
+        { "key": "C", "value": "常數零填補" },
+        { "key": "D", "value": "隨機填補" }
+      ],
+      "answer": "B",
+      "explanation": "數據清洗中，均值填補：對遺缺值用該特徵的平均值進行填補，適用於數值型特徵[17]。",
+      "score": 2,
+      "tags": ["資料處理", "清洗"]
+    },
+    {
+      "id": "q23",
+      "type": "single_choice",
+      "questionText": "在數據標準化中，將數據映射到 0 到 1 之間區間的方法稱為？",
+      "options": [
+        { "key": "A", "value": "Z-score 標準化" },
+        { "key": "B", "value": "對數轉換" },
+        { "key": "C", "value": "最小-最大標準化（Min-Max Scaling）" },
+        { "key": "D", "value": "獨熱編碼（One-Hot Encoding）" }
+      ],
+      "answer": "C",
+      "explanation": "最小-最大標準化（Min-Max Scaling）是將數據映射到 0到 1的區間[18]。",
+      "score": 2,
+      "tags": ["資料處理", "標準化"]
+    },
+    {
+      "id": "q24",
+      "type": "single_choice",
+      "questionText": "特徵選擇方法中，透過模型效能指標來評估特徵組合的效果，例如遞迴特徵消除（RFE），這屬於哪一種特徵選擇法？",
+      "options": [
+        { "key": "A", "value": "過濾法（Filter Methods）" },
+        { "key": "B", "value": "嵌入法（Embedded Methods）" },
+        { "key": "C", "value": "包裝法（Wrapper Methods）" },
+        { "key": "D", "value": "主成分分析（PCA）" }
+      ],
+      "answer": "C",
+      "explanation": "包裝法（Wrapper Methods）：透過模型效能指標評估特徵組合的效果，例如遞迴特徵消除（RFE）[19]。",
+      "score": 2,
+      "tags": ["機器學習", "特徵選擇"]
+    },
+    {
+      "id": "q25",
+      "type": "single_choice",
+      "questionText": "在機器學習訓練中，計算預測值與真實值之間平方誤差的平均值，通常用於迴歸任務的損失函數是？",
+      "options": [
+        { "key": "A", "value": "交叉熵損失（Cross-Entropy Loss）" },
+        { "key": "B", "value": "均方誤差（MSE）" },
+        { "key": "C", "value": "絕對誤差（MAE）" },
+        { "key": "D", "value": "F1 分數" }
+      ],
+      "answer": "B",
+      "explanation": "均方誤差（MSE）：用於迴歸任務，計算預測值與真實值之間平方誤差的平均值[20]。",
+      "score": 2,
+      "tags": ["模型評估", "MSE"]
+    },
+    {
+      "id": "q26",
+      "type": "single_choice",
+      "questionText": "廣泛使用的 Adam 優化演算法，主要結合了哪兩種方法的優點來實現自適應學習率？",
+      "options": [
+        { "key": "A", "value": "動量法（Momentum）和 RMSProp" },
+        { "key": "B", "value": "批次梯度下降和 L1 正則化" },
+        { "key": "C", "value": "決策樹和隨機森林" },
+        { "key": "D", "value": "KNN 和 SVM" }
+      ],
+      "answer": "A",
+      "explanation": "Adam（Adaptive Moment Estimation）演算法：結合了動量法和 RMSProp，能夠自適應學習率，是目前最廣泛使用的優化方法之一[21]。",
+      "score": 2,
+      "tags": ["模型優化", "Adam"]
+    },
+    {
+      "id": "q27",
+      "type": "single_choice",
+      "questionText": "在模型訓練中，當監控到模型在「驗證集」上的表現開始下降時就停止訓練，以避免過擬合的策略稱為？",
+      "options": [
+        { "key": "A", "value": "Dropout" },
+        { "key": "B", "value": "Regularization（正則化）" },
+        { "key": "C", "value": "Early Stopping" },
+        { "key": "D", "value": "Data Augmentation" }
+      ],
+      "answer": "C",
+      "explanation": "Early Stopping：當模型在驗證集上的表現開始下降時，停止訓練，以此防範過擬合[21]。",
+      "score": 2,
+      "tags": ["模型優化", "Early Stopping"]
+    },
+    {
+      "id": "q28",
+      "type": "single_choice",
+      "questionText": "在模型效能評估中，若資料存在不平衡的情況，綜合考慮「精確率」和「召回率」的哪一項指標最為合適？",
+      "options": [
+        { "key": "A", "value": "準確率（Accuracy）" },
+        { "key": "B", "value": "均方誤差（MSE）" },
+        { "key": "C", "value": "交叉熵（Cross-Entropy）" },
+        { "key": "D", "value": "F1分數（F1 Score）" }
+      ],
+      "answer": "D",
+      "explanation": "F1分數（F1 Score）：綜合考慮精確率（Precision）和召回率（Recall），適合處理數據不平衡的問題[22]。",
+      "score": 2,
+      "tags": ["模型評估", "F1 Score"]
+    },
+    {
+      "id": "q29",
+      "type": "single_choice",
+      "questionText": "為了降低過擬合風險並提升模型的泛化能力，將數據集平均分成 K 個子集，每次選擇其中一個做測試集其餘做訓練集的技術是？",
+      "options": [
+        { "key": "A", "value": "Bootstrap 取樣" },
+        { "key": "B", "value": "K 折交叉驗證（K-Fold Cross-Validation）" },
+        { "key": "C", "value": "網格搜索（Grid Search）" },
+        { "key": "D", "value": "主成分分析（PCA）" }
+      ],
+      "answer": "B",
+      "explanation": "K 折交叉驗證（K-Fold Cross-Validation）是將數據集平均分成 K個子集（折），每次選擇其中一個子集作為測試集，其餘 K-1個子集作為訓練集[22]。",
+      "score": 2,
+      "tags": ["模型評估", "交叉驗證"]
+    },
+    {
+      "id": "q30",
+      "type": "single_choice",
+      "questionText": "在調整超參數時，透過構建代理模型，根據歷史結果逐步尋找最優參數的方法稱為？",
+      "options": [
+        { "key": "A", "value": "隨機搜索（Random Search）" },
+        { "key": "B", "value": "網格搜索（Grid Search）" },
+        { "key": "C", "value": "貝葉斯優化（Bayesian Optimization）" },
+        { "key": "D", "value": "梯度下降（Gradient Descent）" }
+      ],
+      "answer": "C",
+      "explanation": "貝葉斯優化（Bayesian Optimization）：透過構建代理模型，根據歷史結果逐步尋找最優參數[22]。",
+      "score": 2,
+      "tags": ["模型調參", "貝葉斯優化"]
+    },
+    {
+      "id": "q31",
+      "type": "single_choice",
+      "questionText": "鑑別式 AI（Discriminative AI）的核心目標是學習什麼，以便進行分類與迴歸任務？",
+      "options": [
+        { "key": "A", "value": "數據的聯合分佈 P(x,y)" },
+        { "key": "B", "value": "特徵與目標標記之間的條件概率 P(y|x)" },
+        { "key": "C", "value": "數據的邊際分佈 P(x)" },
+        { "key": "D", "value": "隱變量空間的分佈特徵" }
+      ],
+      "answer": "B",
+      "explanation": "鑑別式 AI 專注於學習數據特徵與目標標記之間的條件概率 P（y|x），主要用於分類與迴歸任務[23]。",
+      "score": 2,
+      "tags": ["鑑別式AI", "原理"]
+    },
+    {
+      "id": "q32",
+      "type": "single_choice",
+      "questionText": "生成式 AI（Generative AI）側重於學習下列何者，進而生成具有創新性的新數據樣本？",
+      "options": [
+        { "key": "A", "value": "決策邊界的最佳位置" },
+        { "key": "B", "value": "條件概率 P(y|x)" },
+        { "key": "C", "value": "數據的聯合分佈 P(x,y) 或邊際分佈 P(x)" },
+        { "key": "D", "value": "超平面的最大化間隔" }
+      ],
+      "answer": "C",
+      "explanation": "生成式 AI 則專注於學習數據的聯合分佈 P（x,y）或邊際分佈 P（x），並能生成具有創新性的新數據樣本[23]。",
+      "score": 2,
+      "tags": ["生成式AI", "原理"]
+    },
+    {
+      "id": "q33",
+      "type": "single_choice",
+      "questionText": "鑑別式 AI 模型中，引入「核函數」將線性不可分的數據映射到高維空間進行非線性分類的演算法是？",
+      "options": [
+        { "key": "A", "value": "邏輯迴歸（Logistic Regression）" },
+        { "key": "B", "value": "支援向量機（SVM）" },
+        { "key": "C", "value": "決策樹（Decision Tree）" },
+        { "key": "D", "value": "K-Means 聚類" }
+      ],
+      "answer": "B",
+      "explanation": "SVM 透過引入核函數（如多項式核、高斯核），將線性不可分的數據映射到高維特徵空間，進而實現非線性分類[24, 25]。",
+      "score": 2,
+      "tags": ["機器學習", "SVM"]
+    },
+    {
+      "id": "q34",
+      "type": "single_choice",
+      "questionText": "利用 Bootstrap 取樣法隨機抽取樣本，構建多棵獨立的決策樹，最終預測階段將所有樹的輸出進行投票或平均的集成學習模型是？",
+      "options": [
+        { "key": "A", "value": "隨機森林（Random Forest）" },
+        { "key": "B", "value": "支援向量機（SVM）" },
+        { "key": "C", "value": "邏輯迴歸（Logistic Regression）" },
+        { "key": "D", "value": "生成對抗網路（GAN）" }
+      ],
+      "answer": "A",
+      "explanation": "隨機森林利用 Bootstrap取樣法隨機抽取樣本，構建多棵獨立的決策樹，並在最終預測階段將所有樹的輸出進行投票或平均[26]。",
+      "score": 2,
+      "tags": ["機器學習", "隨機森林"]
+    },
+    {
+      "id": "q35",
+      "type": "single_choice",
+      "questionText": "在生成式 AI 模型中，將輸入數據壓縮到一個低維的隱變量空間（Latent Space），學習潛在分佈後再透過解碼器重建新數據的模型是？",
+      "options": [
+        { "key": "A", "value": "生成對抗網路（GAN）" },
+        { "key": "B", "value": "變分自編碼器（VAE）" },
+        { "key": "C", "value": "擴散模型（Diffusion Models）" },
+        { "key": "D", "value": "卷積神經網路（CNN）" }
+      ],
+      "answer": "B",
+      "explanation": "變分自編碼器（VAE）包括編碼器將輸入數據壓縮到低維隱變量空間，以及解碼器從該空間重建數據[27]。",
+      "score": 2,
+      "tags": ["生成式AI", "VAE"]
+    },
+    {
+      "id": "q36",
+      "type": "single_choice",
+      "questionText": "基於逐步添加隨機雜訊，隨後在生成階段透過反向過程逐步去除雜訊以重建具真實感圖像的生成式 AI 模型是？",
+      "options": [
+        { "key": "A", "value": "支援向量機（SVM）" },
+        { "key": "B", "value": "變分自編碼器（VAE）" },
+        { "key": "C", "value": "擴散模型（Diffusion Models）" },
+        { "key": "D", "value": "生成對抗網路（GAN）" }
+      ],
+      "answer": "C",
+      "explanation": "擴散模型（Diffusion Models）在訓練階段向數據逐步添加隨機雜訊，生成階段則透過反向過程逐步去除雜訊，重建真實感樣本[28]。",
+      "score": 2,
+      "tags": ["生成式AI", "擴散模型"]
+    },
+    {
+      "id": "q37",
+      "type": "single_choice",
+      "questionText": "生成式 AI 在訓練過程中，經常面臨模型無法產生多樣化輸出，只重複生成幾種特定樣本的問題，此現象稱為？",
+      "options": [
+        { "key": "A", "value": "梯度消失（Gradient Vanishing）" },
+        { "key": "B", "value": "模式崩潰（Mode Collapse）" },
+        { "key": "C", "value": "過度擬合（Overfitting）" },
+        { "key": "D", "value": "資料不平衡（Data Imbalance）" }
+      ],
+      "answer": "B",
+      "explanation": "生成式 AI 的訓練過程經常面臨模式崩潰（Mode Collapse）和梯度消失等問題，這會影響生成數據的多樣性與品質[29]。",
+      "score": 2,
+      "tags": ["生成式AI", "模式崩潰"]
+    },
+    {
+      "id": "q38",
+      "type": "single_choice",
+      "questionText": "生成式 AI 可能產出包含不準確或虛構的信息（如錯誤新聞或虛假圖片），這反映了生成式 AI 的哪一種技術挑戰？",
+      "options": [
+        { "key": "A", "value": "內容真實性（幻覺）挑戰" },
+        { "key": "B", "value": "運算成本過高" },
+        { "key": "C", "value": "過度依賴特徵工程" },
+        { "key": "D", "value": "數據偏見與公平性" }
+      ],
+      "answer": "A",
+      "explanation": "生成式 AI 面臨的挑戰之一為內容真實性（Authenticity of Generated Content）：生成內容可能會包含不準確或虛構的信息[30]。",
+      "score": 2,
+      "tags": ["生成式AI", "技術挑戰"]
+    },
+    {
+      "id": "q39",
+      "type": "single_choice",
+      "questionText": "在鑑別式 AI 與生成式 AI 的整合應用中，針對「醫療影像診斷」場景，生成式 AI（如 GAN）主要提供的貢獻為何？",
+      "options": [
+        { "key": "A", "value": "直接提供最終的患者診斷報告" },
+        { "key": "B", "value": "過濾醫生不當的醫療建議" },
+        { "key": "C", "value": "生成高品質的病理模擬影像，解決真實數據稀缺問題" },
+        { "key": "D", "value": "加速 CNN 模型的梯度下降過程" }
+      ],
+      "answer": "C",
+      "explanation": "在醫療圖像診斷中，生成式 AI 使用 GAN模型生成真實感極高的病理影像，用於訓練鑑別式 AI 模型，解決數據不足問題[31-33]。",
+      "score": 2,
+      "tags": ["AI整合應用", "醫療領域"]
+    },
+    {
+      "id": "q40",
+      "type": "single_choice",
+      "questionText": "在「智慧客服系統」的整合應用場景中，鑑別式 AI 扮演著什麼重要角色？",
+      "options": [
+        { "key": "A", "value": "生成多樣化的對話回應" },
+        { "key": "B", "value": "合成客服人員的虛擬語音" },
+        { "key": "C", "value": "過濾不當內容並確保合規性" },
+        { "key": "D", "value": "擴充客戶歷史的虛構交易資料" }
+      ],
+      "answer": "C",
+      "explanation": "智慧客服系統：生成式 AI根據用戶需求生成多樣化的回應文本，鑑別式 AI負責過濾不當內容，提供高度個人化、可靠的客服支援服務[29]。",
+      "score": 2,
+      "tags": ["AI整合應用", "智慧客服"]
+    },
+    {
+      "id": "q41",
+      "type": "single_choice",
+      "questionText": "在自動駕駛的情境中，整合生成式 AI 與鑑別式 AI 的效益是什麼？",
+      "options": [
+        { "key": "A", "value": "由鑑別式 AI 生成虛擬的天氣場景，生成式 AI 來控制方向盤" },
+        { "key": "B", "value": "生成式 AI 模擬複雜環境條件（如濃霧），鑑別式 AI 則進行環境識別和決策" },
+        { "key": "C", "value": "兩者共同運算以降低車用晶片的能耗" },
+        { "key": "D", "value": "完全取代真實路測的必要性" }
+      ],
+      "answer": "B",
+      "explanation": "自動駕駛場景：生成式 AI模擬複雜環境條件，如濃霧、冰雪路面等情況，鑑別式 AI根據即時模擬數據進行環境識別和路徑規劃[34]。",
+      "score": 2,
+      "tags": ["AI整合應用", "自動駕駛"]
+    },
+    {
+      "id": "q42",
+      "type": "single_choice",
+      "questionText": "為了解決生成對抗網路（GAN）在訓練時出現的模式崩潰及不穩定等問題，業界經常採用哪一種改良技術？",
+      "options": [
+        { "key": "A", "value": "K-Means 聚類" },
+        { "key": "B", "value": "Wasserstein GAN（WGAN）" },
+        { "key": "C", "value": "決策樹分支裁剪" },
+        { "key": "D", "value": "線性轉換 PCA" }
+      ],
+      "answer": "B",
+      "explanation": "為了解決模式崩潰和梯度消失等問題，可以採用 Wasserstein GAN（WGAN）等改進型模型，提升生成過程的穩定性[29]。",
+      "score": 2,
+      "tags": ["生成式AI", "WGAN"]
+    },
+    {
+      "id": "q43",
+      "type": "single_choice",
+      "questionText": "在機器學習中，若數據存在歷史偏見（例如過去的招募數據偏好特定性別），鑑別式 AI 直接學習可能導致不公平。這屬於下列哪一項挑戰？",
+      "options": [
+        { "key": "A", "value": "數據偏見（Bias in Data）" },
+        { "key": "B", "value": "過度擬合（Overfitting）" },
+        { "key": "C", "value": "幻覺（Hallucination）" },
+        { "key": "D", "value": "標記成本過高" }
+      ],
+      "answer": "A",
+      "explanation": "鑑別式 AI 面臨的挑戰包括數據偏見（Bias in Data）：模型可能會在分類時學習到數據的偏見，影響公平性與準確性[30]。",
+      "score": 2,
+      "tags": ["AI倫理", "數據偏見"]
+    },
+    {
+      "id": "q44",
+      "type": "single_choice",
+      "questionText": "Deep Q-Learning 是為了解決傳統 Q-Learning 的什麼限制而發展出來的？",
+      "options": [
+        { "key": "A", "value": "無法處理無標記資料的問題" },
+        { "key": "B", "value": "Q 表（Q-Table）在面對高維度狀態空間時過大而無法儲存計算的問題" },
+        { "key": "C", "value": "無法應用於迴歸分析預測連續數值" },
+        { "key": "D", "value": "無法生成具有真實感圖像的缺陷" }
+      ],
+      "answer": "B",
+      "explanation": "傳統 Q-Learning 需要將所有狀態與行動組合存入 Q 表，當狀態空間過大時變得不可行。Deep Q-Learning 引入深度神經網路（DNN）近似 Q 值來解決此問題[12, 35]。",
+      "score": 2,
+      "tags": ["強化學習", "Deep Q-Learning"]
+    },
+    {
+      "id": "q45",
+      "type": "single_choice",
+      "questionText": "關於非監督式學習（Unsupervised Learning），下列敘述何者錯誤？",
+      "options": [
+        { "key": "A", "value": "不需要依賴事先標記的訓練數據" },
+        { "key": "B", "value": "常用於發掘潛在的模式或分群（Clustering）" },
+        { "key": "C", "value": "能夠透過與環境互動來獲取最大累積獎勵" },
+        { "key": "D", "value": "主成分分析（PCA）屬於此範疇中的降維技術" }
+      ],
+      "answer": "C",
+      "explanation": "透過與環境互動以獲取最大累積獎勵，這是「強化學習」的特徵，並非非監督式學習[36-39]。",
+      "score": 2,
+      "tags": ["機器學習類型", "非監督式學習"]
+    },
+    {
+      "id": "q46",
+      "type": "single_choice",
+      "questionText": "決策樹利用某些指標來選擇最佳的特徵進行節點劃分，下列哪一個「不是」決策樹常用的分割標準？",
+      "options": [
+        { "key": "A", "value": "資訊增益" },
+        { "key": "B", "value": "吉尼係數" },
+        { "key": "C", "value": "均方誤差" },
+        { "key": "D", "value": "學習率（Learning Rate）" }
+      ],
+      "answer": "D",
+      "explanation": "決策樹利用資訊增益、吉尼係數或均方誤差等標準選擇最佳劃分特徵[25]。學習率是優化演算法（如梯度下降）的超參數。",
+      "score": 2,
+      "tags": ["機器學習", "決策樹"]
+    },
+    {
+      "id": "q47",
+      "type": "single_choice",
+      "questionText": "在超參數優化中，「隨機搜索（Random Search）」相較於「網格搜索（Grid Search）」有什麼特點？",
+      "options": [
+        { "key": "A", "value": "隨機搜索必然能找到全域最佳解" },
+        { "key": "B", "value": "隨機搜索適合高維度的參數空間，從中隨機選擇組合測試" },
+        { "key": "C", "value": "隨機搜索會建立代理模型來預測最佳參數" },
+        { "key": "D", "value": "隨機搜索需逐一嘗試所有可能的參數組合" }
+      ],
+      "answer": "B",
+      "explanation": "隨機搜索（Random Search）：隨機選擇超參數進行測試，適合高維度的參數空間。網格搜索是逐一嘗試，貝葉斯優化是建構代理模型[22]。",
+      "score": 2,
+      "tags": ["模型調參", "隨機搜索"]
+    },
+    {
+      "id": "q48",
+      "type": "single_choice",
+      "questionText": "下列何者是探索性資料分析（EDA）的主要目標？",
+      "options": [
+        { "key": "A", "value": "無需預設假設下，發現資料潛在的模式和異常" },
+        { "key": "B", "value": "建立最終的高精度預測模型" },
+        { "key": "C", "value": "對已提出的科學假設進行嚴謹的驗證" },
+        { "key": "D", "value": "決定模型部署至伺服器的硬體規格" }
+      ],
+      "answer": "A",
+      "explanation": "探索性分析旨在無需預設假設的情況下，透過多角度探索數據，發現其中的模式、關聯和異常，為後續分析或建模提供基礎[6]。",
+      "score": 2,
+      "tags": ["資料分析", "EDA"]
+    },
+    {
+      "id": "q49",
+      "type": "single_choice",
+      "questionText": "某企業發現其廣告行銷的銷售增長不如預期。若想釐清「廣告支出」與「銷售額」之間是否只是巧合還是真有關聯，應使用哪一種分析？",
+      "options": [
+        { "key": "A", "value": "時間序列預測" },
+        { "key": "B", "value": "異常檢測" },
+        { "key": "C", "value": "因果分析" },
+        { "key": "D", "value": "聚類分析" }
+      ],
+      "answer": "C",
+      "explanation": "因果分析：透過統計與實驗方法分析變量之間的因果關係，避免混淆相關性與因果性。應用場景如檢驗行銷活動對銷售增長的實際影響[7]。",
+      "score": 2,
+      "tags": ["診斷性分析", "因果分析"]
+    },
+    {
+      "id": "q50",
+      "type": "single_choice",
+      "questionText": "在評估 AI 模型的泛化能力時，我們常提及「欠擬合」與「過擬合」。下列哪種方法是防範「過擬合（Overfitting）」的常見手段？",
+      "options": [
+        { "key": "A", "value": "減少訓練數據量" },
+        { "key": "B", "value": "在損失函數中加入正則化（Regularization）懲罰項" },
+        { "key": "C", "value": "增加決策樹的深度至無限大" },
+        { "key": "D", "value": "只使用訓練集進行評估，不使用驗證集" }
+      ],
+      "answer": "B",
+      "explanation": "為了避免過擬合，通常採用 Regularization（在損失函數中添加懲罰項，如 L1和 L2正則化）、Early Stopping 及 Data Augmentation 等策略[21]。",
+      "score": 2,
+      "tags": ["模型優化", "過擬合"]
+    }
+  ]
+}
